@@ -2,7 +2,7 @@
 Dokumentation för grupp 6 - Denize, Denjin, Elias, Jacob, Sebah.
 </h1>
 
-<u>Fredag 02/02/24</u><br>
+<b><u>Fredag 02/02/24</u></b><br>
 Närvaro: Alla<br>
 Ta upp på dagens agenda:<br>
 
@@ -19,7 +19,7 @@ Elias ska kolla dokumentation för Tailwind under helgen.
 Vi bestämmer oss för att träffas på måndag kl 09 i skolan för att ha en genomgång av github flow, samt att kunna starta igång projektet med att få in en devcontainer i vår u05mapp. <br><br>
 
 
-<u>Måndag 05/02/23</u><br>
+<b><u>Måndag 05/02/23</u></b><br>
 Närvaro: Alla <br>
 Dagens agenda:<br>
 - Vi har skapat en dev-container med vår egna databas, där vi lagt in Laravel, och skapat grunden för att kunna fortsätta projektet.
@@ -38,7 +38,7 @@ Vi planerar ER-diagram med hjälp av draw.io filer i VScode.<br>
 Vi diskuterar log in och sign up page, samt Watchlist.<br>
 Vi har skapat ett ER diagram!<br><br>
 
-<u>Tisdag 6/2 2025</u>
+<b><u>Tisdag 6/2 2025</u></b>
 Närvaro: Elias, Jacob, Sebah, Denize
 Frånvaro: Denjin<br>
 Dagens agenda:<br> 
@@ -68,7 +68,7 @@ Sammanfattning av dagen:<br>
 <b>Förväntingar/mål:</b><br>
 
 Sprint 1:<br>
-Skapa repo, skapa Db, dev, app-folder, user, Kanban-board i github<br><br>
+Skapa repo, skapa Db, dev, app-folder, user, Kanban-board i github<br>
 
 Sprint 2:<br>
 Figma/lofi/hifi (detta ska vara någorlunda klart tills att våra views börjar ta form)<br>
@@ -77,21 +77,21 @@ Fördela blades?<br>
 Controller<br>
 RBAC<br>
 CRUD<br>
-Deployment<br><br>
+Deployment<br>
 
 Sprint 3:<br>
 Continuation of sprint 2. <br>
 API<br>
 Deployment<br>
-Sanctum<br><br>
+Sanctum<br>
 
 Sprint 4:<br>
 Deployment<br>
 Touch up<br>
 Design<br>
-Testing<br><br>
+Testing<br>
 
-<u>Torsdag 8/2 2024</u><br>
+<b><u>Torsdag 8/2 2024</u></b><br>
 Närvarande: Jacob, Sebah, Elias, Denize, Denjin<br>
 Dagens agenda: <br>
 - Strukturera ER diagrammet enligt Olli-Heikki
@@ -112,14 +112,14 @@ Dagens agenda: <br>
 - Create sql init (In progress)
 </i><br><br>
 
-Idag har vi kollat på lite material för MVC struktur. Sebah och Denjin sitter med ERD. Jacob och Elias kollar på Sitemaps. Denize kollar upp init-sql innehåll till projektet...<br><br>
+Idag har vi kollat på lite material för MVC struktur. Sebah och Denjin sitter med ERD. Jacob och Elias kollar på Sitemaps. Denize kollar upp init-sql innehåll till projektet...<br>
 
 Dagen avslutas med att sammanfatta veckans jobb inför mötet med Olli Heikki.
 Jacob har även gjort klart sitemap på Figma, som vi ska visa upp för att få godkänt, innan vi kan arbeta vidare.
-ERD är klart. Inväntar godkännande från OH.
-<br><br>
+ERD är klart. Inväntar godkännande från Olli-Heikki.
+<br>
 
-<u>Fredag 9/2 2024</u>
+<u><b>Fredag 9/2 2024</u></b><br>
 Närvarande: Denjin, Sebah, Denize, Jacob<br>
 Frånvaro: Elias<br>
 
@@ -132,7 +132,7 @@ När allt det här är klart, så kan vi börja dela ut uppgifter och dela in os
 Plan till måndag och tisdag, läsa laravel/dokumentation och gå igenom föreläsningen om MVC, router & migrationer igen för att få en bättre förståelse av projektets strukturer och planer vidare. 
 <br><br>
 
-<u>Måndag 12/2 2024</u>
+<b><u>Måndag 12/2 2024</u></b>
 Närvarande: Alla
 <br><br>
 Dagens agenda:<br>
