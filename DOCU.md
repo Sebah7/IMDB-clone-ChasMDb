@@ -38,8 +38,8 @@ Vi planerar ER-diagram med hjälp av draw.io filer i VScode.<br>
 Vi diskuterar log in och sign up page, samt Watchlist.<br>
 Vi har skapat ett ER diagram!<br><br>
 
-<b><u>Tisdag 6/2 2025</u></b>
-Närvaro: Elias, Jacob, Sebah, Denize
+<b><u>Tisdag 6/2 2025</u></b><br>
+Närvaro: Elias, Jacob, Sebah, Denize<br>
 Frånvaro: Denjin<br>
 Dagens agenda:<br> 
 Idag har vi ett möte med Olli-Heikki angående den skapade databasen som vi har skapat lokalt på Denize dator. Vi vill att alla ska få tillgång till databasen från sin egen dator (lokalt). Vi ska fråga om det är möjligt att synka flera admins till en och samma databas eller om vi måste skapa en ny databas från början. 
@@ -132,9 +132,8 @@ När allt det här är klart, så kan vi börja dela ut uppgifter och dela in os
 Plan till måndag och tisdag, läsa laravel/dokumentation och gå igenom föreläsningen om MVC, router & migrationer igen för att få en bättre förståelse av projektets strukturer och planer vidare. 
 <br><br>
 
-<b><u>Måndag 12/2 2024</u></b>
-Närvarande: Alla
-<br><br>
+<b><u>Måndag 12/2 2024</u></b><br>
+Närvarande: Alla<br>
 Dagens agenda:<br>
 - Var befinner vi oss just nu? Vad är vårt nästa steg?
 - Hur ska vi fördela arbetsuppgifter?
