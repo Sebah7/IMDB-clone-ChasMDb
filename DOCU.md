@@ -20,8 +20,7 @@ Vi bestämmer oss för att träffas på måndag kl 09 i skolan för att ha en ge
 
 
 <u>Måndag 05/02/23</u><br>
-Närvaro: Alla <br><br>
-
+Närvaro: Alla <br>
 Dagens agenda:<br>
 - Vi har skapat en dev-container med vår egna databas, där vi lagt in Laravel, och skapat grunden för att kunna fortsätta projektet.
 - Vi går igenom blades och templates, hur det fungerar och hur vi går tillväga.
@@ -30,20 +29,18 @@ Dagens agenda:<br>
 - Vi behöver se över hur vi lägger upp en kanban tavla, där vi diskuterar de olika issues vi kommer ha under projektets gång.<br><br>
 
 Vad vi har gjort:<br>
-Klonat ner repo - jobbar med .gitignore issue
-Skapat sitemap
+Klonat ner repo - jobbar med .gitignore issue<br>
+Skapat sitemap<br>
 Skapat ERD:<br>
-Vi har gjort en tankekarta över ett ER-diagram.
-Vi diskuterar main page.
-Vi planerar ER-diagram med hjälp av draw.io filer i VScode.
-Vi diskuterar log in och sign up page, samt Watchlist.
-Vi har skapat ett ER diagram!
+Vi har gjort en tankekarta över ett ER-diagram.<br>
+Vi diskuterar main page.<br>
+Vi planerar ER-diagram med hjälp av draw.io filer i VScode.<br>
+Vi diskuterar log in och sign up page, samt Watchlist.<br>
+Vi har skapat ett ER diagram!<br><br>
 
 <u>Tisdag 6/2 2025</u>
 Närvaro: Elias, Jacob, Sebah, Denize
-Frånvaro: Denjin
-
-<br><br>
+Frånvaro: Denjin<br>
 Dagens agenda:<br> 
 Idag har vi ett möte med Olli-Heikki angående den skapade databasen som vi har skapat lokalt på Denize dator. Vi vill att alla ska få tillgång till databasen från sin egen dator (lokalt). Vi ska fråga om det är möjligt att synka flera admins till en och samma databas eller om vi måste skapa en ny databas från början. 
 <br><br>
@@ -70,55 +67,52 @@ Sammanfattning av dagen:<br>
 
 <b>Förväntingar/mål:</b><br>
 
-Sprint 1: 
-Skapa repo
-Skapa Db, dev, app-folder, user
-Kanban-board i github
+Sprint 1:<br>
+Skapa repo, skapa Db, dev, app-folder, user, Kanban-board i github<br><br>
 
-Sprint 2:
-Figma/lofi/hifi (detta ska vara någorlunda klart tills att våra views börjar ta form)
-Init sql-mapp/eller seeders?
-Fördela blades
-Controller
-RBAC
-CRUD
-Deployment
+Sprint 2:<br>
+Figma/lofi/hifi (detta ska vara någorlunda klart tills att våra views börjar ta form)<br>
+Init sql-mapp/eller seeders?<br>
+Fördela blades?<br>
+Controller<br>
+RBAC<br>
+CRUD<br>
+Deployment<br><br>
 
-Sprint 3:
-Continuation of sprint 2. 
-API
-Deployment
-Sanctum
+Sprint 3:<br>
+Continuation of sprint 2. <br>
+API<br>
+Deployment<br>
+Sanctum<br><br>
 
-Sprint 4:
-Deployment
-Touch up
-Design
-Testing
+Sprint 4:<br>
+Deployment<br>
+Touch up<br>
+Design<br>
+Testing<br><br>
 
-<u>Torsdag 8/2 2024</u>
-Närvarande: Jacob, Sebah, Elias, Denize, Denjin<br><br>
-
+<u>Torsdag 8/2 2024</u><br>
+Närvarande: Jacob, Sebah, Elias, Denize, Denjin<br>
 Dagens agenda: <br>
-Strukturera ER diagrammet enligt Olli-Heikki
-Bestämma antalet landningssidor samt (Sitemaps) för att kunna fixa Figma-prototyper
-Skriva aktuell status fram till nu, för att skicka till Ollie.<br><br>
+- Strukturera ER diagrammet enligt Olli-Heikki
+- Bestämma antalet landningssidor samt (Sitemaps) för att kunna fixa Figma-prototyper
+- Skriva aktuell status fram till nu, för att skicka till Ollie:<br><br>
 
-<i>
-Status Update<br>
-- Signed the contract (everybody)
-- Created a drive folder with different documentations files. (shared with everybody)
-- Created GitHub team and repo (everybody joined)
-- Created a Laravel app / devcontiner / installed tailwind/ pushed to main (everybody pulled and installed composer/npm / created same database(Adminer) and updated .env)
-- Created our Kanban in GitHub
-- Discussed desired work structure and sprints. 
-- Created a few issues and assigned them
-- Issues
-- Create ERD (In progress)
-- Create sitemap (In progress)
-- Create sql init (In progress)</i>
+<i>Status Update<br>
+- Signed the contract (everybody)<br>
+- Created a drive folder with different documentations files. (shared with everybody)<br>
+- Created GitHub team and repo (everybody joined)<br>
+- Created a Laravel app / devcontiner / installed tailwind/ pushed to main (everybody pulled and installed composer/npm / created same database(Adminer) and updated .env)<br>
+- Created our Kanban in GitHub<br>
+- Discussed desired work structure and sprints. <br>
+- Created a few issues and assigned them<br>
+- Issues<br>
+- Create ERD (In progress)<br>
+- Create sitemap (In progress)<br>
+- Create sql init (In progress)
+</i><br><br>
 
-Idag har vi kollat på lite material för MVC struktur. <br><br> och Denjin sitter med ERD. Jacob och Elias kollar på Sitemaps. Denize kollar upp init-sql innehåll till projektet.. 
+Idag har vi kollat på lite material för MVC struktur. Sebah och Denjin sitter med ERD. Jacob och Elias kollar på Sitemaps. Denize kollar upp init-sql innehåll till projektet...<br><br>
 
 Dagen avslutas med att sammanfatta veckans jobb inför mötet med Olli Heikki.
 Jacob har även gjort klart sitemap på Figma, som vi ska visa upp för att få godkänt, innan vi kan arbeta vidare.
