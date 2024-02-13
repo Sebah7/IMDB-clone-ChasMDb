@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             cmdb_reviews::class,
+            cmdb_directors::class,
             // Add other seeders if needed
         ]);
     }
