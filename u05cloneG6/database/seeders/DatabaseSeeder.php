@@ -14,7 +14,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             cmdb_reviews::class,
+
             cmdb_movies::class,
+/**resolving conflict=======*/
+            cmdb_directors::class,
+          
             // Add other seeders if needed
         ]);
     }
