@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/genres', [GenreController::class, 'index']) ->name('genres.index');
+Route::get('/genres/{id}', [GenreController::class, 'show']) ->name('genres.show');
 require __DIR__.'/auth.php';
