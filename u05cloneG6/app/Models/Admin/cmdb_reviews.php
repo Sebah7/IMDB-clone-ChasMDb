@@ -14,12 +14,12 @@ class cmdb_reviews extends Model
     protected $table = 'cmdb_reviews';
     protected $fillable = ['Movieid', 'Stars', 'Comment', 'Userid'];
 
-    public function userReviewRelationship()
+    public function userReviewsRelationship()
     {
         return $this->belongsTo(User::class, 'Userid');
     }
 
-    public function movie()
+    public function movieReviewsRelationship()
     {
         return $this->belongsTo(cmdb_movies::class, 'Movieid');
     }
