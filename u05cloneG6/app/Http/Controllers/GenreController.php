@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\cmdb_genre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -11,7 +12,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
+        $genres = cmdb_genre::all();
+        return view('layouts.index', ['genres' => $genres]);
     }
 
     /**
@@ -35,7 +37,8 @@ class GenreController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $genres = cmdb_genre::find($id);
+        return view('layouts.show', ['genres' => $genres]);
     }
 
     /**
