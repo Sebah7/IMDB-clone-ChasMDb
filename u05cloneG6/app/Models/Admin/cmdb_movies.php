@@ -12,7 +12,7 @@ class cmdb_movies extends Model
     protected $table = 'cmdb_movies';
     protected $fillable = ['title', 'genre', 'actor', 'director'];
 
-
+    // alla models som har en relation till varandra ska även ha en funktion i sina respektive filer
     public function actors()
     {
         return $this->belongsToMany(cmdb_actors::class, 'cmdb_movies_genre_table_pivot', 'movie_id', 'actor_id');
