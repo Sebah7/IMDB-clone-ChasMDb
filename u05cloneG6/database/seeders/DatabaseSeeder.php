@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Admin\cmdb_genre;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +18,10 @@ class DatabaseSeeder extends Seeder
             cmdb_reviews::class,
 
             cmdb_movies::class,
-/**resolving conflict=======*/
+
             cmdb_directors::class,
+
+            cmdb_genre::class,
           
             // Add other seeders if needed
         ]);
