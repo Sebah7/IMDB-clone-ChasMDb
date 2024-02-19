@@ -13,7 +13,7 @@ class cmdb_genre extends Model
 
    // the movies function declares a method to return the relation definition between genres and movies. 
    // This is where the pivot table is mentioned to connect the two models.
-    public function movies()
+    public function moviesGenreRelation()
     {
         return $this->belongsToMany(cmdb_movies::class, 'cmdb_movies_genre_table_pivot', 'genre_id', 'movie_id');
     }
