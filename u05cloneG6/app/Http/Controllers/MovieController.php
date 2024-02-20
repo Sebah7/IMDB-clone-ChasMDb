@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\cmdb_movies;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -11,7 +12,11 @@ class MovieController extends Controller
      */
     public function index()
     {
-        //
+        $movies = cmdb_movies::all();
+        return view('movies', ['movies' => $movies]);
+
+
+        // return "Is this thing on?";
     }
 
     /**
