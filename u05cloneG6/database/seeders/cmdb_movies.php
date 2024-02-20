@@ -15,7 +15,7 @@ class cmdb_movies extends Seeder
     {
 
         DB::table('cmdb_movies')->insert([
-            'id' => 5,
+            'id' => 6,
             'title' => 'Oppenheimer', // You can replace null with the appropriate value.
             'description' => 'A movie of the worlds first atombomb',
             'ratings' => 5,
@@ -25,7 +25,8 @@ class cmdb_movies extends Seeder
             'release_date' => '210723',
             'runtime' => '3',
             'poster' => 'https://m.media-amazon.com/images/I/81XXxWVKbOL._AC_UF1000,1000_QL80_.jpg',
-            'trailer' => 'https://youtu.be/SdHe-JseJfQ?feature=shared',
+            'trailer' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/bK6ldnjE3Y0?si=iK1o-siEloe5PH95" frameborder="0" allowfullscreen></iframe>',
+
             // 'created_at' => now(),
             // 'updated_at' => null,
 
