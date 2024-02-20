@@ -14,7 +14,6 @@ class cmdb_movies extends Model
 
 
     // alla models som har en relation till varandra ska även ha en funktion i sina respektive filer
-=======
 
 
     public function actors()
@@ -36,7 +35,6 @@ class cmdb_movies extends Model
     {
         return $this->belongsToMany(cmdb_director::class, 'cmdb_director_movie_pivot', 'movie_id', 'director_id');
     }
-=======
 
 }
 
