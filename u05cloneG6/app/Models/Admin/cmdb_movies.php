@@ -10,7 +10,7 @@ class cmdb_movies extends Model
     use HasFactory;
 
     protected $table = 'cmdb_movies';
-    protected $fillable = ['title', 'genre', 'actor', 'director'];
+    protected $fillable = ['title', 'genre', 'actor', 'director', 'trailer', 'poster', 'runtime', 'language', 'rating', 'description'];
 
 
     // alla models som har en relation till varandra ska även ha en funktion i sina respektive filer
@@ -35,7 +35,6 @@ class cmdb_movies extends Model
     {
         return $this->belongsToMany(cmdb_director::class, 'cmdb_director_movie_pivot', 'movie_id', 'director_id');
     }
-
 }
 
     // public function directors()
