@@ -18,6 +18,7 @@ class cmdb_movies extends Seeder
             'id' => 6,
             'title' => 'Oppenheimer', // You can replace null with the appropriate value.
             'description' => 'A movie of the worlds first atombomb',
+            'actor' => 'Cillian Murphy',
             'ratings' => 5,
             'genre' => 'Action', // You can replace null with the appropriate value.
             'director' => 'Christopher Nolan',
