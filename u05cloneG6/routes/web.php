@@ -28,15 +28,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-
-    Route::get('/movies', [MovieController::class, 'create'])->name('movies.create');
-    Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
+    //trying to figure out if these below are working
+    Route::get('/create', [MovieController::class, 'create'])->name('movies.create');
+    Route::post('/create', [MovieController::class, 'store'])->name('movies.create');
     Route::get('/movies{$id}', [MovieController::class, 'edit'])->name('movies.edit');
     Route::patch('/movies{$id}', [MovieController::class, 'update'])->name('movies.update');
     Route::delete('/movies{$id}', [MovieController::class, 'destroy'])->name('movies.destroy');
 });
 
-Route::get('/movies', [MovieController::class, 'index']);
+Route::get('/movies', [MovieController::class, 'index']); //this one is working
 
 
 
