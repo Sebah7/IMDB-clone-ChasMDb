@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -29,6 +30,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/movies', [MovieController::class, 'index']);
+//Testing admin role Auth
+Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+
+/*
+|In the code below with the addition of the 
+|code after middleware we 
+|are testing to see if the page 
+|is accessed by admin only
+*/ Route::get('/movies', [MovieController::class, 'index'])->middleware(['auth','admin']); 
 
 require __DIR__ . '/auth.php';
