@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\cmdb_movies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -32,7 +33,15 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $movie = new cmdb_movies();
+        $movie->title = $request->title;
+        $movie->description = $request->description;
+        $movie->title = $request->title;
+        $movie->done = $request->done;
+        $movie->user_id = Auth::id();
+        $movie->save();
+
+        return view('/workspaces/u05-imdb-klon-grupp-6/u05cloneG6/app/View/TestBladeMovies/create.blade.php');
     }
 
     /**
@@ -48,7 +57,7 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('TestBladeMovies.create');
     }
 
     /**
@@ -56,7 +65,15 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if(cmdb_movies::where('id', $id)->exists()){
+
+            $movie = cmdb_movies::find($id);
+            $movie->title = is_null($request->title) ? todo->title : $request->title;
+            $movie->description = is_null($request->description) ? cmdb_movies->description : $request->description;
+            $movie->done = is_null($request->done) ? movie->done : $request->done;
+            $movie->save();
+        }   
+            return view('/workspaces/u05-imdb-klon-grupp-6/u05cloneG6/app/View/TestBladeMovies/create.blade.php');
     }
 
     /**

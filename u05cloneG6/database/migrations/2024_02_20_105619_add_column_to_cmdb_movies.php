@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('cmdb_movies', function (Blueprint $table) {
             $table->string('language');
-            $table->integer('release_date');
+            $table->date('release_date');
             $table->integer('runtime');
             $table->string('poster');
             $table->string('trailer');

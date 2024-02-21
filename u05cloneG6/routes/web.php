@@ -27,8 +27,22 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    Route::get('/movies', [MovieController::class, 'create'])->name('movies.create');
+    Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
+    Route::get('/movies{$id}', [MovieController::class, 'edit'])->name('movies.edit');
+    Route::patch('/movies{$id}', [MovieController::class, 'update'])->name('movies.update');
+    Route::delete('/movies{$id}', [MovieController::class, 'destroy'])->name('movies.destroy');
 });
 
 Route::get('/movies', [MovieController::class, 'index']);
+
+
+
+
+
+
+
 
 require __DIR__ . '/auth.php';
