@@ -5,6 +5,7 @@ use App\Http\Controllers\WatchlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReviewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,13 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 |are testing to see if the page 
 |is accessed by admin only
 */ Route::get('/movies', [MovieController::class, 'index'])->middleware(['auth','admin']); 
+
+
+Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
+//inloggade som kan hantera reviews
+Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth','verified']);
+
+
 
 require __DIR__ . '/auth.php';
 
