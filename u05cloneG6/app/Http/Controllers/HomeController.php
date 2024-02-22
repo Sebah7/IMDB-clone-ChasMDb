@@ -2,21 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin\cmdb_movies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class MovieController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $movies = cmdb_movies::all();
-        return view('movies', ['movies' => $movies]);
+        if(Auth::id())
+        {
+            $usertype = Auth()->user()->role;
 
+            if($usertype == '1')
+            {
+                return view('dashboard');
+            }
 
-        // return "Is this thing on?";
+            else if($usertype == '0')
+            {
+                return view('layouts.show');
+            }
+
+            else {
+                return redirect()->back();
+            }
+        }
     }
 
     /**

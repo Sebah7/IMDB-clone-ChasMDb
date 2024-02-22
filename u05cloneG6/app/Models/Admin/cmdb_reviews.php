@@ -1,15 +1,28 @@
 <?php
 
 namespace App\Models\Admin;
+namespace App\Models;
 
+use App\Models\Admin\cmdb_movies;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class cmdb_reviews extends Model
 {
-    public function reviewMovieRelation()
 
+    use HasFactory;
+
+    protected $table = 'cmdb_reviews';
+    protected $fillable = ['Movieid', 'Stars', 'Comment', 'Userid'];
+
+    public function userReviewsRelationship()
     {
-        return $this->belongsToMany(cmdb_movies::class, 'movie_id');
+        return $this->belongsTo(User::class, 'Userid');
     }
+
+    public function movieReviewsRelationship()
+    {
+        return $this->belongsTo(cmdb_movies::class, 'Movieid');
+    }
+
 }
