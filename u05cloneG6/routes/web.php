@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WatchlistController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,10 @@ use App\Http\Controllers\ReviewsController;
 Route::get('/', function () {
     return view('welcome');
 });
+// Den har ar en test. När movies routes är pushat vi testar och merga igen. 
+Route::get('/modify', function () {
+    return view('modify');
+})->name('modify');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -33,6 +38,16 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
+// Routing is not final untill adding modify blade from another branch
+Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
+Route::get('/genres/{id}', [GenreController::class, 'show']) ->name('genres.show');
+// Route for showing the form to create a new genre
+Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth','admin'])->name('genres.create');
+// Route for storing a newly created genre
+Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth','admin'])->name('genres.store');
+
+
 //This is routes to my WatchlistController
 Route::middleware(['auth'])->group(function () {
     Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
@@ -41,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
