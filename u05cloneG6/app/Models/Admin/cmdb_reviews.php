@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class cmdb_reviews extends Model
 {
+
     use HasFactory;
 
     protected $table = 'cmdb_reviews';
