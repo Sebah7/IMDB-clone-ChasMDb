@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WatchlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReviewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
+
 // Routing is not final untill adding modify blade from another branch
 Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
 Route::get('/genres/{id}', [GenreController::class, 'show']) ->name('genres.show');
@@ -43,6 +46,16 @@ Route::get('/genres/{id}', [GenreController::class, 'show']) ->name('genres.show
 Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth','admin'])->name('genres.create');
 // Route for storing a newly created genre
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth','admin'])->name('genres.store');
+
+
+//This is routes to my WatchlistController
+Route::middleware(['auth'])->group(function () {
+    Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
+    Route::post('/watchlist', [WatchlistController::class, 'store'])->name('watchlist.store');
+    Route::delete('/watchlist/{watchlist}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
@@ -54,4 +67,12 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 |is accessed by admin only
 */ Route::get('/movies', [MovieController::class, 'index'])->middleware(['auth','admin']); 
 
+
+Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
+//inloggade som kan hantera reviews
+Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth','verified']);
+
+
+
 require __DIR__ . '/auth.php';
+

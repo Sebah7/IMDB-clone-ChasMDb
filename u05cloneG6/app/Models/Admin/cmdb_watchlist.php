@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class cmdb_watchlist extends Model
 {
-    use HasFactory;
+    
+    public function watchlistMovieRelation()
+
+    {
+        return $this->belongsToMany(cmdb_movies::class, 'cmdb_watchlist_movie_pivot', 'watchlist_id', 'movie_id');
+    }
 }
