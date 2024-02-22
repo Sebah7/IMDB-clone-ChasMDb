@@ -30,13 +30,14 @@ class GenreController extends Controller
          * And it requests a name to do so.
          */
         cmdb_genre::create([
+
             'name' => $request->name,
         ]); 
 
         /**
          * If the colums is created successfully we will be redirected to the index function with a message.
          */
-        return redirect()->route('genre')->with('success', 'Genre added successfully.');
+        return redirect()->route('modify')->with('success', 'Genre added successfully.');
     }
 
     /**

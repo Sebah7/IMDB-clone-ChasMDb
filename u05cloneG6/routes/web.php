@@ -20,6 +20,10 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+// Den har ar en test. När movies routes är pushat vi testar och merga igen. 
+Route::get('/modify', function () {
+    return view('modify');
+})->name('modify');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -31,11 +35,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
 // Routing is not final untill adding modify blade from another branch
 Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
 Route::get('/genres/{id}', [GenreController::class, 'show']) ->name('genres.show');
 // Route for showing the form to create a new genre
-// Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth','admin'])->name('genres.create');
+Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth','admin'])->name('genres.create');
 // Route for storing a newly created genre
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth','admin'])->name('genres.store');
 
