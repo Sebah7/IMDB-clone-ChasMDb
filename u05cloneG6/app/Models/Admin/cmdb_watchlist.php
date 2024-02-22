@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class cmdb_watchlist extends Model
 {
     
-
-   
-
     public function watchlistMovieRelation()
 
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\cmdb_genre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -11,15 +12,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $genres = cmdb_genre::all();
+        return view('genre', ['genres' => $genres]);
     }
 
     /**
@@ -27,7 +21,23 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:cmdb_genres|max:255',
+        ]);
+
+        /**
+         * the cmdb_genre(our table name) plus ::create will try to create a column in our table.
+         * And it requests a name to do so.
+         */
+        cmdb_genre::create([
+
+            'name' => $request->name,
+        ]); 
+
+        /**
+         * If the colums is created successfully we will be redirected to the index function with a message.
+         */
+        return redirect()->route('modify')->with('success', 'Genre added successfully.');
     }
 
     /**
@@ -35,7 +45,8 @@ class GenreController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $genres = cmdb_genre::find($id);
+        return view('genre', ['genres' => $genres]);
     }
 
     /**

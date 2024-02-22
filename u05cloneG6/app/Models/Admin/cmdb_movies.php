@@ -35,6 +35,21 @@ class cmdb_movies extends Model
     {
         return $this->belongsToMany(cmdb_director::class, 'cmdb_director_movie_pivot', 'movie_id', 'director_id');
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(cmdb_reviews::class, 'movie_id');
+        
+        // Hämta film med tillhörande recensioner
+        $movie = cmdb_movies::find(1);
+        $reviews = $movie->reviews;
+        
+        // Hämta recensioner med tillhörande film
+        $review = cmdb_reviews::find(1);
+        $movie = $review->movie;
+    }
+
+    
 }
 
     // public function directors()
