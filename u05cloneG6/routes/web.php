@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WatchlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
@@ -30,6 +31,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+
+//This is route to my WatchlistController
+Route::get('/WatchlistController', [WatchlistController::class, 'index']);
+
+require __DIR__.'/auth.php';
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
@@ -41,3 +47,4 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 */ Route::get('/movies', [MovieController::class, 'index'])->middleware(['auth','admin']); 
 
 require __DIR__ . '/auth.php';
+

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('movie_id');
             $table->timestamps();
 
-            $table->foreign('watchlist_id')->references('Id')->on('cmdb_watchlists')->onDelete('cascade');
+            $table->foreign('watchlist_id')->references('id')->on('cmdb_watchlists')->onDelete('cascade');
             $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
         });
     }

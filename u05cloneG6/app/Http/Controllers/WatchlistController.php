@@ -11,7 +11,7 @@ class WatchlistController extends Controller
      */
     public function index()
     {
-        //
+        return "This is our Watchlist Controller";
     }
 
     /**
