@@ -15,9 +15,6 @@ class MovieController extends Controller
     {
         $movies = cmdb_movies::all();
         return view('movies', ['movies' => $movies]);
-
-
-        // return "Is this thing on?";
     }
 
     /**
@@ -25,40 +22,27 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('modify');
+        $movies = cmdb_movies::create();
+        return view('movies.index', compact('movies'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request)
-    // {
-    //     $movie = new cmdb_movies();
-    //     $movie->title = $request->title;
-    //     $movie->description = $request->description;
-    //     $movie->title = $request->title;
-    //     $movie->done = $request->done;
-    //     $movie->user_id = Auth::id();
-    //     $movie->save();
-
-    //     return view('modify');
-    // }
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     { {
-            $validatedData = $request->validate([
+            $movies = $request->validate([
                 'title' => 'required|max:255',
+                'actor' => 'required|max:255',
+                'director' => 'required|max:255',
                 'genre' => 'required|max:255',
-                'release_date' => 'required|date',
                 // Add more fields as needed
             ]);
             // Create a new movie
-            $movie = cmdb_movies::create($validatedData);
+            cmdb_movies::create($movies);
 
-            // Redirect to the movie listing (modify) page 
             return redirect(route('modify'))->with('success', 'Movie added successfully!');
         }
     }
@@ -84,7 +68,9 @@ class MovieController extends Controller
             $movie->done = is_null($request->done) ? $movie->done : $request->done;
             $movie->save();
         }
-        return view('modify');
+
+        return "Storing the movies";
+        // return view('modify');
     }
 
     /**
@@ -94,4 +80,4 @@ class MovieController extends Controller
     {
         //
     }
-}
+
