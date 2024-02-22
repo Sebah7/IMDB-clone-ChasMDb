@@ -31,8 +31,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/genres', [GenreController::class, 'index']) ->name('genres.index');
+// Routing is not final untill adding modify blade from another branch
+Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
 Route::get('/genres/{id}', [GenreController::class, 'show']) ->name('genres.show');
+// Route for showing the form to create a new genre
+// Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth','admin'])->name('genres.create');
+// Route for storing a newly created genre
+Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth','admin'])->name('genres.store');
+
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
