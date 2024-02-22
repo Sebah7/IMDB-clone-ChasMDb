@@ -30,18 +30,20 @@ Route::middleware('auth')->group(function () {
 
     //trying to figure out if these below are working
     Route::get('/create', [MovieController::class, 'create'])->name('movies.create');
-    Route::post('/create', [MovieController::class, 'store'])->name('movies.create');
-    Route::get('/movies{$id}', [MovieController::class, 'edit'])->name('movies.edit');
-    Route::patch('/movies{$id}', [MovieController::class, 'update'])->name('movies.update');
-    Route::delete('/movies{$id}', [MovieController::class, 'destroy'])->name('movies.destroy');
+    Route::post('/create', [MovieController::class, 'store'])->name('movies.store');
+    Route::get('/movies/{id}', [MovieController::class], 'edit')->name('movies.edit');
+    Route::patch('/movies/{id}', [MovieController::class], 'update')->name('movies.update');
+    Route::delete('/movies/{id}', [MovieController::class], 'destroy')->name('movies.destroy');
 });
 
 Route::get('/movies', [MovieController::class, 'index']); //this one is working
 
+Route::get('/modify', [MovieController::class, 'index']);
 
-
-
-
+Route::get('/modify/create', [MovieController::class, 'create']);
+Route::get('/modify/save', [MovieController::class, 'store']);
+Route::get('/modify/edit', [MovieController::class, 'edit']);
+Route::get('/modify/update', [MovieController::class, 'update']);
 
 
 

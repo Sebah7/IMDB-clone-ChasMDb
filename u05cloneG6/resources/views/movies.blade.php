@@ -1,5 +1,19 @@
         <div>
 
+            <form action="{{ route('movies.store') }}" method="POST">
+                @csrf
+                <div>
+                    <label for="name">Movie title:</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <button type="submit">
+                        Add Movie
+                    </button>
+                </div>
+            </form>
+
+
             @foreach ($movies as $movie)
             <ul>
                 <p>Title: {{ $movie->title }}</p>

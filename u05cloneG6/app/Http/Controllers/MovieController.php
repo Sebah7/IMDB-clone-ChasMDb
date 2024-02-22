@@ -25,31 +25,42 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('modify');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $movie = new cmdb_movies();
-        $movie->title = $request->title;
-        $movie->description = $request->description;
-        $movie->title = $request->title;
-        $movie->done = $request->done;
-        $movie->user_id = Auth::id();
-        $movie->save();
+    // public function store(Request $request)
+    // {
+    //     $movie = new cmdb_movies();
+    //     $movie->title = $request->title;
+    //     $movie->description = $request->description;
+    //     $movie->title = $request->title;
+    //     $movie->done = $request->done;
+    //     $movie->user_id = Auth::id();
+    //     $movie->save();
 
-        return view('TestBladeMovies.create');
-    }
+    //     return view('modify');
+    // }
 
     /**
-     * Display the specified resource.
+     * Store a newly created resource in storage.
      */
-    public function show(string $id)
-    {
-        //
+    public function store(Request $request)
+    { {
+            $validatedData = $request->validate([
+                'title' => 'required|max:255',
+                'genre' => 'required|max:255',
+                'release_date' => 'required|date',
+                // Add more fields as needed
+            ]);
+            // Create a new movie
+            $movie = cmdb_movies::create($validatedData);
+
+            // Redirect to the movie listing (modify) page 
+            return redirect(route('modify'))->with('success', 'Movie added successfully!');
+        }
     }
 
     /**
@@ -57,7 +68,7 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        return view('/workspaces/u05-imdb-klon-grupp-6/u05cloneG6/app/View/TestBladeMovies/create.blade.php');
+        return view('modify');
     }
 
     /**
@@ -73,7 +84,7 @@ class MovieController extends Controller
             $movie->done = is_null($request->done) ? $movie->done : $request->done;
             $movie->save();
         }
-        return view('/workspaces/u05-imdb-klon-grupp-6/u05cloneG6/app/View/TestBladeMovies/create.blade.php');
+        return view('modify');
     }
 
     /**
