@@ -35,6 +35,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //trying to figure out which one of these below are working / 
+    // Route::get('/create', [MovieController::class, 'create'])->name('movies.create');
+    Route::post('/create', [MovieController::class, 'store'])->name('movies.store');
+    // Route::get('/movies/{id}', [MovieController::class], 'edit')->name('movies.edit');
+    // Route::patch('/movies/{id}', [MovieController::class], 'update')->name('movies.update');
+    // Route::delete('/movies/{id}', [MovieController::class], 'destroy')->name('movies.destroy');
 });
 
 
@@ -55,8 +62,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/watchlist/{watchlist}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');
 });
 
-require __DIR__.'/auth.php';
-
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
@@ -65,7 +70,7 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 |code after middleware we 
 |are testing to see if the page 
 |is accessed by admin only
-*/ Route::get('/movies', [MovieController::class, 'index'])->middleware(['auth','admin']); 
+*/
 
 
 Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
@@ -73,6 +78,15 @@ Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla 
 Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth','verified']);
 
 
+//this one is working
+Route::get('/movies', [MovieController::class, 'index']);
+
+//this one is working
+// Route::get('/modify', [MovieController::class, '']);
+
+Route::get('/modify/create', [MovieController::class, 'create'])->middleware(['auth', 'admin'])->name('modify.create');
+Route::post('/modify/save', [MovieController::class, 'store'])->middleware(['auth', 'admin'])->name('modify.store');
+Route::get('/modify/edit', [MovieController::class, 'edit'])->middleware(['auth', 'admin'])->name('modify.edit');
+Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['auth', 'admin'])->name('modify.update');
 
 require __DIR__ . '/auth.php';
-

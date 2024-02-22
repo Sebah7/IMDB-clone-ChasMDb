@@ -8,7 +8,21 @@
 </head>
 
 <body>
-    <h2>Modifies functions only for Admin</h2>
+
+    <h2>Modify functions only for Admin</h>
+
+        <form action="{{ route('movies.store') }}" method="POST">
+            @csrf
+            <div>
+                <label for="name">Movie title:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <button type="submit">
+                    Add Movie
+                </button>
+            </div>
+        </form>
     
          <!-- Genre Store Controller to add a genre to db from admin in blade. -->
 
@@ -21,6 +35,7 @@
                             Add Genre
                         </button>
                 </form>
+
 </body>
 
 </html>

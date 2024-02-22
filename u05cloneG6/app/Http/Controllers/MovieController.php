@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin\cmdb_movies;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MovieController extends Controller
 {
@@ -14,9 +15,6 @@ class MovieController extends Controller
     {
         $movies = cmdb_movies::all();
         return view('movies', ['movies' => $movies]);
-
-
-        // return "Is this thing on?";
     }
 
     /**
@@ -24,23 +22,29 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        $movies = cmdb_movies::create();
+        return view('movies.index', compact('movies'));
+    }
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
+    { {
+            $movies = $request->validate([
+                'title' => 'required|max:255',
+                'actor' => 'required|max:255',
+                'director' => 'required|max:255',
+                'genre' => 'required|max:255',
+                // Add more fields as needed
+            ]);
+            // Create a new movie
+            cmdb_movies::create($movies);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+            return redirect(route('modify'))->with('success', 'Movie added successfully!');
+        }
     }
 
     /**
@@ -48,7 +52,7 @@ class MovieController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('modify');
     }
 
     /**
@@ -56,7 +60,17 @@ class MovieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        if (cmdb_movies::where('id', $id)->exists()) {
+
+            $movie = cmdb_movies::find($id);
+            $movie->title = is_null($request->title) ? $movie->title : $request->title;
+            $movie->description = is_null($request->description) ? $movie->description : $request->description;
+            $movie->done = is_null($request->done) ? $movie->done : $request->done;
+            $movie->save();
+        }
+
+        return "Storing the movies";
+        // return view('modify');
     }
 
     /**
@@ -66,4 +80,4 @@ class MovieController extends Controller
     {
         //
     }
-}
+
