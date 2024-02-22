@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class cmdb_reviews extends Model
 {
-    use HasFactory;
+    public function reviewMovieRelation()
+
+    {
+        return $this->belongsToMany(cmdb_movies::class, 'movie_id');
+    }
 }
