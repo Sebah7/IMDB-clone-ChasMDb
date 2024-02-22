@@ -3,62 +3,45 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin\cmdb_watchlist;
+
 
 class WatchlistController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return "This is our Watchlist Controller";
+        // Retrieve the user's watchlist entries
+        $watchlist = cmdb_watchlist::all();
+
+        // Return view with watchlist data
+        return view('watchlist', compact('watchlist'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        // Validate the request data
+        $request->validate([
+            'movie_id' => 'required|exists:movie_id',
+        ]);
+
+        // Add item to the user's watchlist
+        auth()->user()->watchlist()->create([
+            'movie_id' => $request->movie_id,
+        ]);
+
+        // Redirect back with success message
+        return back()->with('success', 'Movie added to watchlist successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function destroy(Watchlist $watchlist)
     {
-        //
-    }
+        // Ensure the user owns the watchlist entry
+        $this->authorize('delete', $watchlist);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        // Delete the watchlist entry
+        $watchlist->delete();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        // Redirect back with success message
+        return back()->with('success', 'Movie removed from watchlist successfully.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-}
+} 

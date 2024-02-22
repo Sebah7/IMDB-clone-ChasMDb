@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
 
         });
