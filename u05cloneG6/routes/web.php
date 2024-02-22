@@ -32,8 +32,12 @@ Route::middleware('auth')->group(function () {
 });
 
 
-//This is route to my WatchlistController
-Route::get('/WatchlistController', [WatchlistController::class, 'index']);
+//This is routes to my WatchlistController
+Route::middleware(['auth'])->group(function () {
+    Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
+    Route::post('/watchlist', [WatchlistController::class, 'store'])->name('watchlist.store');
+    Route::delete('/watchlist/{watchlist}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');
+});
 
 require __DIR__.'/auth.php';
 //Testing admin role Auth

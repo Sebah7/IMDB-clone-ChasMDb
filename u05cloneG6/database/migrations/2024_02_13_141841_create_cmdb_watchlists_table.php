@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cmdb_watchlists', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
         });
     }
