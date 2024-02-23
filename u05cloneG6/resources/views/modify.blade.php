@@ -34,7 +34,19 @@
                         <button type="submit">
                             Add Genre
                         </button>
-                </form>
+                  </form>
+
+                  @foreach ($genres as $genres)
+            <ul>
+                <p>Genre type: {{ $genres-> name }}</p>
+            </ul>
+         Delete Button
+        <form action="{{ route('genres.destroy', $genre->id) }}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this genre?')">Delete</button>
+        </form>
+    </div>
 
 </body>
 
