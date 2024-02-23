@@ -68,8 +68,20 @@ class ActorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+
+    public function destroy(cmdb_actors $id)
     {
-        //
+        //finds the actor by specific id
+        $actor = cmdb_actors::find($id);
+
+        //if there isnt an actor found
+        if (!$actor) {
+            abort(404, 'Actor not found');
+        }
+        //to delete the actor
+        $actor->delete();
+
+        return redirect()->route('modify')->with('success', 'Actor deleted successfully');
     }
 }
