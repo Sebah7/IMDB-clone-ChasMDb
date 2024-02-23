@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class cmdb_director extends Model
 {
-    use HasFactory;
+    public function directorMovieRelation()
+    {
+        return $this->belongsTo(cmdb_movies::class, 'movie_id');
+    }
 }

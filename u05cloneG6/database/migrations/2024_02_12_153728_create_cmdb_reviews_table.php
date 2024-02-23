@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('cmdb_reviews', function (Blueprint $table) {
             $table->id();
-
-            $table->integer('movie_id')->nullable();
+            $table->unsignedBigInteger('movie_id')->nullable();
             $table->integer('Stars')->nullable();
             $table->text('Comment')->nullable();
             $table->integer('user_id')->nullable();
-          
+
+            $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
