@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class cmdb_director extends Model
 {
     use HasFactory;
+    
 }
