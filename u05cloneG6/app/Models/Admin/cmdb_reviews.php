@@ -13,7 +13,7 @@ class cmdb_reviews extends Model
     use HasFactory;
 
     protected $table = 'cmdb_reviews';
-    protected $fillable = ['movie_id', 'Stars', 'Comment', 'user_id'];
+    protected $fillable = ['movie_id', 'stars', 'comment', 'user_id'];
 
     public function userReviewsRelationship()
     {

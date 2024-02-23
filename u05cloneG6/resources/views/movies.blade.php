@@ -40,7 +40,6 @@
     <p>Reviews:</p>
     @foreach ($movie->reviews as $review)
     <ul>
-        <li>User: {{ $review->user_id }}</li>
         <li>Stars: {{ $review->stars }}</li>
         <li>Comment: {{ $review->comment }}</li>
     </ul>
@@ -62,6 +61,7 @@
         <button type="submit">Submit Review</button>
     </form>
 
+
     <br><br><br>
     <ol>
         @foreach ($actors as $actor)
@@ -70,5 +70,13 @@
         </li>
         @endforeach
     </ol>
+
+<br><br>
+   
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
 </div>

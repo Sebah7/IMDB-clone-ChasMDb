@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             cmdb_directors::class,
 
             cmdb_genre::class,
-          
+
+            cmdb_actors::class,
+
             // Add other seeders if needed
         ]);
     }
