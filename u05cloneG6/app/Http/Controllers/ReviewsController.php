@@ -13,13 +13,12 @@ class ReviewsController extends Controller
     {
         $movies = cmdb_movies::with('reviews')->get();
 
-        return view('reviews', compact('movies'));
+        return view('movies', compact('movies'));
     }
 
     public function create()
     {
 
-        // Return view for creating a new review
         return view('reviews');
     }
 
@@ -29,21 +28,29 @@ class ReviewsController extends Controller
             'movie_id' => 'required|integer',
             'stars' => 'required|integer|min:1|max:5',
             'comment' => 'required|string',
-            'user_id' => 'nullable|integer', // Assuming user_id is optional or can be filled later
+            'user_id' => 'nullable|integer',
         ]);
-    
-        // Create a new review using mass assignment
+
+
         $review = cmdb_reviews::create($request->all());
-    
-        return redirect()->route('reviews.store')->with('success', 'Review created successfully');
-        }
+
+        return back()->with('success', 'Review created successfully');
+
+        //alternativ route 
+        //return redirect()->route('movie.index', $request->input('movie_id'))->with('success', 'Review created successfully');
+        
+        
+
+    }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $movie = cmdb_movies::with('reviews')->findOrFail($id);
+        dd($movie);
+        // Rest of the method
     }
 
     /**

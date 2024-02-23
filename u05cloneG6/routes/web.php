@@ -76,6 +76,9 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
 //inloggade som kan hantera reviews
 Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth','verified']);
+//alternativ för return i controller
+//Route::resource('movies', MovieController::class);
+
 
 
 //this one is working

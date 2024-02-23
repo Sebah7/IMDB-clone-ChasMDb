@@ -39,14 +39,6 @@ class cmdb_movies extends Model
     public function reviews()
     {
         return $this->hasMany(cmdb_reviews::class, 'movie_id');
-        
-        // Hämta film med tillhörande recensioner
-        $movie = cmdb_movies::find(1);
-        $reviews = $movie->reviews;
-        
-        // Hämta recensioner med tillhörande film
-        $review = cmdb_reviews::find(1);
-        $movie = $review->movie;
     }
 
     
