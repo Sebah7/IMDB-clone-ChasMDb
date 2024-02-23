@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class cmdb_director extends Model
 {
+
+    protected $tabel = 'cmdb_directors';
+    protected $fillable = ['name'];
+
     public function directorMovieRelation()
     {
-        return $this->belongsTo(cmdb_movies::class, 'movie_id');
+        return $this->belongsToMany(cmdb_movies::class, 'cmdb_director_movie_table_pivot', 'director_id', 'movie_id');
     }
 }
