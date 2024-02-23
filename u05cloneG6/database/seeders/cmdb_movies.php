@@ -15,7 +15,6 @@ class cmdb_movies extends Seeder
     {
 
         DB::table('cmdb_movies')->insert([
-            'id' => 6,
             'title' => 'Oppenheimer', // You can replace null with the appropriate value.
             'description' => 'A movie of the worlds first atombomb',
             'actor' => 'Cillian Murphy',
