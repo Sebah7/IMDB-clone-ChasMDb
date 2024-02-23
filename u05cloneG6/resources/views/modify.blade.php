@@ -23,19 +23,28 @@
                 </button>
             </div>
         </form>
-    
-         <!-- Genre Store Controller to add a genre to db from admin in blade. -->
 
-                  <!-- Function Store -->
-                  <form action="{{ route('genres.store') }}" method="POST">
-                    @csrf
-                    <label for="name">Genre Name:</label>
-                        <input type="text" name="name" id="name">
-                        <button type="submit">
-                            Add Genre
-                        </button>
-                </form>
+        <!-- Genre Store Controller to add a genre to db from admin in blade. -->
 
+        <!-- Function Store -->
+        <form action="{{ route('genres.store') }}" method="POST">
+            @csrf
+            <label for="name">Genre Name:</label>
+            <input type="text" name="name" id="name">
+            <button type="submit">
+                Add Genre
+            </button>
+        </form>
+
+
+        <form action="{{ route('actors.store') }}" method="POST">
+            @csrf
+            <label for="name">Actor Name:</label>
+            <input type="text" name="name" id="name">
+            <button type="submit">
+                Add Actor
+            </button>
+        </form>
 </body>
 
 </html>

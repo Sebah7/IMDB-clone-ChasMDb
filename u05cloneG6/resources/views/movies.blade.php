@@ -1,17 +1,17 @@
 <div>
 
-            <form action="{{ route('movies.store') }}" method="POST">
-                @csrf
-                <div>
-                    <label for="name">Movie title:</label>
-                    <input type="text" name="name" id="name">
-                </div>
-                <div>
-                    <button type="submit">
-                        Add Movie
-                    </button>
-                </div>
-            </form>
+    <form action="{{ route('movies.store') }}" method="POST">
+        @csrf
+        <div>
+            <label for="name">Movie title:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <button type="submit">
+                Add Movie
+            </button>
+        </div>
+    </form>
 
     @foreach ($movies as $movie)
     <ul>
@@ -60,10 +60,23 @@
 
         <button type="submit">Submit Review</button>
     </form>
+
+
+    <br><br><br>
+    <ol>
+        @foreach ($actors as $actor)
+        <li>
+            <p>Name of the actor: {{ $actor->name }}</p>
+        </li>
+        @endforeach
+    </ol>
+
+<br><br>
    
     @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
 @endif
+
 </div>
