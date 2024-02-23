@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cmdb_reviews', function (Blueprint $table) {
+        Schema::create('cmdb_director_movie_table_pivot', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('movie_id')->nullable();
-            $table->integer('Stars')->nullable();
-            $table->text('Comment')->nullable();
-            $table->integer('user_id')->nullable();
+            $table->unsignedBigInteger('movie_id');
+            $table->unsignedBigInteger('director_id');
 
             $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
-            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreign('director_id')->references('id')->on('cmdb_directors')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cmdb_reviews');
+        Schema::dropIfExists('cmdb_director_movie_table_pivot');
     }
 };
