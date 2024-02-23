@@ -26,7 +26,7 @@ class MovieController extends Controller
         return view('movies.index', compact('movies'));
     }
 
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -80,4 +80,4 @@ class MovieController extends Controller
     {
         //
     }
-
+}
