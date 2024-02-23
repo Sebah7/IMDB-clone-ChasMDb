@@ -15,4 +15,5 @@ class cmdb_director extends Model
     {
         return $this->belongsToMany(cmdb_movies::class, 'cmdb_director_movie_table_pivot', 'director_id', 'movie_id');
     }
+    
 }
