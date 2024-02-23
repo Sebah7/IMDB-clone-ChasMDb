@@ -39,11 +39,28 @@
     </header>
 
 
+    <style>
+        @media (max-width: 900px) {
+            .right__{
+                display: none;
+            }
+
+            .ouhwyirkfu948{
+                padding: 0 20px;
+            }
+
+            .moviesection .w-full{
+                width: 100px;
+            }
+        }
+    </style>
+
+
 
 
     <!---main show-->
 
-    <div class="" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
+    <div class="ouhwyirkfu948" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
         <div class="slideshow-container">
             <img class="slide" src="https://media.istockphoto.com/id/1412871535/sv/foto/friends-watching-movies-together-at-home.jpg?s=612x612&w=0&k=20&c=Nu-sjq9nWynp6AH2rV7C7wgHR9uYZgiGVPAy-m_0-nk=" alt="Slide 1">
             <img class="slide" src="https://media.istockphoto.com/id/1440006901/sv/foto/college-students-talking-while-walking-down-a-hall-at-school-between-classes.jpg?s=612x612&w=0&k=20&c=LkBTAHx3m0GuSZSOt-loZX2zvVHbmI3dEHxcMWs9Kj8=" alt="Slide 2">
