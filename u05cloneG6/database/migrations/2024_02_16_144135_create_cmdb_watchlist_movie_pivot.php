@@ -12,13 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cmdb_watchlist_movie_pivot', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('watchlist_id');
             $table->unsignedBigInteger('movie_id');
             $table->timestamps();
 
             $table->foreign('watchlist_id')->references('id')->on('cmdb_watchlists')->onDelete('cascade');
             $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
+            /**
+             * Removed the id code line above to prevent the creation of an id column in the pivot table.
+             *  Added the code line below to create a composite primary key.This is so that each combination of the 'watchlist_id' and 'movie_id' can be unique.
+             */
+             $table->primary(['watchlist_id', 'movie_id']);
         });
     }
 
