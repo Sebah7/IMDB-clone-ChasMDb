@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewsController;
+use App\Http\Controllers\ActorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +49,11 @@ Route::middleware('auth')->group(function () {
 
 // Routing is not final untill adding modify blade from another branch
 Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
-Route::get('/genres/{id}', [GenreController::class, 'show']) ->name('genres.show');
+Route::get('/genres/{id}', [GenreController::class, 'show'])->name('genres.show');
 // Route for showing the form to create a new genre
-Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth','admin'])->name('genres.create');
+Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth', 'admin'])->name('genres.create');
 // Route for storing a newly created genre
-Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth','admin'])->name('genres.store');
+Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
 Route::resource('genres', GenreController::class)->except(['destroy']);
 Route::delete('/modify', [GenreController::class, 'destroy'])->name('genres.destroy');
 
@@ -79,6 +80,8 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
 //inloggade som kan hantera reviews
 Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth','verified']);
+//alternativ för return i controller
+//Route::resource('movies', MovieController::class);
 
 
 //this one is working
@@ -91,5 +94,11 @@ Route::get('/modify/create', [MovieController::class, 'create'])->middleware(['a
 Route::post('/modify/save', [MovieController::class, 'store'])->middleware(['auth', 'admin'])->name('modify.store');
 Route::get('/modify/edit', [MovieController::class, 'edit'])->middleware(['auth', 'admin'])->name('modify.edit');
 Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['auth', 'admin'])->name('modify.update');
+
+
+//ActorController connection WORKING. First one is admin only, second one is public.
+Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
+Route::get('/movies', [ActorController::class, 'index'])->name('home');
+
 
 require __DIR__ . '/auth.php';
