@@ -2,9 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
-use App\Models\Admin\cmdb_genre;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,15 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            cmdb_reviews::class,
-
-            cmdb_movies::class,
-
-            cmdb_directors::class,
-
-            cmdb_genre::class,
-
-            cmdb_actors::class,
+            Cmdb_actorsSeeder::class,
+            Cmdb_directorsSeeder::class,
+            Cmdb_genreSeeder::class,
+            Cmdb_moviesSeeder::class,
+            Cmdb_reviewsSeeder::class,
+            Cmdb_watchlistsSeeder::class,
+            Cmdb_userSeeder::class,
 
             // Add other seeders if needed
         ]);

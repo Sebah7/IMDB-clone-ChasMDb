@@ -11,19 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /**
+         * Changes made on the migration file:
+         * removed bigIncrements('id') and replaced with id() for the sake of consistency
+         * Changed from unsignedBigInteger to foreignId and added constrained method
+         * Changed from integer to foreignId and added constrained method
+         * Added onDelete('cascade') to the foreignId method
+         * Added the timestamps method to create 'created_at' and 'updated_at' columns for timestamps
+         * Deleted duplicateid, user_id, movie_id and timestamps columns
+         */
         Schema::create('cmdb_watchlists', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('movie_id')->nullable();
-            $table->integer('user_id')->nullable();
-            $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
-
-            // Define foreign key constraint
-            $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
-            $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
-
+            $table->foreignId('movie_id')->nullable()->constrained('cmdb_movies')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users');
+            $table->timestamps();
         });
     }
 
