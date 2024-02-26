@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 return new class extends Migration
 {
     /**
@@ -15,6 +16,7 @@ return new class extends Migration
             $table->id(); // Creates an auto-incremental primary key column named 'id'
             $table->text('name')->nullable(); // Creates a nullable text field column named 'name'
             $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
+            $table->softDeletes(); // Creates a 'deleted_at' column for soft deletes
         });
     }
 

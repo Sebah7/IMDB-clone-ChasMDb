@@ -6,12 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('cmdb_movie_genre_table_pivot', function (Blueprint $table) {
+        Schema::create('cmdb_genre_cmdb_movie', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('movie_id');
             $table->unsignedBigInteger('genre_id');
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cmdb_movie_genre_table_pivot');
+        Schema::dropIfExists('cmdb_genre_cmdb_movie');
     }
 };

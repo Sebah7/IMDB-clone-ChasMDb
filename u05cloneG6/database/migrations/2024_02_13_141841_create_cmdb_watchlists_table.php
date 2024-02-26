@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignId('movie_id')->nullable()->constrained('cmdb_movies')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
+            $table->softDeletes(); // Creates a 'deleted_at' column for soft deletes
         });
     }
 

@@ -54,6 +54,9 @@ Route::get('/genres/{id}', [GenreController::class, 'show'])->name('genres.show'
 Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth', 'admin'])->name('genres.create');
 // Route for storing a newly created genre
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
+Route::resource('genres', GenreController::class)->except(['destroy']);
+Route::delete('/genres/{id}', [GenreController::class, 'destroy'])->name('genres.destroy');
+
 
 
 //This is routes to my WatchlistController
