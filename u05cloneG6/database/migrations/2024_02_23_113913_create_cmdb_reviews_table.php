@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('Stars')->nullable();
             $table->text('Comment')->nullable();
             $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
-        
+            $table->softDeletes(); // Creates a 'deleted_at' column for soft deletes
             // Define foreign key constraints
             $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

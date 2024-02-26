@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('genre')->nullable();
             $table->string('director')->nullable();
             $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
+            $table->softDeletes(); // Creates a 'deleted_at' column for soft deletes
         });
     }
 

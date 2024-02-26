@@ -13,6 +13,7 @@ use App\Models\Admin\cmdb_director;
 use App\Models\Admin\cmdb_reviews;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class cmdb_movies extends Model
 {
@@ -21,6 +22,8 @@ class cmdb_movies extends Model
      * 'cmdb_movies' is table associated with the model.
      * 'fillable' has the columns that are going to be filled data.
      */
+    // the soft delete is goint to delte the data from the view but sill keep it in the database.
+    use SoftDeletes;
     protected $table = 'cmdb_movies';
     protected $fillable = ['title', 'genre', 'actor', 'director', 'trailer', 'poster', 'runtime', 'language', 'rating', 'description'];
 
@@ -36,10 +39,10 @@ class cmdb_movies extends Model
         return $this->belongsToMany(cmdb_actors::class, 'create_cmdb_movie_actors_table_pivot', 'movie_id', 'actor_id');
     }
 
-    public function genres() : BelongsToMany
-    {
-        return $this->belongsToMany(cmdb_genre::class, 'cmdb_movies_genre_table_pivot', 'movie_id', 'genre_id');
-    }
+    public function genres()
+{
+    return $this->belongsToMany(cmdb_genre::class, 'cmdb_genre_cmdb_movie');
+}
 
     public function watchlists() : BelongsToMany
     {
