@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cmdb_reviews', function (Blueprint $table) {
-            $table->id();
-
-            $table->integer('movie_id')->nullable();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('movie_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->integer('Stars')->nullable();
             $table->text('Comment')->nullable();
-            $table->integer('user_id')->nullable();
-          
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->timestamps();
+            $table->timestamps(); // Creates 'created_at' and 'updated_at' columns for timestamps
+        
+            // Define foreign key constraints
+            $table->foreign('movie_id')->references('id')->on('cmdb_movies')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
