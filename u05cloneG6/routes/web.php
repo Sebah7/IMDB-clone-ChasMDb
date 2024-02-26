@@ -55,7 +55,7 @@ Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['a
 // Route for storing a newly created genre
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
 Route::resource('genres', GenreController::class)->except(['destroy']);
-Route::delete('/modify', [GenreController::class, 'destroy'])->name('genres.destroy');
+Route::delete('/genres/{id}', [GenreController::class, 'destroy'])->name('genres.destroy');
 
 
 

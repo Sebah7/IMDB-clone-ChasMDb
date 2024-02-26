@@ -17,7 +17,7 @@ class cmdb_genre extends Model
 
     public function movies()
 {
-    return $this->belongsToMany(cmdb_movies::class, 'cmdb_genre_cmdb_movie');
+    return $this->belongsToMany(cmdb_movies::class, 'cmdb_genre_cmdb_movie', 'genre_id', 'movie_id');
 }
 }
 

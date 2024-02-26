@@ -22,10 +22,14 @@ class cmdb_movies extends Model
      * 'cmdb_movies' is table associated with the model.
      * 'fillable' has the columns that are going to be filled data.
      */
-    // the soft delete is goint to delte the data from the view but sill keep it in the database.
-    use SoftDeletes;
+   
+     /**
+      * Removed the genre because it is stored in the pivot.
+      *the soft delete is goint to delte the data from the view but sill keep it in the database.
+      */ 
+      use SoftDeletes;
     protected $table = 'cmdb_movies';
-    protected $fillable = ['title', 'genre', 'actor', 'director', 'trailer', 'poster', 'runtime', 'language', 'rating', 'description'];
+    protected $fillable = ['title', 'actor', 'director', 'trailer', 'poster', 'runtime', 'language', 'rating', 'description'];
 
 
     /**
@@ -41,7 +45,7 @@ class cmdb_movies extends Model
 
     public function genres()
 {
-    return $this->belongsToMany(cmdb_genre::class, 'cmdb_genre_cmdb_movie');
+    return $this->belongsToMany(cmdb_genre::class, 'cmdb_genre_cmdb_movie', 'movie_id', 'genre_id');
 }
 
     public function watchlists() : BelongsToMany
