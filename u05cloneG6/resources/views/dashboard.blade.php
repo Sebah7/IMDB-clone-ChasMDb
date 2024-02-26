@@ -38,7 +38,13 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900">{{ Auth::user()->name }}</span>
+                    class="text-sm font-semibold leading-6 text-gray-900"
+                    style="margin-top: 10px;"
+                    >{{ Auth::user()->name }}</span>
+                
+                <button type="submit"
+                    class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Setings</button>
+            
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit"
@@ -49,7 +55,7 @@
     </header>
 
     <!-- Main content -->
-    <div class="py-20">
+    <!-- <div class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
@@ -78,7 +84,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </body>
 
