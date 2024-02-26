@@ -10,18 +10,6 @@
     <body>
 
         <h2>Modify functions only for Admin</h><br><br>
-
-            <form action="{{ route('movies.store') }}" method="POST">
-                @csrf
-                <div>
-                    <label for="name">Movie title:</label>
-                    <input type="text" name="name" id="name">
-                    <button type="submit">
-                        Add Movie
-                    </button>
-                </div>
-            </form>
-
             <!-- Genre Store Controller to add a genre to db from admin in blade. -->
 
             <!-- Function Store -->
@@ -42,7 +30,9 @@
                 <button type="submit">
                     Add Actor
                 </button>
+
             </form>
+
             <form action="{{ route('actors.destroy') }}" method="POST">
                 @csrf
                 @method('DELETE')
