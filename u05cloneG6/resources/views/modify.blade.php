@@ -33,7 +33,7 @@
                     Add Genre
                 </button>
             </form>
-
+            <br>
 
             <form action="{{ route('actors.store') }}" method="POST">
                 @csrf
@@ -42,8 +42,19 @@
                 <button type="submit">
                     Add Actor
                 </button>
-            </form><br><br>
+            </form>
+            <form action="{{ route('actors.destroy') }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <label for="name">Actor Name:</label>
+                <input type="text" name="name" id="name">
+                <button type="submit">
+                    Delete Actor
+                </button>
+            </form>
 
+            <br><br>
+            <p>Add a movie to the db</p>
             <form action="{{ route('movies.store') }}" method="post">
                 @csrf
                 <label for="title">Title:</label>
