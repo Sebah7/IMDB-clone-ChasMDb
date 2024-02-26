@@ -37,9 +37,13 @@
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <span id="user-info" class="text-sm font-semibold leading-6 text-gray-900"></span>
-                <button id="logout-btn"
-                    class="text-sm font-semibold leading-6 text-gray-900 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md" style="color:white;">Logout</button>
+                <span id="user-info"
+                    class="text-sm font-semibold leading-6 text-gray-900">{{ Auth::user()->name }}</span>
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit"
+                        class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
+                </form>
             </div>
         </nav>
     </header>
@@ -50,11 +54,11 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <x-app-layout>
-<!--                         <x-slot name="header">
+                        <x-slot name="header">
                             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                                 {{ __('Dashboard') }}
                             </h2>
-                        </x-slot> -->
+                        </x-slot>
 
                         <div class="py-12">
                             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -76,49 +80,6 @@
         </div>
     </div>
 
-    <script>
-        // Fetch user info and update the UI
-        document.addEventListener("DOMContentLoaded", function () {
-            fetchUserInfo();
-        });
-
-        // Logout button click event handler
-        document.getElementById('logout-btn').addEventListener('click', function () {
-            logout();
-        });
-
-        // Function to fetch user info and update the UI
-        function fetchUserInfo() {
-            fetch('/user-info') // Replace with your route to fetch user info
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('user-info').textContent = `Welcome to Dashboard ${data.email}`;
-                })
-                .catch(error => {
-                    console.error('Error fetching user info:', error);
-                });
-        }
-
-        // Function to logout
-        function logout() {
-            fetch('/logout', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}' // Use Laravel's csrf token
-                    }
-                })
-                .then(response => {
-                    if (response.ok) {
-                        window.location.href = '/login'; // Redirect to login page after logout
-                    } else {
-                        console.error('Logout failed:', response.statusText);
-                    }
-                })
-                .catch(error => {
-                    console.error('Logout failed:', error);
-                });
-        }
-    </script>
 </body>
 
 </html>
