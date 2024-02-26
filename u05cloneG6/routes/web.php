@@ -84,7 +84,7 @@ Route::resource('reviews', ReviewsController::class)->only(['index', 'create', '
 //this one is working
 Route::get('/movies', [MovieController::class, 'index']);
 
-//this one is working
+// this one is working
 // Route::get('/modify', [MovieController::class, '']);
 
 Route::get('/modify/create', [MovieController::class, 'create'])->middleware(['auth', 'admin'])->name('modify.create');
@@ -99,6 +99,9 @@ Route::get('/movies', [ActorController::class, 'index'])->name('home');
 
 
 //still in trial
-Route::delete('modify/actor/{id}', [ActorController::class, 'destroy'])->middleware(['auth', 'admin'])->name('actor.destroy');
+Route::delete('modify', [ActorController::class, 'destroy'])->middleware(['auth', 'admin'])->name('actors.destroy');
+Route::get('modify/actors/{id}', [ActorController::class, 'show'])->middleware(['auth', 'admin'])->name('actors.show');
+
+
 
 require __DIR__ . '/auth.php';

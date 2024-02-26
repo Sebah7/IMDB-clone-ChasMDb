@@ -44,9 +44,11 @@ class ActorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $actors = cmdb_actors::find($id);
+        $movies = $actors->movies()->get();
+        return view('modify', ['actors' => $actors, 'movies' => $movies]);
     }
 
     /**
@@ -73,14 +75,8 @@ class ActorController extends Controller
     public function destroy(cmdb_actors $id)
     {
         //finds the actor by specific id
-        $actor = cmdb_actors::find($id);
-
-        //if there isnt an actor found
-        if (!$actor) {
-            abort(404, 'Actor not found');
-        }
-        //to delete the actor
-        $actor->delete();
+        $actors = cmdb_actors::find($id);
+        $actors->delete();
 
         return redirect()->route('modify')->with('success', 'Actor deleted successfully');
     }

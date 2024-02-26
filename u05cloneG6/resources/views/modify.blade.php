@@ -1,50 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Modify</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Modify</title>
+    </head>
 
-<body>
+    <body>
 
-    <h2>Modify functions only for Admin</h>
+        <h2>Modify functions only for Admin</h><br><br>
 
-        <form action="{{ route('movies.store') }}" method="POST">
-            @csrf
-            <div>
-                <label for="name">Movie title:</label>
+            <form action="{{ route('movies.store') }}" method="POST">
+                @csrf
+                <div>
+                    <label for="name">Movie title:</label>
+                    <input type="text" name="name" id="name">
+                    <button type="submit">
+                        Add Movie
+                    </button>
+                </div>
+            </form>
+
+            <!-- Genre Store Controller to add a genre to db from admin in blade. -->
+
+            <!-- Function Store -->
+            <form action="{{ route('genres.store') }}" method="POST">
+                @csrf
+                <label for="name">Genre Name:</label>
                 <input type="text" name="name" id="name">
-            </div>
-            <div>
                 <button type="submit">
-                    Add Movie
+                    Add Genre
                 </button>
-            </div>
-        </form>
-
-        <!-- Genre Store Controller to add a genre to db from admin in blade. -->
-
-        <!-- Function Store -->
-        <form action="{{ route('genres.store') }}" method="POST">
-            @csrf
-            <label for="name">Genre Name:</label>
-            <input type="text" name="name" id="name">
-            <button type="submit">
-                Add Genre
-            </button>
-        </form>
+            </form>
 
 
-        <form action="{{ route('actors.store') }}" method="POST">
-            @csrf
-            <label for="name">Actor Name:</label>
-            <input type="text" name="name" id="name">
-            <button type="submit">
-                Add Actor
-            </button>
-        </form>
-</body>
+            <form action="{{ route('actors.store') }}" method="POST">
+                @csrf
+                <label for="name">Actor Name:</label>
+                <input type="text" name="name" id="name">
+                <button type="submit">
+                    Add Actor
+                </button>
+            </form>
 
-</html>
+    </body>
+
+    </html>
