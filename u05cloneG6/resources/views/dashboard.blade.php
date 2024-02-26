@@ -39,7 +39,7 @@
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <span id="user-info" class="text-sm font-semibold leading-6 text-gray-900"></span>
                 <button id="logout-btn"
-                    class="text-sm font-semibold leading-6 text-gray-900 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md" style="color:white;>Logout</button>
+                    class="text-sm font-semibold leading-6 text-gray-900 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md" style="color:white;">Logout</button>
             </div>
         </nav>
     </header>
