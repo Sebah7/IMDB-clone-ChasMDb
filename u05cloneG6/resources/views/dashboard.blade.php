@@ -37,12 +37,9 @@
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-                    style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">Edit
-                    <span aria-hidden="true">&rarr;</span></a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-                    style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px; color: white;">Log
-                    Out <span aria-hidden="true">&rarr;</span></a>
+                <span id="user-info" class="text-sm font-semibold leading-6 text-gray-900"></span>
+                <button id="logout-btn"
+                    class="text-sm font-semibold leading-6 text-gray-900 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
             </div>
         </nav>
     </header>
@@ -53,11 +50,55 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h2 class="text-xl font-semibold mb-4">Dashboard</h2>
-                    <p class="mb-2">You're logged in as {{ Auth::user()->role ? "user" : "admin" }}</p>
+                    <p id="logged-in-as" class="mb-2"></p>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Fetch user info and update the UI
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchUserInfo();
+        });
+
+        // Logout button click event handler
+        document.getElementById('logout-btn').addEventListener('click', function () {
+            logout();
+        });
+
+        // Function to fetch user info and update the UI
+        function fetchUserInfo() {
+            fetch('/user-info') // Replace with your route to fetch user info
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('user-info').textContent = `Logged in as ${data.name} (${data.email})`;
+                })
+                .catch(error => {
+                    console.error('Error fetching user info:', error);
+                });
+        }
+
+        // Function to logout
+        function logout() {
+            fetch('/logout', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}' // Use Laravel's csrf token
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = '/login'; // Redirect to login page after logout
+                    } else {
+                        console.error('Logout failed:', response.statusText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Logout failed:', error);
+                });
+        }
+    </script>
 </body>
 
 </html>
