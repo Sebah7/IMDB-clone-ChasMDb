@@ -99,7 +99,7 @@
 
     <!--- user adjustments -->
 
-    <div class="userfiltersection" style="display: flex; justify-content: space-between; padding: 10px 20px;">
+    <div class="userfiltersection" style="display: flex; justify-content: space-between; padding: 10px 20px;" id="movies__">
         <div class="left_____" style="margin-top: 15px;">
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900" style="font-weight: 600;">Movies</a>
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900" style="font-weight: 600; margin-left: 30px;">Top Watched</a>
