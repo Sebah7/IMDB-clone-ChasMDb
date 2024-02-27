@@ -97,5 +97,11 @@ Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['a
 Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
 Route::get('/movies', [ActorController::class, 'index'])->name('home');
 
+//Seeing reviews your own reviews and being able to delete them.
+Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->name('reviews.destroy');
+Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->name('userdashboard');
+
+
+
 
 require __DIR__ . '/auth.php';

@@ -1,5 +1,4 @@
 <div>
-
     <form action="{{ route('movies.store') }}" method="POST">
         @csrf
         <div>
@@ -12,7 +11,6 @@
             </button>
         </div>
     </form>
-
     @foreach ($movies as $movie)
     <ul>
         <p>Title: {{ $movie->title }}</p>
@@ -37,11 +35,17 @@
     <p>No movie found with id:5.</p>
     @endif'
 
-    <p>Reviews:</p>
-    @foreach ($movie->reviews as $review)
-    <ul>
-        <li>Stars: {{ $review->stars }}</li>
-        <li>Comment: {{ $review->comment }}</li>
+        @if ($movie->reviews->count() > 0)
+            <p>Reviews:</p>
+            @foreach ($movie->reviews as $review)
+                <ul>
+                    <li>Stars: {{ $review->stars }}</li>
+                    <li>Comment: {{ $review->comment }}</li>
+                </ul>
+            @endforeach
+        @else
+            <p>No reviews for this movie.</p>
+        @endif
     </ul>
 
     @endforeach
@@ -71,12 +75,12 @@
         @endforeach
     </ol>
 
-<br><br>
-   
+    <br><br>
+
     @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
     </div>
-@endif
+    @endif
 
 </div>
