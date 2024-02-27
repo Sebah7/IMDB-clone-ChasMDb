@@ -13,8 +13,14 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = cmdb_movies::all();
+        /**
+         * the with() method gets the actors, genres, ratings, and directors from their respective tables, with the help of the relationships defined in the cmdb_movies model.
+         */
+        
+        $movies = cmdb_movies::with('actors:name', 'genres:name', 'directors:director_name')->get();
         return view('movies', ['movies' => $movies]);
+        // $movies = cmdb_movies::all();
+        // return view('movies', ['movies' => $movies]);
     }
 
     /**
@@ -32,20 +38,40 @@ class MovieController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    { {
-            $movies = $request->validate([
-                'title' => 'required|max:255',
-                'actor' => 'required|max:255',
-                'director' => 'required|max:255',
-                'genre' => 'required|max:255',
-                // Add more fields as needed
-            ]);
-            // Create a new movie
-            cmdb_movies::create($movies);
+    { 
+    $validatedData = $request->validate([
+        'title' => 'required|max:255',
+        'actor' => 'required|max:255',
+        'director' => 'required|max:255',
+        'genre' => 'required|max:255',
+        // Add more fields as needed
+    ]);
 
-            return redirect(route('modify'))->with('success', 'Movie added successfully!');
-        }
-    }
+    // Create a new movie
+    $movie = cmdb_movies::create($validatedData);
+
+    // Attach actors, genres, watchlists, directors to the movie
+    // Assuming that the request contains arrays of IDs named 'actors', 'genres', 'watchlists', 'directors'
+    $movie->actors()->attach($request->actors);
+    $movie->genres()->attach($request->genres);
+    $movie->watchlists()->attach($request->watchlists);
+    $movie->directors()->attach($request->directors);
+
+    return redirect(route('modify'))->with('success', 'Movie added successfully!');
+}
+        // {
+        //     $movies = $request->validate([
+        //         'title' => 'required|max:255',
+        //         'actor' => 'required|max:255',
+        //         'director' => 'required|max:255',
+        //         'genre' => 'required|max:255',
+        //         // Add more fields as needed
+        //     ]);
+        //     // Create a new movie
+        //     cmdb_movies::create($movies);
+
+        //     return redirect(route('modify'))->with('success', 'Movie added successfully!');
+        // }
 
     /**
      * Show the form for editing the specified resource.
