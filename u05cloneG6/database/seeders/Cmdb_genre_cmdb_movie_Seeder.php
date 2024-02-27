@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin\cmdb_genre;
+use App\Models\Admin\cmdb_movies;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,16 +14,15 @@ class Cmdb_genre_cmdb_movie_Seeder extends Seeder
      */
     public function run(): void
     {
-        $genres = DB::table('cmdb_genres')->pluck('id');
-        $movies = DB::table('cmdb_movies')->pluck('id');
+        $genres = cmdb_genre::pluck('id');
+        $movies = cmdb_movies::all();
 
         foreach ($movies as $movie) {
-            DB::table('cmdb_genre_cmdb_movie')->insert([
-                'movie_id' => $movie,
-                'genre_id' => $genres->random(),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            /**
+             * the genres() method here returns from model cmdb_movies belongs to many relation
+             */
+            $randomGenreIds = $genres->random(rand(1, $genres->count()))->toArray();
+            $movie->genres()->attach($randomGenreIds);
         }
     }
 }

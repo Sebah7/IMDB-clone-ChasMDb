@@ -40,22 +40,22 @@ class cmdb_movies extends Model
 
     public function actors() : BelongsToMany
     {
-        return $this->belongsToMany(cmdb_actors::class, 'create_cmdb_movie_actors_table_pivot', 'movie_id', 'actor_id');
+        return $this->belongsToMany(cmdb_actors::class, 'cmdb_actor_cmdb_movie', 'movie_id', 'actor_id');
     }
 
-    public function genres()
+    public function genres()  : BelongsToMany
 {
     return $this->belongsToMany(cmdb_genre::class, 'cmdb_genre_cmdb_movie', 'movie_id', 'genre_id');
 }
 
     public function watchlists() : BelongsToMany
     {
-        return $this->belongsToMany(cmdb_watchlist::class, 'cmdb_watchlist_movie_pivot', 'movie_id', 'watchlist_id');
+        return $this->belongsToMany(cmdb_watchlist::class, 'cmdb_movie_cmdb_watchlist', 'movie_id', 'watchlist_id');
     }
 
     public function directors() : BelongsToMany
     {
-        return $this->belongsToMany(cmdb_director::class, 'cmdb_director_movie_table_pivot', 'movie_id', 'director_id');
+        return $this->belongsToMany(cmdb_director::class, 'cmdb_director_cmdb_movie', 'movie_id', 'director_id');
     }
 
     public function reviews() : HasMany

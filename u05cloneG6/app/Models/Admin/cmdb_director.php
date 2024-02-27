@@ -16,7 +16,7 @@ class cmdb_director extends Model
 
     public function directorMovieRelation() : BelongsToMany
     {
-        return $this->belongsToMany(cmdb_movies::class, 'cmdb_director_movie_table_pivot', 'director_id', 'movie_id');
+        return $this->belongsToMany(cmdb_movies::class, 'cmdb_director_cmdb_movie', 'director_id', 'movie_id');
     }
     
 }
