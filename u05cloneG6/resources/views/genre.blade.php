@@ -54,9 +54,9 @@
     <div class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+                <div class="p-6 text-gray-900 dark:text-gray-100" style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px;">
                     <!-- Genres -->
-                    <h2>{{ __('All Genres') }}</h2>
+                    <h2 style="font-weight: 700;">{{ __('All Genres') }}</h2>
                     @foreach ($genres as $genre)
                     <ul>
                         <p>Genre type: {{ $genre->name }}</p>
