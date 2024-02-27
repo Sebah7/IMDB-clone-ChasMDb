@@ -55,11 +55,11 @@
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <!-- Functionality template -->
-                    <h2>Your Reviews</h2>
+                    <h2 style="font-weight: 700;">Your Reviews</h2>
 
                     @forelse ($userReviews as $review)
                     <div>
-                        <p style="font-weight: 700;">Movie: {{ $review->movieReviewsRelationship->title }}</p>
+                        <p>Movie: {{ $review->movieReviewsRelationship->title }}</p>
                         <p>Stars: {{ $review->stars }}</p>
                         <p>Comment: {{ $review->comment }}</p>
 
