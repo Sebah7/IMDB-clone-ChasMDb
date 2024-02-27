@@ -38,7 +38,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900">John Doe</span>
+                    class="text-sm font-semibold leading-6 text-gray-900">{{ Auth::user()->name }}</span>
                 <form action="#" method="post">
                     @csrf
                     <button type="submit"
@@ -50,42 +50,61 @@
     <br><br><br><br><br>
 
     <!-- Profile Information Section -->
-    <div class="">
-        <section class="bg-white dark:bg-white-800 rounded-lg shadow-lg overflow-hidden mb-12">
-            <header class="p-6 bg-white-200 dark:bg-gray-700 border-b border-gray-300 dark:border-gray-600">
-                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Profile Information
-                </h2>
-                <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Update your account's profile information and email address.
+    <section>
+        <header>
+            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                Profile Information
+            </h2>
+
+            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                Update your account's profile information and email address.
+            </p>
+        </header>
+
+        <form id="send-verification" method="post" action="#">
+            @csrf
+        </form>
+
+        <form method="post" action="#" class="mt-6 space-y-6">
+            @csrf
+            @method('patch')
+
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <input id="name" name="name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" value="John Doe" required autofocus autocomplete="name">
+            </div>
+
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input id="email" name="email" type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" value="{{ Auth::user()->email }}" required autocomplete="email">
+            </div>
+
+            <div>
+                <button type="submit" class="bg-indigo-600 text-white text-sm font-semibold px-4 py-2 rounded-md">Save</button>
+            </div>
+
+            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+            <div>
+                <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
+                    Your email address is unverified.
+
+                    <button form="send-verification" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                        Click here to re-send the verification email.
+                    </button>
                 </p>
-            </header>
-            <form id="send-verification" method="post">
-                @csrf
-            </form>
-            <form method="post" action="#" class="p-6 space-y-6">
-                @csrf
 
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input id="name" name="name" type="text" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" value="John Doe" required autofocus autocomplete="name">
-                </div>
+                @if (session('status') === 'verification-link-sent')
+                <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
+                    A new verification link has been sent to your email address.
+                </p>
+                @endif
+            </div>
+            @endif
+        </form>
+    </section>
 
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input id="email" name="email" type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" value="john@example.com" required autocomplete="email">
-                </div>
-
-                <div class="flex items-center gap-4">
-                    <button type="submit" class="bg-indigo-600 text-white text-sm font-semibold px-4 py-2 rounded-md">Save</button>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
-                </div>
-            </form>
-        </section>
-
-        <div class="text-center text-sm text-gray-600 dark:text-gray-400">
-            Welcome to Dashboard, john@example.com
-        </div>
+    <div class="text-center text-sm text-gray-600 dark:text-gray-400">
+        Welcome to Dashboard, {{ Auth::user()->email }}
     </div>
 </body>
 
