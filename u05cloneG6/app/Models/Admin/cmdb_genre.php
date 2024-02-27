@@ -15,7 +15,7 @@ class cmdb_genre extends Model
     protected $table = 'cmdb_genres';
     protected $fillable = ['name'];
 
-    public function movies()
+    public function movies()  : BelongsToMany
 {
     return $this->belongsToMany(cmdb_movies::class, 'cmdb_genre_cmdb_movie', 'genre_id', 'movie_id');
 }
