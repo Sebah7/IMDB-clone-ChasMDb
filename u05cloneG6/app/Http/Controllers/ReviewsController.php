@@ -63,9 +63,6 @@ class ReviewsController extends Controller
                 // Unauthorized attempt to delete
                 return redirect()->route('userdashboard')->with('error', 'Unauthorized to delete this review');
             }
-        } else {
-            // Review not found
-            return redirect()->route('userdashboard')->with('error', 'Review not found');
         }
     }
 
