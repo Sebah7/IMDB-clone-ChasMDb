@@ -55,10 +55,3 @@ Använd kommandot ```php artisan serve``` för att öppna porten och komma åt s
 
 
 
-
-
-
-
-**Deployment Repo**
-https://github.com/Sebah7/U05-G6-ChasMDb-deploy.git
-
