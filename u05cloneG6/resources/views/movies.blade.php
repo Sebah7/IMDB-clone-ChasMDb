@@ -1,86 +1,32 @@
-<div>
-    <form action="{{ route('movies.store') }}" method="POST">
-        @csrf
-        <div>
-            <label for="name">Movie title:</label>
-            <input type="text" name="name" id="name">
-        </div>
-        <div>
-            <button type="submit">
-                Add Movie
-            </button>
-        </div>
-    </form>
-    @foreach ($movies as $movie)
-    <ul>
-        <p>Title: {{ $movie->title }}</p>
-        <p>Description: {{ $movie->description }}</p>
-        <p>Actor: {{ $movie->actor }}</p>
-        <p>Genre: {{ $movie->genre }}</p>
-        </iframe>
-    </ul>
+<!-- This comment is to Elias/Frontend
+This is the the blade where we want all our movies to be visble. 
+Below is the whole movie table and the data in relation from other models-->
+
+<h2>{{ __('All Movies') }}</h2>
+@foreach ($movies as $movie)
+<p>Movie name: {{ $movie->title }}</p>
+<!-- Each foreach below fetches data from the related models of the movie -->
+<p>Actors: 
+    @foreach ($movie->actors as $actor)
+        {{ $actor->name }},
     @endforeach
-
-
-    <!-- frame:n displayas men länken går inte att köra -->
-    @if($movie = App\Models\Admin\cmdb_movies::find(6))
-
-
-    <!-- en klickbar poster som öppnas upp på samma sida -->
-    <a href="{{ $movie->poster }}" target="_self">
-        <img src="{{ $movie->poster }}" alt="Movie Poster" width="200" height="350">
-    </a>
-
-    @else
-    <p>No movie found with id:5.</p>
-    @endif'
-
-        @if ($movie->reviews->count() > 0)
-            <p>Reviews:</p>
-            @foreach ($movie->reviews as $review)
-                <ul>
-                    <li>Stars: {{ $review->stars }}</li>
-                    <li>Comment: {{ $review->comment }}</li>
-                </ul>
-            @endforeach
-        @else
-            <p>No reviews for this movie.</p>
-        @endif
-    </ul>
-
+    </p>
+    <p>Genres: 
+    @foreach ($movie->genres as $genre)
+        {{ $genre->name }},
     @endforeach
-    <h2>Add a Review</h2>
-    <form action="{{ route('reviews.store') }}" method="post">
-        @csrf
-        <input type="hidden" name="movie_id" value="{{ $movie->id }}">
-
-        <label for="stars">Stars:</label>
-        <input type="number" name="stars" id="stars" required>
-
-        <label for="comment">Comment:</label>
-        <textarea name="comment" id="comment" required></textarea>
-
-        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-
-        <button type="submit">Submit Review</button>
-    </form>
-
-
-    <br><br><br>
-    <ol>
-        @foreach ($actors as $actor)
-        <li>
-            <p>Name of the actor: {{ $actor->name }}</p>
-        </li>
-        @endforeach
-    </ol>
-
-    <br><br>
-
-    @if(session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-    @endif
-
-</div>
+    </p>
+    <p>Director: 
+    @foreach ($movie->directors as $director)
+        {{ $director->name }},
+    @endforeach
+    </p>
+    <p>Ratings: {{ $movie->ratings }}</p>
+    <!-- the !! is used to display the html tags. And in this cas it is used to display the trailer -->
+    <p>Trailer: {!! $movie->trailer !!}</p>
+    <!-- the img tag is to display the poster -->
+    <p>Poster: <img src="{{ $movie->poster }}" alt="Poster"></p>
+    <p>Runtime: {{ $movie->runtime }}</p>
+    <p>Language: {{ $movie->language }}</p>
+    <p>Description: {{ $movie->description }}</p>
+@endforeach
