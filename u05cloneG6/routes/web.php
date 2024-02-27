@@ -99,8 +99,8 @@ Route::get('/movies', [ActorController::class, 'index'])->name('home');
 
 
 //still in trial
-Route::delete('modify', [ActorController::class, 'destroy'])->middleware(['auth', 'admin'])->name('actors.destroy');
-Route::get('modify/actors/{id}', [ActorController::class, 'show'])->middleware(['auth', 'admin'])->name('actors.show');
+Route::delete('modify/', [ActorController::class, 'destroy'])->middleware(['auth', 'admin'])->name('actors.destroy');
+Route::get('movies/actors/{id}', [ActorController::class, 'show'])->middleware(['auth', 'admin'])->name('actors.show');
 
 
 

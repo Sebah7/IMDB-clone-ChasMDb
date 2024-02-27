@@ -29,14 +29,19 @@ class ActorController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required|unique:cmdb_actors|max:255',
+
         ]);
 
         cmdb_actors::create([
             'name' => $request->name,
+            //'name' => $validated['name']
 
         ]);
+
+        // '$actors->movies()->attach($request->movies);'
 
         return redirect()->route('modify')->with('success', 'Actor created successfully');
     }
@@ -72,9 +77,15 @@ class ActorController extends Controller
      */
 
 
-    public function destroy(cmdb_actors $actors)
+    public function destroy(cmdb_actors $name)
     {
-        $actors = cmdb_actors::find($actors);
+        $actor = cmdb_actors::where('name', $name)->first();
+
+        if (!$actor) {
+            return response('Actor not found', 404);
+        }
+
+        $actor->delete();
 
         return redirect()->route('modify')->with('success', 'Actor deleted successfully');
     }
