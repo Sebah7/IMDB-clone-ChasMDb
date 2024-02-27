@@ -101,8 +101,8 @@ Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['au
 Route::get('/movies', [ActorController::class, 'index'])->name('home');
 
 //Seeing reviews your own reviews and being able to delete them.
-Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->name('reviews.destroy');
-Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->name('userdashboard');
+Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth','verified'])->name('reviews.destroy');
+Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middleware(['auth','verified'])->name('userdashboard');
 
 
 
