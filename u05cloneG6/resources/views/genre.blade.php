@@ -54,12 +54,12 @@
     <div class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
-                <div class="p-6 text-gray-900 dark:text-gray-100" style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px;">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
                     <!-- Genres -->
-                    <h2 style="font-weight: 700;">{{ __('All Genres') }}</h2>
+                    <h2>{{ __('All Genres') }}</h2>
                     @foreach ($genres as $genre)
-                    <ul>
-                        <p>Genre type: {{ $genre->name }}</p>
+                    <ul style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px;">
+                        <p style="font-weight: 700;">Genre type: {{ $genre->name }}</p>
                         <a href="{{ route('genres.show', $genre->id) }}">{{ $genre->name }}</a>
                         <!-- Delete button -->
                         <form action="{{ route('genres.destroy', $genre->id) }}" method="POST">
