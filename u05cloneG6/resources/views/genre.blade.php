@@ -58,7 +58,7 @@
                     <!-- Genres -->
                     <h2>{{ __('All Genres') }}</h2>
                     @foreach ($genres as $genre)
-                    <ul style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px;">
+                    <ul style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px; margin-top:30px;">
                         <p style="font-weight: 700;">Genre type: {{ $genre->name }}</p>
                         <a href="{{ route('genres.show', $genre->id) }}">{{ $genre->name }}</a>
                         <!-- Delete button -->
