@@ -38,7 +38,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900">{{ Auth::user()->name }}</span>
+                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top:7px;">{{ Auth::user()->name }}</span>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit"
