@@ -29,7 +29,7 @@ class cmdb_movies extends Model
       */ 
       use SoftDeletes;
     protected $table = 'cmdb_movies';
-    protected $fillable = ['title', 'actor', 'director', 'trailer', 'poster', 'runtime', 'language', 'rating', 'description'];
+    protected $fillable = ['title', 'description', 'ratings', 'genre', 'director', 'actor', 'language', 'release_date', 'runtime', 'poster', 'trailer'];
 
 
     /**
