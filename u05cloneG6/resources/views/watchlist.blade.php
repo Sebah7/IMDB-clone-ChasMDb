@@ -33,7 +33,7 @@
                     >{{ Auth::user()->name }}</span>
                 
                 <button type="submit"
-                    class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Setings</button>
+                    class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md" style="width:fit-content; height:fit-content; padding: 5px 10px>Setings</button>
             
                 <form action="/logout" method="post">
                     @csrf
