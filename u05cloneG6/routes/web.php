@@ -24,7 +24,7 @@ use App\Http\Controllers\DirectorController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-/
+
 // Den har ar en test. När movies routes är pushat vi testar och merga igen. 
 Route::get('/modify', function () {
     return view('modify');
