@@ -35,15 +35,12 @@
             <form action="{{ route('actors.destroy') }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <label for="actor">Välj en skådespelare att radera:</label>
-                <select name="actor_id" id="actor">
-                    @foreach ($actors as $actor)
-                    <option value="{{ $actor->id }}">{{ $actor->name }}</option>
-                    @endforeach
-                </select>
-                <button type="submit">Delete Actor</button>
+                <label for="name">Actor Name:</label>
+                <input type="text" name="name" id="name">
+                <button type="submit">
+                    Delete Actor
+                </button>
             </form>
-
 
             <br><br>
             <p>Add a movie to the db</p>
