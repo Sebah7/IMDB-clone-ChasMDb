@@ -42,9 +42,8 @@
                 </form>
             </div>
         </nav>
-    </header>
-<h1
-    style="margin-top:40px;>My Watchlist</h1>
+    </header><br /><br /><br /><br />
+<h1>My Watchlist</h1>
 
 @if ($movies->isEmpty())
     <p>Your watchlist is empty.</p>
@@ -52,14 +51,16 @@
     <ul>
         @foreach ($movies as $item) 
             <li style="
-            background-color:rgb(62, 62, 238);
+            background:linear-gradient(to top left, rgb(167, 105, 255), rgb(238, 181, 255));
             color: white;
-            width:fit-content;
-            height: fit-content;
+            width:70%;
+            height: 40px;
             padding: 5px 10px;
-            margin-top:30px;
-            justify-content:center;
-            border-redius: 5px;
+            margin-top: 30px;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 25px;
+
             ">
                 @if ($item->id)
                     <span>{{ $item->id }} - Title: {{ $item->title }}</span>
