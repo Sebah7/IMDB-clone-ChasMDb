@@ -51,8 +51,8 @@ Below is the whole movie table and the data in relation from other models-->
     <!-- Main content -->
 
     <div class="moviesection">
-    <div class="py-20">
-        <div style="display:flex;>
+    <div class="py-20" style="display:flex;>
+        <div>
             <div>
                 <div>
                     <!-- Movies -->
