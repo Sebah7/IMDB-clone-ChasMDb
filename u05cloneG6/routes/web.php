@@ -112,7 +112,7 @@ Route::get('/cast', [ActorController::class, 'getactorsanddirectors']);
 
 
 //still in trial
-Route::delete('modify/', [ActorController::class, 'destroy'])->middleware(['auth', 'admin'])->name('actors.destroy');
+Route::delete('modify', [ActorController::class, 'destroy'])->middleware(['auth', 'admin'])->name('actors.destroy');
 Route::get('movies/actors/{id}', [ActorController::class, 'show'])->middleware(['auth', 'admin'])->name('actors.show');
 
 

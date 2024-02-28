@@ -21,7 +21,7 @@
                     Add Genre
                 </button>
             </form>
-
+            <br>
 
             <form action="{{ route('actors.store') }}" method="POST">
                 @csrf
@@ -30,18 +30,20 @@
                 <button type="submit">
                     Add Actor
                 </button>
-
             </form>
 
             <form action="{{ route('actors.destroy') }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <label for="name">Actor Name:</label>
-                <input type="text" name="name" id="name">
-                <button type="submit">
-                    Delete Actor
-                </button>
+                <label for="actor">Välj en skådespelare att radera:</label>
+                <select name="actor_id" id="actor">
+                    @foreach ($actors as $actor)
+                    <option value="{{ $actor->id }}">{{ $actor->name }}</option>
+                    @endforeach
+                </select>
+                <button type="submit">Delete Actor</button>
             </form>
+
 
             <br><br>
             <p>Add a movie to the db</p>
@@ -60,10 +62,15 @@
                 <input type="text" id="genre" name="genre" required maxlength="255">
 
                 <!-- Add more input fields as needed --><br>
-
-
-                <button type="submit">Create Movie</button>
-            </form>
+                <!-- Function Store -->
+                <form action="{{ route('genres.store') }}" method="POST">
+                    @csrf
+                    <label for="name">Genre Name:</label>
+                    <input type="text" name="name" id="name">
+                    <button type="submit">
+                        Add Genre
+                    </button>
+                </form>
 
     </body>
 
