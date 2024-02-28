@@ -50,7 +50,7 @@ Below is the whole movie table and the data in relation from other models-->
 
     <!-- Main content -->
     <!-- Main content -->
-<div class="py-20">
+<div class="py-20" style="flex-wrap: wrap;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
             <div class="p-6 text-gray-900 dark:text-gray-100">
