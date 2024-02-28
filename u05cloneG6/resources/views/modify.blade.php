@@ -21,7 +21,7 @@
                     Add Genre
                 </button>
             </form>
-            <br>
+
 
             <form action="{{ route('actors.store') }}" method="POST">
                 @csrf

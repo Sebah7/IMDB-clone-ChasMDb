@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>IMDB-Kolne</title>
+    <title>CMDb-G6</title>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
           <div class="flex lg:flex-1" style="margin-top: -11px;">
             <h1>
                 <a href="#" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
-                CMDB
+                CMDb
                 </a>
             </h1>
           </div>
@@ -27,9 +27,9 @@
             </button>
           </div>
           <div class="hidden lg:flex lg:gap-x-12">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Top Watched</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
+            <a href="./movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+            <a href="./genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
+            <a href="./watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
           </div>
           <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="/register" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">SignUp <span aria-hidden="true">&rarr;</span></a>
@@ -99,7 +99,7 @@
 
     <!--- user adjustments -->
 
-    <div class="userfiltersection" style="display: flex; justify-content: space-between; padding: 10px 20px;">
+    <div class="userfiltersection" style="display: flex; justify-content: space-between; padding: 10px 20px;" id="movies__">
         <div class="left_____" style="margin-top: 15px;">
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900" style="font-weight: 600;">Movies</a>
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900" style="font-weight: 600; margin-left: 30px;">Top Watched</a>

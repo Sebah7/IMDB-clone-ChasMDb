@@ -17,6 +17,6 @@ class cmdb_actors extends Model
 
     public function movies(): BelongsToMany
     {
-        return $this->belongsToMany(cmdb_movies::class, 'cmdb_movies_actor_table_pivot', 'actor_id', 'movie_id');
+        return $this->belongsToMany(cmdb_movies::class, 'cmdb_actor_cmdb_movie', 'actor_id', 'movie_id');
     }
 }

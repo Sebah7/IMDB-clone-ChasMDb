@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Admin\cmdb_movies;
 use App\Models\Admin\cmdb_reviews;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class ReviewsController extends Controller
@@ -14,11 +16,12 @@ class ReviewsController extends Controller
         $movies = cmdb_movies::with('reviews')->get();
 
         return view('movies', compact('movies'));
+
     }
 
     public function create()
     {
-
+        $movies = cmdb_movies::all();
         return view('reviews');
     }
 
@@ -31,21 +34,15 @@ class ReviewsController extends Controller
             'user_id' => 'nullable|integer',
         ]);
 
-
         $review = cmdb_reviews::create($request->all());
 
         return back()->with('success', 'Review created successfully');
 
         //alternativ route 
-        //return redirect()->route('movie.index', $request->input('movie_id'))->with('success', 'Review created successfully');
-        
-        
+        //return redirect()->route('movie.index', $request->input('movie_id'))->with('success', 'Review created successfully');  
 
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         $movie = cmdb_movies::with('reviews')->findOrFail($id);
@@ -53,27 +50,25 @@ class ReviewsController extends Controller
         // Rest of the method
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function destroy($id)
     {
-        //
+        $review = cmdb_reviews::find($id);
+    
+        if ($review) {
+            // Check if the authenticated user owns the review
+            if ($review->user_id == Auth::id()) {
+                $review->delete();
+                return redirect()->route('userdashboard')->with('success', 'Review deleted successfully');
+            } else {
+                // Unauthorized attempt to delete
+                return redirect()->route('userdashboard')->with('error', 'Unauthorized to delete this review');
+            }
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function userDashboard()
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $userReviews = cmdb_reviews::with('movieReviewsRelationship')->where('user_id', Auth::id())->get();
+        return view('userdashboard', compact('userReviews'));
     }
 }

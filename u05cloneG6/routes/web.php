@@ -8,6 +8,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\DirectorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,11 +55,15 @@ Route::get('/genres/{id}', [GenreController::class, 'show'])->name('genres.show'
 Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth', 'admin'])->name('genres.create');
 // Route for storing a newly created genre
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
+Route::resource('genres', GenreController::class)->except(['destroy']);
+Route::delete('/genres/{id}', [GenreController::class, 'destroy'])->name('genres.destroy');
+
 
 
 //This is routes to my WatchlistController
 Route::middleware(['auth'])->group(function () {
     Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
+    // Route::get('/watchlist/{watchlist_id}', [WatchlistController::class,'index']);
     Route::post('/watchlist', [WatchlistController::class, 'store'])->name('watchlist.store');
     Route::delete('/watchlist/{watchlist}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');
 });
@@ -95,7 +100,15 @@ Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['a
 
 //ActorController connection WORKING. First one is admin only, second one is public.
 Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
-Route::get('/movies', [ActorController::class, 'index'])->name('home');
+// Route::get('/movies', [ActorController::class, 'index'])->name('home');
+
+//Seeing reviews your own reviews and being able to delete them.
+Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('reviews.destroy');
+Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middleware(['auth', 'verified'])->name('userdashboard');
+
+
+//This route takes in data from the getactorsanddirectors function in the actorcontroller, where we call for directortable.
+Route::get('/cast', [ActorController::class, 'getactorsanddirectors']);
 
 
 //still in trial

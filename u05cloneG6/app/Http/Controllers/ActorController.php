@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin\cmdb_actors;
+use App\Models\Admin\cmdb_director;
+use App\Models\Admin\cmdb_genre;
 
 class ActorController extends Controller
 {
@@ -14,8 +16,21 @@ class ActorController extends Controller
     public function index()
     {
         $actors = cmdb_actors::all();
-        return view('movies', ['actors' => $actors]);
+        return view('cast', ['actors' => $actors]);
     }
+
+
+    public function getactorsanddirectors()
+    {
+        $actors = cmdb_actors::all();
+        $directors = cmdb_director::all();
+        $genres = cmdb_genre::all();
+
+        return view('cast', ['actors' => $actors, 'directors' => $directors, 'genre' => $genres]);
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      */
