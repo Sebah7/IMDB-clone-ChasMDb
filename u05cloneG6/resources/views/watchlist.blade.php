@@ -43,7 +43,8 @@
             </div>
         </nav>
     </header>
-<h1>My Watchlist</h1>
+<h1
+    style="margin-top:40px;>My Watchlist</h1>
 
 @if ($movies->isEmpty())
     <p>Your watchlist is empty.</p>
