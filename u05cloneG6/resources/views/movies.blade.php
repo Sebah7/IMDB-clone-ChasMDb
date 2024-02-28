@@ -54,7 +54,7 @@ Below is the whole movie table and the data in relation from other models-->
     <div class="py-20">
         <div>
             <div>
-                <div>
+                <div style="display:flex;>
                     <!-- Movies -->
                     <ul>
                         <h2>{{ __('All Movies') }}</h2>
