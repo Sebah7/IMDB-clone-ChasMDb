@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Admin\cmdb_director;
 
 class DirectorController extends Controller
 {
@@ -11,7 +12,8 @@ class DirectorController extends Controller
      */
     public function index()
     {
-        //
+        $directors = cmdb_director::all();
+        return view('movies', ['director' => $directors]);
     }
 
     /**

@@ -8,6 +8,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\DirectorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +77,7 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 
 Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
 //inloggade som kan hantera reviews
-Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth','verified']);
+Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth', 'verified']);
 //alternativ för return i controller
 //Route::resource('movies', MovieController::class);
 
@@ -96,6 +97,8 @@ Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['a
 //ActorController connection WORKING. First one is admin only, second one is public.
 Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
 Route::get('/movies', [ActorController::class, 'index'])->name('home');
+
+Route::get('/movies', [DirectorController::class, 'index']);
 
 
 require __DIR__ . '/auth.php';
