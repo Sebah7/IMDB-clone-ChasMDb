@@ -8,6 +8,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ActorController;
+use App\Http\Controllers\DirectorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,7 @@ Route::delete('/genres/{id}', [GenreController::class, 'destroy'])->name('genres
 //This is routes to my WatchlistController
 Route::middleware(['auth'])->group(function () {
     Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
+    // Route::get('/watchlist/{watchlist_id}', [WatchlistController::class,'index']);
     Route::post('/watchlist', [WatchlistController::class, 'store'])->name('watchlist.store');
     Route::delete('/watchlist/{watchlist}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');
 });
@@ -62,12 +64,14 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
 //inloggade som kan hantera reviews
-Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth','verified']);
+Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth', 'verified']);
 //alternativ för return i controller
 //Route::resource('movies', MovieController::class);
 
 //this one is working
 Route::get('/movies', [MovieController::class, 'index']);
+//Working. For randomized movies to be seen on welcome.blade
+Route::get('/', [MovieController::class, 'movieRandomizer']);
 
 // Route::get('/modify/edit', [MovieController::class, 'edit'])->middleware(['auth', 'admin'])->name('modify.edit');
 // Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['auth', 'admin'])->name('modify.update');
@@ -75,8 +79,11 @@ Route::get('/movies', [MovieController::class, 'index']);
 // Route::get('/movies', [ActorController::class, 'index'])->name('home');
 
 //Seeing reviews your own reviews and being able to delete them.
-Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth','verified'])->name('reviews.destroy');
-Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middleware(['auth','verified'])->name('userdashboard');
+Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('reviews.destroy');
+Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middleware(['auth', 'verified'])->name('userdashboard');
 
+
+//This route takes in data from the getactorsanddirectors function in the actorcontroller, where we call for directortable.
+Route::get('/cast', [ActorController::class, 'getactorsanddirectors']);
 
 require __DIR__ . '/auth.php';

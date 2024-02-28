@@ -26,6 +26,12 @@ class MovieController extends Controller
         // return view('movies', ['movies' => $movies]);
     }
 
+    public function MovieRandomizer()
+    {
+        $movies = cmdb_movies::take(5)->get();
+        return view('welcome', ['movies' => $movies]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
