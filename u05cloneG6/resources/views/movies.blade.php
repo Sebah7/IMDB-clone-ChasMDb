@@ -54,9 +54,9 @@ Below is the whole movie table and the data in relation from other models-->
     <div class="py-20">
         <div>
             <div>
-                <div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 10px 30px">
+                <div>
                     <!-- Movies -->
-                    <ul class="movie__x_y" style="padding: 10px 20px; margin-top:30px;">
+                    <ul>
                         <h2>{{ __('All Movies') }}</h2>
                         @foreach ($movies as $movie)
                         
