@@ -56,6 +56,8 @@
             width:fit-content;
             height: fit-content;
             padding: 5px 10px;
+            margin-top:30px;
+                justify-content:center
             ">
                 @if ($item->id)
                     <span>{{ $item->id }} - Title: {{ $item->title }}</span>
