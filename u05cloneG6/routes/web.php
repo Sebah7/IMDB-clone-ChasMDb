@@ -21,9 +21,10 @@ use App\Http\Controllers\DirectorController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+/
 // Den har ar en test. När movies routes är pushat vi testar och merga igen. 
 Route::get('/modify', function () {
     return view('modify');
@@ -89,7 +90,7 @@ Route::resource('reviews', ReviewsController::class)->only(['index', 'create', '
 //this one is working
 Route::get('/movies', [MovieController::class, 'index']);
 //Working. For randomized movies to be seen on welcome.blade
-Route::get('/welcome', [MovieController::class, 'movieRandomizer']);
+Route::get('/', [MovieController::class, 'movieRandomizer']);
 
 //this one is working
 // Route::get('/modify', [MovieController::class, '']);
