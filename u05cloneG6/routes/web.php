@@ -55,6 +55,9 @@ Route::get('/genres/{id}', [GenreController::class, 'show'])->name('genres.show'
 Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth', 'admin'])->name('genres.create');
 // Route for storing a newly created genre
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
+Route::resource('genres', GenreController::class)->except(['destroy']);
+Route::delete('/genres/{id}', [GenreController::class, 'destroy'])->name('genres.destroy');
+
 
 
 //This is routes to my WatchlistController
@@ -96,7 +99,13 @@ Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['a
 
 //ActorController connection WORKING. First one is admin only, second one is public.
 Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
-Route::get('/movies', [ActorController::class, 'index'])->name('home');
+// Route::get('/movies', [ActorController::class, 'index'])->name('home');
+
+//Seeing reviews your own reviews and being able to delete them.
+Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth','verified'])->name('reviews.destroy');
+Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middleware(['auth','verified'])->name('userdashboard');
+
+
 
 Route::get('/movies', [DirectorController::class, 'index']);
 

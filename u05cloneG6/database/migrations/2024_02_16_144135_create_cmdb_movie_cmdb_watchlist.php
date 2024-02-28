@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cmdb_watchlist_movie_pivot', function (Blueprint $table) {
+        Schema::create('cmdb_movie_cmdb_watchlist', function (Blueprint $table) {
             $table->unsignedBigInteger('watchlist_id');
             $table->unsignedBigInteger('movie_id');
             $table->timestamps();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cmdb_watchlist_movie_pivot');
+        Schema::dropIfExists('cmdb_movie_cmdb_watchlist');
     }
 };

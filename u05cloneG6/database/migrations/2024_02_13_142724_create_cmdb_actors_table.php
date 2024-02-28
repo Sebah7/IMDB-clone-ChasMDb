@@ -17,6 +17,7 @@ return new class extends Migration
             // Add more columns or modify data types as needed based on your specific requirements.
 
             $table->timestamps();
+            $table->softDeletes(); // Creates a 'deleted_at' column for soft deletes
         });
     }
 

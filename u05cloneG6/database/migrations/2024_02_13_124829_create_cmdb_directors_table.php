@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('director_name');
             $table->timestamps();
+            $table->softDeletes(); // Creates a 'deleted_at' column for soft deletes
         });
     }
 

@@ -8,10 +8,11 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Renamed the pivot table here and in the respective models.
      */
     public function up(): void
     {
-        Schema::create('cmdb_movie_actors_table_pivot', function (Blueprint $table) {
+        Schema::create('cmdb_actor_cmdb_movie', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('movie_id');
             $table->unsignedBigInteger('actor_id');
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cmdb_movie_actors_table_pivot');
+        Schema::dropIfExists('cmdb_actor_cmdb_movie');
     }
 };

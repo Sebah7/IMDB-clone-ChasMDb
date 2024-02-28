@@ -26,15 +26,27 @@
 
         <!-- Genre Store Controller to add a genre to db from admin in blade. -->
 
-        <!-- Function Store -->
-        <form action="{{ route('genres.store') }}" method="POST">
+                  <!-- Function Store -->
+                  <form action="{{ route('genres.store') }}" method="POST">
+                    @csrf
+                    <label for="name">Genre Name:</label>
+                        <input type="text" name="name" id="name">
+                        <button type="submit">
+                            Add Genre
+                        </button>
+                  </form>
+
+                  @foreach ($genres as $genres)
+            <ul>
+                <p>Genre type: {{ $genres-> name }}</p>
+            </ul>
+         Delete Button
+        <form action="{{ route('genres.destroy', $genre->id) }}" method="POST">
             @csrf
-            <label for="name">Genre Name:</label>
-            <input type="text" name="name" id="name">
-            <button type="submit">
-                Add Genre
-            </button>
+            @method('delete')
+            <button type="submit" onclick="return confirm('Are you sure you want to delete this genre?')">Delete</button>
         </form>
+    </div>
 
 
         <form action="{{ route('actors.store') }}" method="POST">

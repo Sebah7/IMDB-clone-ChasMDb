@@ -3,10 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\cmdb_genre;
+use App\Models\Admin\cmdb_movies;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
+
+    /**
+     * The constratct method will make sure that only admin can create and store a new genre.
+     */
+    public function __construct()
+{
+    $this->middleware(['auth', 'admin'])->only(['create', 'store']);
+}
     /**
      * Display a listing of the resource.
      */
@@ -46,23 +55,15 @@ class GenreController extends Controller
     public function show(string $id)
     {
         $genres = cmdb_genre::find($id);
-        return view('genre', ['genres' => $genres]);
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        if ($genres === null) {
+            // No genre found with the given ID
+            abort(404, 'Genre not found');
+        }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        $movies = $genres->movies; // get all movies related to this genre
+
+        return view('genre', ['genres' => [$genres], 'movies' => $movies]);
     }
 
     /**
@@ -70,6 +71,11 @@ class GenreController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $genres = cmdb_genre::find($id);
+        $genres->delete($id);
+
+        return redirect()->route('genre')
+        ->with('success', 'Genre deleted successfully.');
+
     }
 }
