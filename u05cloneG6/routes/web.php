@@ -92,10 +92,10 @@ Route::get('/movies', [MovieController::class, 'index']);
 // this one is working
 // Route::get('/modify', [MovieController::class, '']);
 
-Route::get('/modify/create', [MovieController::class, 'create'])->middleware(['auth', 'admin'])->name('modify.create');
-Route::post('/modify/save', [MovieController::class, 'store'])->middleware(['auth', 'admin'])->name('modify.store');
-Route::get('/modify/edit', [MovieController::class, 'edit'])->middleware(['auth', 'admin'])->name('modify.edit');
-Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['auth', 'admin'])->name('modify.update');
+// Route::get('/modify/create', [MovieController::class, 'create'])->middleware(['auth', 'admin'])->name('modify.create');
+// Route::post('/modify/save', [MovieController::class, 'store'])->middleware(['auth', 'admin'])->name('modify.store');
+// Route::get('/modify/edit', [MovieController::class, 'edit'])->middleware(['auth', 'admin'])->name('modify.edit');
+// Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['auth', 'admin'])->name('modify.update');
 
 
 //ActorController connection WORKING. First one is admin only, second one is public.
