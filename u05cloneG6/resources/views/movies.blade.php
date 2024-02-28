@@ -52,9 +52,9 @@ Below is the whole movie table and the data in relation from other models-->
 
     <div class="moviesection">
     <div class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-            <div class="bg-white overflow-hidden" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-                <div class="p-6 text-gray-900 dark:text-gray-100" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div>
+            <div>
+                <div style="display: flex; justify-content: space-around; flex-wrap: wrap; padding: 10px 30px">
                     <!-- Movies -->
                     <ul class="movie__x_y" style="padding: 10px 20px; margin-top:30px;">
                         <h2>{{ __('All Movies') }}</h2>
