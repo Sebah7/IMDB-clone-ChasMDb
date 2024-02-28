@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\cmdb_actors;
+use App\Models\Admin\cmdb_director;
+use App\Models\Admin\cmdb_genre;
 use App\Models\Admin\cmdb_movies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,52 +29,73 @@ class MovieController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    // public function create()
+    // {
+    //     // $movies = cmdb_movies::create();
+    //     // return view('movies.index', compact('movies'));
+    //     return view('modify');
+    // }
+
+    public function getActorsAndDirectors()
+{
+    $actors = cmdb_actors::all();
+    $directors = cmdb_director::all();
+    $genres = cmdb_genre::all();
+
+    return view('modify', ['actors' => $actors, 'directors' => $directors, 'genres' => $genres]);
+}
+
     public function create()
-    {
-        $movies = cmdb_movies::create();
-        return view('movies.index', compact('movies'));
-    }
+{
+    $actors = cmdb_actors::all();
+    $directors = cmdb_director::all();
+    $genres = cmdb_genre::all();
 
-
-
+    return view('modify', compact('actors', 'directors', 'genres'));
+}
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     { 
+        /**
+         * The validate method is going to return validated data or give an expection if the validation fails.
+         * Then it will hold the validated data in the $validatedData variable.
+         * The attach method is going to attach actors, genres and directors to the movie
+         */
     $validatedData = $request->validate([
         'title' => 'required|max:255',
-        'actor' => 'required|max:255',
-        'director' => 'required|max:255',
-        'genre' => 'required|max:255',
-        // Add more fields as needed
+        'actors' => 'required|array',
+        'directors' => 'required|array',
+        'genres' => 'required|array',
+        'description' => 'nullable|string',
+        'language' => 'required|string',
+        'release_date' => 'required|date',
+        'ratings' => 'required|integer',
+        'runtime' => 'required|integer',
+        'poster' => 'required|string',
+        'trailer' => 'required|string',
     ]);
 
     // Create a new movie
-    $movie = cmdb_movies::create($validatedData);
+    $movie = cmdb_movies::create([
+        'title' => $validatedData['title'],
+        'description' => $validatedData['description'],
+        'language' => $validatedData['language'],
+        'release_date' => $validatedData['release_date'],
+        'ratings' => $validatedData['ratings'],
+        'runtime' => $validatedData['runtime'],
+        'poster' => $validatedData['poster'],
+        'trailer' => $validatedData['trailer'],
+    ]);
+    
+    $movie->actors()->attach($validatedData['actors']);
+    $movie->genres()->attach($validatedData['genres']);
+    $movie->directors()->attach($validatedData['directors']);
 
-    // Attach actors, genres, watchlists, directors to the movie
-    // Assuming that the request contains arrays of IDs named 'actors', 'genres', 'watchlists', 'directors'
-    $movie->actors()->attach($request->actors);
-    $movie->genres()->attach($request->genres);
-    $movie->watchlists()->attach($request->watchlists);
-    $movie->directors()->attach($request->directors);
-
-    return redirect(route('modify'))->with('success', 'Movie added successfully!');
+    return redirect(route('modify'))->with('movie_success', 'Movie added successfully!');
 }
-        // {
-        //     $movies = $request->validate([
-        //         'title' => 'required|max:255',
-        //         'actor' => 'required|max:255',
-        //         'director' => 'required|max:255',
-        //         'genre' => 'required|max:255',
-        //         // Add more fields as needed
-        //     ]);
-        //     // Create a new movie
-        //     cmdb_movies::create($movies);
 
-        //     return redirect(route('modify'))->with('success', 'Movie added successfully!');
-        // }
 
     /**
      * Show the form for editing the specified resource.
