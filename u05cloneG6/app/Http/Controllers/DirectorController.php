@@ -13,7 +13,7 @@ class DirectorController extends Controller
     public function index()
     {
         $directors = cmdb_director::all();
-        return view('movies', ['director' => $directors]);
+        return view('cast', ['directors' => $directors]);
     }
 
     /**

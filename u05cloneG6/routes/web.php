@@ -102,12 +102,12 @@ Route::post('/modify/actor', [ActorController::class, 'store'])->middleware(['au
 // Route::get('/movies', [ActorController::class, 'index'])->name('home');
 
 //Seeing reviews your own reviews and being able to delete them.
-Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth','verified'])->name('reviews.destroy');
-Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middleware(['auth','verified'])->name('userdashboard');
+Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('reviews.destroy');
+Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middleware(['auth', 'verified'])->name('userdashboard');
 
 
-
-Route::get('/movies', [DirectorController::class, 'index']);
+//This route takes in data from the getactorsanddirectors function in the actorcontroller, where we call for directortable.
+Route::get('/cast', [ActorController::class, 'getactorsanddirectors']);
 
 
 require __DIR__ . '/auth.php';
