@@ -51,13 +51,27 @@ Below is the whole movie table and the data in relation from other models-->
     <!-- Main content -->
     <!-- Main content -->
 
-    <div style="flex-wrap: wrap;">
+    <style>
+            .moviesection{
+                padding: 0 30px;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-top: 30px;
+            }
+
+            .movie__x_y{
+                margin-top: 30px;
+            }
+        </style>
+
+    <div class="moviesection">
         <div class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <!-- Movies -->
-                        <ul style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px; margin-top:30px;">
+                        <ul class="movie__x_y" style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px; margin-top:30px;">
                             <h2>{{ __('All Movies') }}</h2>
                             @foreach ($movies as $movie)
                             
