@@ -1,13 +1,13 @@
 <h1>My Watchlist</h1>
 
-@if ($watchlist->isEmpty())
+@if ($movies->isEmpty())
     <p>Your watchlist is empty.</p>
 @else
     <ul>
-        @foreach ($watchlist as $item) 
+        @foreach ($movies as $item) 
             <li>
                 @if ($item->id)
-                    <span>{{ $item->id }} - Title: {{ $item->id }}</span>
+                    <span>{{ $item->id }} - Title: {{ $item->title }}</span>
                 @else
                     <span>Movie not available</span>
                 @endif
@@ -15,10 +15,3 @@
         @endforeach
     </ul>
 @endif
-    <!-- <ul>
-        @foreach ($watchlists as $watchlist)
-            <li>
-                <a href="{{ url('/watchlist/'.$watchlist->id) }}">{{ $watchlist->id}}</a>
-            </li>
-            @endforeach
-    </ul> -->

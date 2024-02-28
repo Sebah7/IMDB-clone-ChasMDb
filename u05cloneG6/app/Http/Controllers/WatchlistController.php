@@ -13,18 +13,16 @@ class WatchlistController extends Controller
     public function index()
     {
        // Retrieve the current authenticated user
-        $user = Auth::user();
+        $user_id = Auth::user()->id;
 
-        dd($user->id);
 
        // Get the watchlist for the user with eager loading for the associated movie data
-        $watchlist = cmdb_watchlist::where('id')->where('user_id', $user->id)->first();
+        $watchlist = cmdb_watchlist::where('user_id', $user_id)->first();
        
-        dd($watchlist);
        
         $movies = $watchlist->watchlistMovieRelation()->get();
 
-        return view('watchlist', compact('watchlist'));
+        return view('watchlist', ['watchlist' => $watchlist, 'movies' => $movies]);
 
        
        
