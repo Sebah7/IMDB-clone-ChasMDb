@@ -64,12 +64,15 @@
                         <p style="font-weight: 700;">Genre type: {{ $genre->name }}</p>
                         <a href="{{ route('genres.show', $genre->id) }}">{{ $genre->name }}</a>
                         <!-- Delete button -->
+                        <!-- The if statement checks if the user is logged in and if the user's role is 0. If both conditions are true, the delete button is displayed. -->
+                        @if (auth()->user() && auth()->user()->role == '0')
                         <form action="{{ route('genres.destroy', $genre->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit"
                                 class="text-red-600 dark:text-red-400 mt-2">Delete</button>
                         </form>
+                        @endif
                     </ul>
                     @endforeach
 

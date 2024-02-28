@@ -40,11 +40,11 @@ Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'veri
 
 // Modify blade and store and create methods
 Route::get('/modify', [MovieController::class, 'getActorsAndDirectors'])->middleware(['auth', 'admin'])->name('modify');
-Route::get('/create', [MovieController::class, 'create'])->name('movie.create');
-Route::post('/create', [MovieController::class, 'store'])->name('movie.store');
+Route::get('/create', [MovieController::class, 'create'])->middleware(['auth', 'admin'])->name('movie.create');
+Route::post('/create', [MovieController::class, 'store'])->middleware(['auth', 'admin'])->name('movie.store');
 Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth', 'admin'])->name('genres.create');
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
-Route::post('/actors', [ActorController::class, 'store'])->name('actors.store');
+Route::post('/actors', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
 
 // GenreController connection WORKING
 Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');
