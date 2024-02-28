@@ -50,7 +50,7 @@
 @else
     <ul>
         @foreach ($movies as $item) 
-            <li>
+            <li style="background-color: blue; color:white;>
                 @if ($item->id)
                     <span>{{ $item->id }} - Title: {{ $item->title }}</span>
                 @else
