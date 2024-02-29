@@ -31,7 +31,7 @@
 <br /><br /><br /><br />
 
 <div class="mt-30 mb-30 mx-auto max-w-md flex justify-between"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-1/2"> <!-- Tailwind classes for background, shadow, rounded corners, and width -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden "> <!-- Tailwind classes for background, shadow, rounded corners, and width -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
             Director:
         </h2>
