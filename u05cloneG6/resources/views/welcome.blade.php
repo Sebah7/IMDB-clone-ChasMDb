@@ -29,9 +29,9 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="./movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-                <a href="./genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-                <a href="./watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
+                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="/register" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">SignUp <span aria-hidden="true">&rarr;</span></a>
@@ -104,7 +104,7 @@
 
     <div class="userfiltersection" style="display: flex; justify-content:center; padding: 10px 20px;" id="movies__">
         <div style="margin-top: 20px;">
-            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your damn Movies</h2>
+            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your Damn Movies</h2>
         </div>
     </div>
 

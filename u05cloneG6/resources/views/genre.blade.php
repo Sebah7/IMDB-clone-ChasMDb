@@ -17,7 +17,7 @@
             style="padding: 20px 20px;">
             <div class="flex lg:flex-1" style="margin-top: -11px;">
                 <h1>
-                    <a href="#" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
+                    <a href="/" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
                         CMDb
                     </a>
                 </h1>
@@ -34,18 +34,13 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Reviews</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Watchlist</a>
+            <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top: 7px;"></span>
-                <form action="/logout" method="post">
-                    @csrf
-                    <button type="submit"
-                        class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
-                </form>
+                <a href="/register" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">SignUp <span aria-hidden="true">&rarr;</span></a>
+                <a href="/login" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px; color: white;">Log in <span aria-hidden="true">&rarr;</span></a>
             </div>
         </nav>
     </header>
@@ -64,12 +59,15 @@
                         <p style="font-weight: 700;">Genre type: {{ $genre->name }}</p>
                         <a href="{{ route('genres.show', $genre->id) }}">{{ $genre->name }}</a>
                         <!-- Delete button -->
+                        <!-- The if statement checks if the user is logged in and if the user's role is 0. If both conditions are true, the delete button is displayed. -->
+                        @if (auth()->check() && auth()->user()->role == '0')
                         <form action="{{ route('genres.destroy', $genre->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit"
                                 class="text-red-600 dark:text-red-400 mt-2">Delete</button>
                         </form>
+                        @endif
                     </ul>
                     @endforeach
 
@@ -84,6 +82,7 @@
             </div>
         </div>
     </div>
+    
 
 </body>
 
