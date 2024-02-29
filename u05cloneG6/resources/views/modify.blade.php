@@ -222,3 +222,15 @@
     </div>
 </body>
 </html>
+
+<h2 class="text-2xl font-semibold mb-6">All Users</h2>
+
+@if ($users->isEmpty())
+    <p>No users available.</p>
+@else
+    <ul>
+        @foreach ($users as $user)
+            <li>{{ $user->name }} - {{ $user->email }}</li>
+        @endforeach
+    </ul>
+@endif
