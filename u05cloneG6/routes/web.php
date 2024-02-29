@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-   
+
     // Route::get('/movies/{id}', [MovieController::class], 'edit')->name('movies.edit');
     // Route::patch('/movies/{id}', [MovieController::class], 'update')->name('movies.update');
     // Route::delete('/movies/{id}', [MovieController::class], 'destroy')->name('movies.destroy');
@@ -89,6 +89,13 @@ Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middl
 
 //This route takes in data from the getactorsanddirectors function in the actorcontroller, where we call for directortable.
 Route::get('/cast', [ActorController::class, 'getactorsanddirectors']);
+
+
+//still in trial
+Route::delete('cast/{actor}', [ActorController::class, 'destroy'])->name('actors.destroy');
+
+Route::get('movies/actors/{id}', [ActorController::class, 'show'])->middleware(['auth', 'admin'])->name('actors.show');
+
 
 //Works to add review
 Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
