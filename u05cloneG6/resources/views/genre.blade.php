@@ -40,7 +40,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top: 7px;"></span>
+                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top: 7px;">{{ Auth::user()->name ?? '' }}</span>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit"
@@ -65,7 +65,7 @@
                         <a href="{{ route('genres.show', $genre->id) }}">{{ $genre->name }}</a>
                         <!-- Delete button -->
                         <!-- The if statement checks if the user is logged in and if the user's role is 0. If both conditions are true, the delete button is displayed. -->
-                        @if (auth()->user() && auth()->user()->role == '0')
+                        @if (auth()->check() && auth()->user()->role == '0')
                         <form action="{{ route('genres.destroy', $genre->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -87,6 +87,10 @@
             </div>
         </div>
     </div>
+
+    @guest
+    <script>window.location.href = '/login';</script>
+    @endguest
 
 </body>
 
