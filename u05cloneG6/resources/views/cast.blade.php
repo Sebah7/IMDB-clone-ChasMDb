@@ -30,6 +30,7 @@
     </header>
 <br /><br /><br /><br />
 
+
 <div class="mt-30 mb-30 mx-auto max-w-md flex flex-col md:flex-row"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
     <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full md:w-1/2 mb-8 md:mb-0"> <!-- Tailwind classes for background, shadow, rounded corners, width, and margin bottom -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
