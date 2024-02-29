@@ -6,10 +6,10 @@
     <title>Add Movie | CMDb</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        /* Additional custom styling */
+        /* Custom styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
             margin: 0;
             padding: 0;
         }
@@ -21,17 +21,53 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #6c63ff;
+        }
+        .btn {
+            background-color: #6c63ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn:hover {
+            background-color: #5649b3;
+        }
         .alert {
             margin-top: 20px;
             padding: 10px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
+            background-color: #d1f7d6;
+            color: #106933;
+            border: 1px solid #53a749;
             border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation bar -->
+
+
+
+<!-- Navigation bar -->
     <header class="bg-red" style="position: fixed; width: 100%; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
             <div class="flex lg:flex-1">
@@ -66,50 +102,120 @@
     </header>
 
     <br /><br /><br /><br />
+
+
+    
     <div class="container">
         <!-- Adding Movie to db -->
-        <h2 class="text-2xl font-semibold">Add a Movie</h2>
+        <h2 class="text-2xl font-semibold mb-6">Add a Movie</h2>
         <form action="{{ route('movie.store') }}" method="POST">
             @csrf
-            <div>
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required maxlength="255">
+            <div class="form-group">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" id="title" name="title" class="form-control" required maxlength="255">
             </div>
 
-            <div>
-                <label for="actor">Actor:</label>
-                <select id="actor" name="actors[]" multiple>
+            <div class="form-group">
+                <label for="actor" class="form-label">Actor:</label>
+                <select id="actor" name="actors[]" multiple class="form-control">
                     @foreach($actors as $actor)
                         <option value="{{ $actor->id }}">{{ $actor->name }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <!-- Add other form fields here -->
+            <div class="form-group">
+                <label for="director" class="form-label">Director:</label>
+                <select id="director" name="directors[]" multiple class="form-control">
+                    @foreach($directors as $director)
+                        <option value="{{ $director->id }}">{{ $director->director_name }}</option>
+                    @endforeach
+                </select>
+            </div>
 
-            <div>
-                <button type="submit">Create Movie</button>
+            <div class="form-group">
+                <label for="genre" class="form-label">Genre:</label>
+                <select id="genre" name="genres[]" multiple class="form-control">
+                    @foreach($genres as $genre)
+                        <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="form-label">Description:</label>
+                <textarea id="description" name="description" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="ratings" class="form-label">Ratings:</label>
+                <input type="number" id="ratings" name="ratings" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="language" class="form-label">Language:</label>
+                <input type="text" id="language" name="language" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="release_date" class="form-label">Release Date:</label>
+                <input type="date" id="release_date" name="release_date" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="runtime" class="form-label">Runtime:</label>
+                <input type="number" id="runtime" name="runtime" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="poster" class="form-label">Poster:</label>
+                <input type="text" id="poster" name="poster" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="trailer" class="form-label">Trailer:</label>
+                <input type="text" id="trailer" name="trailer" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Create Movie</button>
             </div>
         </form>
+        @if (session('actor_success'))
+            <div class="alert alert-success">
+                {{ session('movie_success') }}
+            </div>
+        @endif
 
         <!-- Adding Genre to genre db -->
-        <form action="{{ route('genres.store') }}" method="POST">
+        <form action="{{ route('genres.store') }}" method="POST" class="mt-6">
             @csrf
-            <label for="name">Genre Name:</label>
-            <input type="text" name="name" id="genre_name">
-            <button type="submit">Add Genre</button>
+            <div class="form-group">
+                <label for="name" class="form-label">Genre Name:</label>
+                <input type="text" name="name" id="genre_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Add Genre</button>
+            </div>
         </form>
+        @if (session('actor_success'))
+            <div class="alert alert-success">
+                {{ session('genre_success') }}
+            </div>
+        @endif
 
         <!-- Adding Actor to actor db -->
-        <form action="{{ route('actors.store') }}" method="POST">
+        <form action="{{ route('actors.store') }}" method="POST" class="mt-6">
             @csrf
-            <label for="name">Actor Name:</label>
-            <input type="text" name="name" id="actor_name">
-            <button type="submit">Add Actor</button>
+            <div class="form-group">
+                <label for="name" class="form-label">Actor Name:</label>
+                <input type="text" name="name" id="actor_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Add Actor</button>
+            </div>
         </form>
-
         @if (session('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success mt-6">
                 {{ session('success') }}
             </div>
         @endif
