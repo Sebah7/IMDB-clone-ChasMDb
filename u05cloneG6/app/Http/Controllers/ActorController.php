@@ -92,16 +92,14 @@ class ActorController extends Controller
      */
 
 
-    public function destroy(cmdb_actors $name)
+    public function destroy(cmdb_actors $actor) // Här använder vi $actor istället för $id
     {
-        $actor = cmdb_actors::where('name', $name)->first();
-
         if (!$actor) {
             return response('Actor not found', 404);
         }
 
         $actor->delete();
 
-        return redirect()->route('modify')->with('success', 'Actor deleted successfully');
+        return back()->with('success', 'Actor deleted successfully');
     }
 }
