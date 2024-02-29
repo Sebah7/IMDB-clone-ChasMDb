@@ -53,9 +53,9 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">My Reviews</a>
-                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">My Watchlist</a>
+            <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <span id="user-info" class="text-sm font-semibold leading-6 text-gray-900" style="margin-top: 7px;"></span>
