@@ -82,12 +82,6 @@
                     </div>
                     @endif
 
-                    @if(session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
-                    @endif
-
                     <br><br>
                     <h2 style="font-weight: 700;">Add a Review</h2>
 <br><br>
