@@ -64,10 +64,11 @@
 
     <div class="ouhwyirkfu948" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
         <div class="slideshow-container">
+            
             <img class="slide" src="https://media.istockphoto.com/id/1363352866/sv/foto/friends-enjoying-a-comedy-movie-at-the-cinema.jpg?s=612x612&w=0&k=20&c=abBKLjSmQbB69OmDfydgFwJ-QCD5rj7CT2mV9yg5cPo=" alt="Slide 1">
             <img class="slide" src="https://media.istockphoto.com/id/1336937059/sv/foto/film-reels-on-black-background-movie-video-and-cinema-prodaction-and-edition-concept.jpg?s=612x612&w=0&k=20&c=HjQNMl0lzUiTKe0BP2bks-DDEF34rdzhkwjVbXGnw2E=" alt="Slide 2">
-            <img class="slide" src="https://media.istockphoto.com/id/1271522601/sv/foto/pop-majs-och-p%C3%A5-r%C3%B6d-f%C3%A5t%C3%B6lj-bio.jpg?s=1024x1024&w=is&k=20&c=T0OKkCOcDZpnQoOpT72puG2OynlH5Ao1RYzvK2Z7fkQ=" alt="Slide 3">
-            <img class="slide" src="https://media.istockphoto.com/id/1396163273/sv/vektor/vector-realistic-isolated-retro-marquee-neon-billboard-with-electric-light-lamps-of-movie.jpg?s=1024x1024&w=is&k=20&c=if3ZlKRSVQb6MN4eo9J5hmgGQCTkOecO4wxxG3gKChg=" alt="Slide 4">
+            <img class="slide" src="https://media.istockphoto.com/id/1302499143/sv/vektor/modern-biobakgrund-med-filmremsa-realistisk-3d-filmremsa-i-perspektiv-3d-isometrisk.jpg?s=612x612&w=0&k=20&c=I5vx83MFQe4ad-iOtPdRyZNZjrBIDakkSnODGXulDFA=" alt="Slide 3">
+            <img class="slide" src="https://media.istockphoto.com/id/1056247682/sv/vektor/vector-r%C3%B6d-gardin-bakgrund-modern-stil.jpg?s=612x612&w=0&k=20&c=VkcVtPhRT8gHHDvxDQmtpcwBNrcW60B35BoGP9iGeWM=" alt="Slide 4">
             <img class="slide" src="https://media.istockphoto.com/id/514727234/sv/foto/neon-sign-on-a-brick-wall-cinema.jpg?s=612x612&w=0&k=20&c=lqlVjovMwNEcRmcoYK7GN4DbMBz5mizdqlSRuGpxetI=" alt="Slide 5">
             <!-- Add more images here -->
         </div>
