@@ -30,7 +30,6 @@
     </header>
 <br /><br /><br /><br />
 
-
 <div class="mt-30 mb-30 mx-auto max-w-md"> <!-- Tailwind classes for margin top, bottom and centering -->
     <div class="bg-white shadow-lg rounded-lg overflow-hidden"> <!-- Tailwind classes for background, shadow, and rounded corners -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
@@ -41,22 +40,32 @@
             <p class="text-xl font-semibold mb-2 text-gray-700"> <!-- Tailwind classes for paragraph -->
                 Director:
             </p>
-            @if (isset($directors))
-                @foreach ($directors as $director)
-                    <span class="mr-2">{{ $director->director_name }},</span> <!-- Tailwind classes for margin right -->
-                @endforeach
-            @endif
+            <div class="flex flex-col"> <!-- Tailwind classes for flex column -->
+                @if (isset($directors))
+                    @foreach ($directors as $director)
+                        <div class="flex items-center mb-2"> <!-- Tailwind classes for flex items and margin bottom -->
+                            <span class="mr-2">{{ $director->director_name }}</span> <!-- Tailwind classes for margin right -->
+                            <button class="text-red-600" onclick="deleteDirector('{{ $director->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
 
         <div class="px-6 py-4"> <!-- Tailwind classes for padding -->
             <p class="text-xl font-semibold mb-2 text-gray-700"> <!-- Tailwind classes for paragraph -->
                 Actor:
             </p>
-            @if (isset($actors))
-                @foreach ($actors as $actor)
-                    <span class="mr-2">{{ $actor->name }},</span> <!-- Tailwind classes for margin right -->
-                @endforeach
-            @endif
+            <div class="flex flex-col"> <!-- Tailwind classes for flex column -->
+                @if (isset($actors))
+                    @foreach ($actors as $actor)
+                        <div class="flex items-center mb-2"> <!-- Tailwind classes for flex items and margin bottom -->
+                            <span class="mr-2">{{ $actor->name }}</span> <!-- Tailwind classes for margin right -->
+                            <button class="text-red-600" onclick="deleteActor('{{ $actor->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
     </div>
 </div>
