@@ -74,7 +74,7 @@ class GenreController extends Controller
         $genres = cmdb_genre::find($id);
         $genres->delete($id);
 
-        return redirect()->route('genre')
+        return redirect()->route('genres.index')
         ->with('success', 'Genre deleted successfully.');
 
     }
