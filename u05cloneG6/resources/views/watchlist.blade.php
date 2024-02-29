@@ -49,7 +49,7 @@
 @if ($movies->isEmpty())
     <p>Your watchlist is empty.</p>
 @else
-    <ul style="justify-content: center; align-items: center; text-align: center; box-shadow: 2px 2px 20px 2px rgb(207, 207, 207); justify-content: center;">
+    <ul style="justify-content: center; align-items: center; text-align: center; justify-content: center;">
         @foreach ($movies as $item) 
             <li style="
             background-color: white;
