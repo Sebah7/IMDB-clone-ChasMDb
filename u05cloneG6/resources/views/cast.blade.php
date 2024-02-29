@@ -40,7 +40,7 @@
         <div class="director-list px-6 pt-4 pb-6"> <!-- CSS class for Director list -->
             @if (isset($directors))
                 @foreach ($directors as $director)
-                    <div class="director-item flex items-center justify-between mb-2"  style="color: rgb(255, 255, 255); background:linear-gradient(to top left, rgb(104, 104, 255), rgb(255, 93, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);"> <!-- CSS class for Director item -->
+                    <div class="director-item flex items-center justify-between mb-2" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);"> <!-- CSS class for Director item -->
                         <span class="mr-2">{{ $director->director_name }}</span> <!-- Tailwind classes for margin right -->
                         <button class="text-red-600" onclick="deleteDirector('{{ $director->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
                     </div>
@@ -57,7 +57,7 @@
         <div class="actor-list px-6 pt-4 pb-6"> <!-- CSS class for Actor list -->
             @if (isset($actors))
                 @foreach ($actors as $actor)
-                    <div class="actor-item flex items-center justify-between mb-2"  style="color: rgb(255, 255, 255); background:linear-gradient(to top left, rgb(104, 104, 255), rgb(255, 93, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);"> <!-- CSS class for Actor item -->
+                    <div class="actor-item flex items-center justify-between mb-2" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);"> <!-- CSS class for Actor item -->
                         <span class="mr-2">{{ $actor->name }}</span> <!-- Tailwind classes for margin right -->
                         <button class="text-red-600" onclick="deleteActor('{{ $actor->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
                     </div>
