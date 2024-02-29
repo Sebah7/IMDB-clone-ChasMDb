@@ -29,7 +29,16 @@ class DirectorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $request->validate([
+                'director_name' => 'required|unique:cmdb_directors|max:255',
+            ]);
+    
+            cmdb_director::create([
+                'director_name' => $request->director_name,
+    
+            ]);
+    
+            return redirect()->route('modify')->with('director_success', 'Director created successfully');
     }
 
     /**
@@ -61,6 +70,8 @@ class DirectorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $directors = cmdb_director::find($id);
+        $directors->delete($id);
+        return back()->with('director_success', 'Director deleted successfully');
     }
 }

@@ -197,7 +197,7 @@
                 <button type="submit" class="btn">Add Genre</button>
             </div>
         </form>
-        @if (session('actor_success'))
+        @if (session('genre_success'))
             <div class="alert alert-success">
                 {{ session('genre_success') }}
             </div>
@@ -217,6 +217,23 @@
         @if (session('success'))
             <div class="alert alert-success mt-6">
                 {{ session('success') }}
+            </div>
+        @endif
+
+         <!-- Adding Director to actor db -->
+         <form action="{{ route('directors.store') }}" method="POST" class="mt-6">
+            @csrf
+            <div class="form-group">
+                <label for="director_name" class="form-label">Director Name:</label>
+                <input type="text" name="director_name" id="director_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Add Director</button>
+            </div>
+        </form>
+        @if (session('director_success'))
+            <div class="alert alert-success mt-6">
+                {{ session('director_success') }}
             </div>
         @endif
     </div>
