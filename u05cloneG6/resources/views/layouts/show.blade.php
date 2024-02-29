@@ -97,7 +97,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="/home"><span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top:7px; margin-right: 10px">{{ Auth::user()->name }}</span></a>
+                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top:7px; margin-right: 10px; margin-top:15px;">{{ Auth::user()->name }}</span></a>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit"
