@@ -43,6 +43,7 @@
             </div>
         </nav>
     </header>
+<br /><br /><br /><br /><br />
 <h1>My Watchlist</h1>
 
 @if ($movies->isEmpty())
@@ -58,6 +59,7 @@
             justify-content: center;
             align-items: center;
             margin: 0 auto;
+            
             ">
                 @if ($item->id)
                     <span>{{ $item->id }} - Title: {{ $item->title }}</span>
@@ -65,6 +67,7 @@
                     <span>Movie not available</span>
                 @endif
             </li>
+            <br /><br /><br /><br />
         @endforeach
     </ul>
 @endif
