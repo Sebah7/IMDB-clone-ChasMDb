@@ -104,9 +104,24 @@ We decided on four main sprints where we discuss the content for the upcoming sp
 - Continued working on models, controllers, and user authentication.
 
 **Wednesday 21/2:**
-- Present: Sebah, Denize, Jacob, Elias.
+- All present.
 - Continued work on user authentication, data addition, Figma, and controllers.
 
-**To be continued ...**
+**Thursday 22/2:**
+- All present.
+- The work continued with more specification in our Models and Controllers where we tested our different Controllers and the connection. If there is some issues with the connection, and trying to dive into the details of the issues.
+
+**Friday 23/2:**
+- All present
+- Today we put together what everybody has done this week and later on we tried to see on our vercel App what we have done. What has worked and what errors we got. Then we hade a short meeting on what we are going to focus on next week, and what problems/errors we have that has to be fixed before the presentation.
+
+**Monday 26/2:**
+- All present
+- Today we hade our weekly sprint, where we talked about the upcoming tasks, what we have left, how much work that's been done. Then we planned the day and the issues we faced in the order of the importance and what we have to prioritize first. The things that was most crucial to be done before thursdays presentation. 
+- We tested so everything was updated in the deployment App when we pushed our changes. We also checked the Users login, and that the functions worked, we still have some small issues left. We also started with the functions for the Admin.
+
+**Tuesday 27/2:**
+- All present
+- 
 
 ---
