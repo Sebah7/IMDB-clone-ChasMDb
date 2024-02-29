@@ -136,6 +136,9 @@ class MovieController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $movie = cmdb_movies::find($id);
+        $movie->delete();
+    
+        return back()->with('movie_delete_success', 'Movie deleted successfully.');
     }
 }

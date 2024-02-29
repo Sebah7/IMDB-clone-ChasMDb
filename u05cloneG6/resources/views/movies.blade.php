@@ -95,9 +95,23 @@
             <div class="flex items-center justify-between">
                 <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
                 <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
+                @if (auth()->user() && auth()->user()->role == '0')
+                <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit"
+                        class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
+                </form>
+                @endif
+                @if (session('movie_delete_success'))
+        <div class="alert alert-success">
+            {{ session('movie_delete_success') }}
+        </div>
+        @endif
             </div>
         </div>
     </div>
+    
     @endforeach
 </div>
 

@@ -77,6 +77,7 @@ Route::resource('reviews', ReviewsController::class)->only(['index', 'create', '
 Route::get('/movies', [MovieController::class, 'index']);
 //Working. For randomized movies to be seen on welcome.blade
 Route::get('/', [MovieController::class, 'movieRandomizer']);
+Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('movies.destroy');
 
 // Route::get('/modify/edit', [MovieController::class, 'edit'])->middleware(['auth', 'admin'])->name('modify.edit');
 // Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['auth', 'admin'])->name('modify.update');

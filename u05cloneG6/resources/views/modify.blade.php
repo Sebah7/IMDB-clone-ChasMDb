@@ -118,6 +118,13 @@
     <div class="container">
         <!-- Adding Movie to db -->
         <h2 class="text-2xl font-semibold mb-6">Add a Movie</h2>
+
+        @if (session('movie_success'))
+        <div class="alert alert-success">
+            {{ session('movie_success') }}
+        </div>
+        @endif
+        
         <form action="{{ route('movie.store') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -190,11 +197,6 @@
                 <button type="submit" class="btn">Create Movie</button>
             </div>
         </form>
-        @if (session('actor_success'))
-        <div class="alert alert-success">
-            {{ session('movie_success') }}
-        </div>
-        @endif
 
         <!-- Adding Genre to genre db -->
         <form action="{{ route('genres.store') }}" method="POST" class="mt-6">
