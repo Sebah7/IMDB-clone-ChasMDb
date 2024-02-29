@@ -28,7 +28,7 @@ class MovieController extends Controller
 
     public function MovieRandomizer()
     {
-        $movies = cmdb_movies::take(5)->get();
+        $movies = cmdb_movies::inRandomOrder()->take(5)->get();
         return view('welcome', ['movies' => $movies]);
     }
 
