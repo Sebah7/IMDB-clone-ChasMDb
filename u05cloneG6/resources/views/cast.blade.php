@@ -2,20 +2,20 @@
     Castmembers:
 </h2>
 
+<br>
 @if (session('success'))
 <div class="alert alert-success mt-6">
     {{ session('success') }}
 </div>
-
 @endif
-
+<br>
 @if (session('director_success'))
 <div class="alert alert-success mt-6">
     {{ session('director_success') }}
 </div>
-
 @endif
-<br> <br>
+
+<br>
 
 <p>Director:</p>
 @if (isset($directors))
@@ -30,7 +30,7 @@
                         </form>
                         @endif
 @endforeach
-
+@endif
 <br>
 
 <p>Actor:</p>
