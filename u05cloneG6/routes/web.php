@@ -46,6 +46,7 @@ Route::post('/create', [MovieController::class, 'store'])->middleware(['auth', '
 Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth', 'admin'])->name('genres.create');
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
 Route::post('/actors', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
+Route::post('/directors', [DirectorController::class, 'store'])->middleware(['auth', 'admin'])->name('directors.store');
 
 //Modify.blade - Delete users
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.delete');
@@ -100,5 +101,7 @@ Route::get('movies/actors/{id}', [ActorController::class, 'show'])->middleware([
 //Works to add review
 Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
 
+
+Route::delete('cast/{id}', [DirectorController::class, 'destroy'])->name('directors.destroy');
 
 require __DIR__ . '/auth.php';
