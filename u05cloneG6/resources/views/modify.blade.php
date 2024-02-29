@@ -65,6 +65,7 @@
         </nav>
     </header>
 
+    <br /><br /><br /><br />
     <div class="container">
         <!-- Adding Movie to db -->
         <h2 class="text-2xl font-semibold">Add a Movie</h2>
