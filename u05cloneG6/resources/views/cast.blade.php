@@ -30,16 +30,16 @@
     </header>
 <br /><br /><br /><br />
 
-<div class="mt-30 mb-30 flex justify-between"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden "> <!-- Tailwind classes for background, shadow, rounded corners, and width -->
-        <h2 class="text-3xl font-bold text-center text-gray-800 py-4" style="margin-left:20px;"> <!-- Tailwind classes for heading -->
-            Director
+<div class="mt-30 mb-30 mx-auto max-w-md flex flex-col md:flex-row"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full md:w-1/2 mb-8 md:mb-0"> <!-- Tailwind classes for background, shadow, rounded corners, width, and margin bottom -->
+        <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
+            Director:
         </h2>
 
-        <div class="px-6 py-4 flex flex-col"> <!-- Tailwind classes for padding and flex column -->
+        <div class="px-6 pt-4 pb-6"> <!-- Tailwind classes for padding -->
             @if (isset($directors))
                 @foreach ($directors as $director)
-                    <div class="flex items-center mb-2"> <!-- Tailwind classes for flex items and margin bottom -->
+                    <div class="flex items-center justify-between mb-2"> <!-- Tailwind classes for flex items, justify between and margin bottom -->
                         <span class="mr-2">{{ $director->director_name }}</span> <!-- Tailwind classes for margin right -->
                         <button class="text-red-600" onclick="deleteDirector('{{ $director->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
                     </div>
@@ -48,15 +48,15 @@
         </div>
     </div>
 
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-1/2"> <!-- Tailwind classes for background, shadow, rounded corners, and width -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full md:w-1/2"> <!-- Tailwind classes for background, shadow, rounded corners, width -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
-            Actor
+            Actor:
         </h2>
 
-        <div class="px-6 py-4 flex flex-col"> <!-- Tailwind classes for padding and flex column -->
+        <div class="px-6 pt-4 pb-6"> <!-- Tailwind classes for padding -->
             @if (isset($actors))
                 @foreach ($actors as $actor)
-                    <div class="flex items-center mb-2"> <!-- Tailwind classes for flex items and margin bottom -->
+                    <div class="flex items-center justify-between mb-2"> <!-- Tailwind classes for flex items, justify between and margin bottom -->
                         <span class="mr-2">{{ $actor->name }}</span> <!-- Tailwind classes for margin right -->
                         <button class="text-red-600" onclick="deleteActor('{{ $actor->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
                     </div>
