@@ -31,33 +31,32 @@
 <br /><br /><br /><br />
 
 
+<div class="mt-30 mb-30 mx-auto max-w-md"> <!-- Tailwind classes for margin top, bottom and centering -->
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden"> <!-- Tailwind classes for background, shadow, and rounded corners -->
+        <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
+            Cast Members:
+        </h2>
 
-<h2 class="text-3xl font-bold mb-4"> <!-- Tailwind classes for heading -->
-    Castmembers:
-</h2>
+        <div class="px-6 py-4"> <!-- Tailwind classes for padding -->
+            <p class="text-xl font-semibold mb-2 text-gray-700"> <!-- Tailwind classes for paragraph -->
+                Director:
+            </p>
+            @if (isset($directors))
+                @foreach ($directors as $director)
+                    <span class="mr-2">{{ $director->director_name }},</span> <!-- Tailwind classes for margin right -->
+                @endforeach
+            @endif
+        </div>
 
-<div class="mb-4"> <!-- Tailwind classes for margin bottom -->
-    <p class="text-xl font-semibold mb-2"> <!-- Tailwind classes for paragraph -->
-        Director:
-    </p>
-    @if (isset($directors))
-        @foreach ($directors as $director)
-            <span class="mr-2"> <!-- Tailwind classes for margin right -->
-                {{ $director->director_name }},
-            </span>
-        @endforeach
-    @endif
-</div>
-
-<div> <!-- Tailwind classes for margin bottom -->
-    <p class="text-xl font-semibold mb-2"> <!-- Tailwind classes for paragraph -->
-        Actor:
-    </p>
-    @if (isset($actors))
-        @foreach ($actors as $actor)
-            <span class="mr-2"> <!-- Tailwind classes for margin right -->
-                {{ $actor->name }},
-            </span>
-        @endforeach
-    @endif
+        <div class="px-6 py-4"> <!-- Tailwind classes for padding -->
+            <p class="text-xl font-semibold mb-2 text-gray-700"> <!-- Tailwind classes for paragraph -->
+                Actor:
+            </p>
+            @if (isset($actors))
+                @foreach ($actors as $actor)
+                    <span class="mr-2">{{ $actor->name }},</span> <!-- Tailwind classes for margin right -->
+                @endforeach
+            @endif
+        </div>
+    </div>
 </div>
