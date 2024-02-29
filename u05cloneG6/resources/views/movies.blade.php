@@ -39,7 +39,7 @@
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global" style="padding: 20px 20px;">
             <div class="flex lg:flex-1" style="margin-top: -11px;">
                 <h1>
-                    <a href="#" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
+                    <a href="/" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
                         CMDb
                     </a>
                 </h1>
@@ -53,16 +53,13 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Reviews</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Watchlist</a>
+                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <span id="user-info" class="text-sm font-semibold leading-6 text-gray-900" style="margin-top: 7px;"></span>
-                <form action="/logout" method="post">
-                    @csrf
-                    <button type="submit" class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
-                </form>
+                <a href="/register" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">SignUp <span aria-hidden="true">&rarr;</span></a>
+                <a href="/login" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px; color: white;">Log in <span aria-hidden="true">&rarr;</span></a>
             </div>
         </nav>
     </header>
@@ -70,41 +67,40 @@
     <br /><br /><br /><br />
 
     <!-- Main content -->
-    <div class="moviesection">
-        <div class="py-20">
-            @foreach ($movies as $movie)
-            <div class="movie-card">
-                <a href="#">
-                    <img src="{{ $movie->poster }}" alt="movie image" />
-                </a>
-                <div class="movie-card-content">
-                    <a href="#">
-                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
-                    </a>
-                    <div class="flex items-center mt-2.5 mb-5">
-                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                            @for ($i = 0; $i < $movie->ratings; $i++)
-                            <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>
-                            @endfor
-                            @for ($i = $movie->ratings; $i < 5; $i++)
-                            <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-                            </svg>
-                            @endfor
-                        </div>
-                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                        <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
-                        <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
-                    </div>
+<div class="moviesection flex flex-wrap justify-center">
+    @foreach ($movies as $movie)
+    <div class="movie-card m-4">
+        <a href="#">
+            <img src="{{ $movie->poster }}" alt="movie image" />
+        </a>
+        <div class="movie-card-content">
+            <a href="#">
+                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
+            </a>
+            <div class="flex items-center mt-2.5 mb-5">
+                <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                    @for ($i = 0; $i < $movie->ratings; $i++)
+                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                    </svg>
+                    @endfor
+                    @for ($i = $movie->ratings; $i < 5; $i++)
+                    <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                    </svg>
+                    @endfor
                 </div>
+                <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
             </div>
-            @endforeach
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
+                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
+            </div>
         </div>
     </div>
+    @endforeach
+</div>
+
 
 </body>
 

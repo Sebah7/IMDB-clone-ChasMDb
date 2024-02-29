@@ -46,7 +46,7 @@ class GenreController extends Controller
         /**
          * If the colums is created successfully we will be redirected to the index function with a message.
          */
-        return redirect()->route('modify')->with('success', 'Genre added successfully.');
+        return redirect()->route('modify')->with('genre_success', 'Genre added successfully.');
     }
 
     /**
@@ -74,7 +74,7 @@ class GenreController extends Controller
         $genres = cmdb_genre::find($id);
         $genres->delete($id);
 
-        return redirect()->route('genre')
+        return redirect()->route('genres.index')
         ->with('success', 'Genre deleted successfully.');
 
     }

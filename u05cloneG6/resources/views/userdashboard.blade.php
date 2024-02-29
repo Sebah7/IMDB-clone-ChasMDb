@@ -16,7 +16,7 @@
             style="padding: 20px 20px;">
             <div class="flex lg:flex-1" style="margin-top: -11px;">
                 <h1>
-                    <a href="#" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
+                    <a href="/" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
                         CMDb
                     </a>
                 </h1>
@@ -33,13 +33,13 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Reviews</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">My Watchlist</a>
+            <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+                <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">My Reviews</a>
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top:7px;">{{ Auth::user()->name }}</span>
+                <a href="/home"><span id="user-info"
+                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top:7px;">{{ Auth::user()->name }}</span></a>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit"
@@ -87,10 +87,55 @@
                         {{ session('error') }}
                     </div>
                     @endif
+
+                    <br><br>
+                    <h2 style="font-weight: 700;">Add a Review</h2>
+<br><br>
+<form action="{{ route('reviews.store') }}" method="post">
+
+    @csrf
+
+    <label for="movie_id">Select Movie:</label>
+
+    <select class="border-solid border-2 border-indigo-600;" name="movie_id" id="movie_id" required>
+
+        @foreach ($movies as $movie)
+
+            <option value="{{ $movie->id }}">{{ $movie->title }}</option>
+
+        @endforeach
+
+    </select>
+
+
+
+
+    <label for="stars">Stars:</label>
+
+    <input class="border-solid border-2 border-indigo-600;" name="stars" id="stars" required>
+
+
+
+
+    <label for="comment">Comment:</label>
+
+    <textarea class="border-solid border-2 border-indigo-600;" name="comment" id="comment" required></textarea>
+
+
+
+
+    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
+
+
+
+    <button class="border-solid border-2 border-indigo-900;" type="submit">Submit Review</button>
+
+</form>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 
 </body>
 

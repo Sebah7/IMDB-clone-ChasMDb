@@ -29,9 +29,9 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="./movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-                <a href="./genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-                <a href="./watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
+                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
+                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="/register" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">SignUp <span aria-hidden="true">&rarr;</span></a>
@@ -64,9 +64,12 @@
 
     <div class="ouhwyirkfu948" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
         <div class="slideshow-container">
-            <img class="slide" src="https://media.istockphoto.com/id/1412871535/sv/foto/friends-watching-movies-together-at-home.jpg?s=612x612&w=0&k=20&c=Nu-sjq9nWynp6AH2rV7C7wgHR9uYZgiGVPAy-m_0-nk=" alt="Slide 1">
-            <img class="slide" src="https://media.istockphoto.com/id/1440006901/sv/foto/college-students-talking-while-walking-down-a-hall-at-school-between-classes.jpg?s=612x612&w=0&k=20&c=LkBTAHx3m0GuSZSOt-loZX2zvVHbmI3dEHxcMWs9Kj8=" alt="Slide 2">
-            <img class="slide" src="https://media.istockphoto.com/id/1401290821/sv/foto/male-editor-working-with-footage-on-computer-screens-at-desk.jpg?s=612x612&w=0&k=20&c=-ELkJrKh-1xjIfy8YFx3_2_dt3Mu-NgcyC0MWgEYg7A=" alt="Slide 3">
+            
+            <img class="slide" src="https://media.istockphoto.com/id/1363352866/sv/foto/friends-enjoying-a-comedy-movie-at-the-cinema.jpg?s=612x612&w=0&k=20&c=abBKLjSmQbB69OmDfydgFwJ-QCD5rj7CT2mV9yg5cPo=" alt="Slide 1">
+            <img class="slide" src="https://media.istockphoto.com/id/1336937059/sv/foto/film-reels-on-black-background-movie-video-and-cinema-prodaction-and-edition-concept.jpg?s=612x612&w=0&k=20&c=HjQNMl0lzUiTKe0BP2bks-DDEF34rdzhkwjVbXGnw2E=" alt="Slide 2">
+            <img class="slide" src="https://media.istockphoto.com/id/1302499143/sv/vektor/modern-biobakgrund-med-filmremsa-realistisk-3d-filmremsa-i-perspektiv-3d-isometrisk.jpg?s=612x612&w=0&k=20&c=I5vx83MFQe4ad-iOtPdRyZNZjrBIDakkSnODGXulDFA=" alt="Slide 3">
+            <img class="slide" src="https://media.istockphoto.com/id/1056247682/sv/vektor/vector-r%C3%B6d-gardin-bakgrund-modern-stil.jpg?s=612x612&w=0&k=20&c=VkcVtPhRT8gHHDvxDQmtpcwBNrcW60B35BoGP9iGeWM=" alt="Slide 4">
+            <img class="slide" src="https://media.istockphoto.com/id/514727234/sv/foto/neon-sign-on-a-brick-wall-cinema.jpg?s=612x612&w=0&k=20&c=lqlVjovMwNEcRmcoYK7GN4DbMBz5mizdqlSRuGpxetI=" alt="Slide 5">
             <!-- Add more images here -->
         </div>
 
@@ -104,7 +107,7 @@
 
     <div class="userfiltersection" style="display: flex; justify-content:center; padding: 10px 20px;" id="movies__">
         <div style="margin-top: 20px;">
-            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your damn Movies</h2>
+            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your Damn Movies</h2>
         </div>
     </div>
 
