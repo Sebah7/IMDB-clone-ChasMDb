@@ -44,14 +44,19 @@ class ActorController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => 'required|unique:cmdb_actors|max:255',
+
         ]);
 
         cmdb_actors::create([
             'name' => $request->name,
+            //'name' => $validated['name']
 
         ]);
+
+        // '$actors->movies()->attach($request->movies);'
 
         return redirect()->route('modify')->with('success', 'Actor created successfully');
     }
@@ -59,9 +64,11 @@ class ActorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $actors = cmdb_actors::find($id);
+        $movies = $actors->movies()->get();
+        return view('modify', ['actors' => $actors, 'movies' => $movies]);
     }
 
     /**
@@ -83,8 +90,16 @@ class ActorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+
+
+    public function destroy(cmdb_actors $actor) // Här använder vi $actor istället för $id
     {
-        //
+        if (!$actor) {
+            return response('Actor not found', 404);
+        }
+
+        $actor->delete();
+
+        return back()->with('success', 'Actor deleted successfully');
     }
 }
