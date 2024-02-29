@@ -41,7 +41,7 @@
     <br><br><br><br><br>
 
 <div class="" style="display:flex;"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
-    <div class="director-section" style="width="50%"> <!-- CSS class for Director section -->
+    <div class="director-section" style="width:50%;"> <!-- CSS class for Director section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
             Castmembers
         </h2>
@@ -73,7 +73,7 @@
         @endif
     </div>
 
-    <div class="actor-section" style="width="50%"> <!-- CSS class for Actor section -->
+    <div class="actor-section" style="width:50%;"> <!-- CSS class for Actor section -->
         <h2>Actor</h2>
         @if (isset($actors))
         @foreach ($actors as $actor)
