@@ -40,10 +40,10 @@
     </header>
     <br><br><br><br><br>
 
-<div class="mt-30 mb-30 mx-auto max-w-md flex flex-col md:flex-row"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
-    <div class="director-section"> <!-- CSS class for Director section -->
+<div class="" style="display:flex;"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
+    <div class="director-section" style="width="50%"> <!-- CSS class for Director section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
-            Castmembers:
+            Castmembers
         </h2>
 
         @if (session('success'))
@@ -63,7 +63,7 @@
         @foreach ($directors as $director)
         {{ $director->director_name }},
         @if (auth()->check() && auth()->user()->role == '0')
-        <form action="{{ route('directors.destroy', $director->id) }}" method="POST">
+        <form action="{{ route('directors.destroy', $director->id) }}" method="POST" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);">
             @csrf
             @method('DELETE')
             <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
@@ -73,13 +73,13 @@
         @endif
     </div>
 
-    <div class="actor-section"> <!-- CSS class for Actor section -->
-        <p>Actor:</p>
+    <div class="actor-section" style="width="50%"> <!-- CSS class for Actor section -->
+        <h2>Actor</h2>
         @if (isset($actors))
         @foreach ($actors as $actor)
         {{ $actor->name }},
         @if (auth()->check() && auth()->user()->role == '0')
-        <form action="{{ route('actors.destroy', $actor->id) }}" method="POST">
+        <form action="{{ route('actors.destroy', $actor->id) }}" method="POST" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);">
             @csrf
             @method('DELETE')
             <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
