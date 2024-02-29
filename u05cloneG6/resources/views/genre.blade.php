@@ -87,10 +87,7 @@
             </div>
         </div>
     </div>
-
-    @guest
-    <script>window.location.href = '/login';</script>
-    @endguest
+    
 
 </body>
 
