@@ -16,7 +16,7 @@
             style="padding: 20px 20px;">
             <div class="flex lg:flex-1" style="margin-top: -11px;">
                 <h1>
-                    <a href="#" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
+                    <a href="/" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
                         CMDb
                     </a>
                 </h1>
