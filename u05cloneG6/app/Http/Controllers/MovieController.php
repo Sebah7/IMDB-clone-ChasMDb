@@ -6,6 +6,7 @@ use App\Models\Admin\cmdb_actors;
 use App\Models\Admin\cmdb_director;
 use App\Models\Admin\cmdb_genre;
 use App\Models\Admin\cmdb_movies;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,13 +43,14 @@ class MovieController extends Controller
     //     return view('modify');
     // }
 
-    public function getActorsAndDirectors()
+    public function getActorsAndDirectors() //används även till att få alla users på modify.blade
 {
     $actors = cmdb_actors::all();
     $directors = cmdb_director::all();
     $genres = cmdb_genre::all();
+    $users = User::all();
 
-    return view('modify', ['actors' => $actors, 'directors' => $directors, 'genres' => $genres]);
+    return view('modify', ['actors' => $actors, 'directors' => $directors, 'genres' => $genres, 'users' => $users]);
 }
 
     public function create()
