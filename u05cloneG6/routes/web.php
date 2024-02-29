@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\ActorController;
 use App\Http\Controllers\DirectorController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,9 @@ Route::post('/create', [MovieController::class, 'store'])->middleware(['auth', '
 Route::get('/genres/create', [GenreController::class, 'create'])->middleware(['auth', 'admin'])->name('genres.create');
 Route::post('/genres', [GenreController::class, 'store'])->middleware(['auth', 'admin'])->name('genres.store');
 Route::post('/actors', [ActorController::class, 'store'])->middleware(['auth', 'admin'])->name('actors.store');
+
+//Modify.blade - Delete users
+Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.delete');
 
 // GenreController connection WORKING
 Route::get('/genres', [GenreController::class, 'index'])->name('genres.index');

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Movie | CMDb</title>
+    <title>Modify | CMDb</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Custom styling */
@@ -13,6 +14,7 @@
             margin: 0;
             padding: 0;
         }
+
         .container {
             max-width: 800px;
             margin: auto;
@@ -21,15 +23,18 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         .form-label {
             font-weight: bold;
             color: #333;
             display: block;
             margin-bottom: 5px;
         }
+
         .form-control {
             width: 100%;
             padding: 10px;
@@ -37,10 +42,12 @@
             border: 1px solid #ccc;
             transition: border-color 0.3s ease-in-out;
         }
+
         .form-control:focus {
             outline: none;
             border-color: #6c63ff;
         }
+
         .btn {
             background-color: #6c63ff;
             color: #fff;
@@ -50,9 +57,11 @@
             cursor: pointer;
             transition: background-color 0.3s ease-in-out;
         }
+
         .btn:hover {
             background-color: #5649b3;
         }
+
         .alert {
             margin-top: 20px;
             padding: 10px;
@@ -63,11 +72,12 @@
         }
     </style>
 </head>
+
 <body>
 
 
 
-<!-- Navigation bar -->
+    <!-- Navigation bar -->
     <header class="bg-red" style="position: fixed; width: 100%; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
             <div class="flex lg:flex-1">
@@ -104,7 +114,7 @@
     <br /><br /><br /><br />
 
 
-    
+
     <div class="container">
         <!-- Adding Movie to db -->
         <h2 class="text-2xl font-semibold mb-6">Add a Movie</h2>
@@ -119,7 +129,7 @@
                 <label for="actor" class="form-label">Actor:</label>
                 <select id="actor" name="actors[]" multiple class="form-control">
                     @foreach($actors as $actor)
-                        <option value="{{ $actor->id }}">{{ $actor->name }}</option>
+                    <option value="{{ $actor->id }}">{{ $actor->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -128,7 +138,7 @@
                 <label for="director" class="form-label">Director:</label>
                 <select id="director" name="directors[]" multiple class="form-control">
                     @foreach($directors as $director)
-                        <option value="{{ $director->id }}">{{ $director->director_name }}</option>
+                    <option value="{{ $director->id }}">{{ $director->director_name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -137,7 +147,7 @@
                 <label for="genre" class="form-label">Genre:</label>
                 <select id="genre" name="genres[]" multiple class="form-control">
                     @foreach($genres as $genre)
-                        <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -181,9 +191,9 @@
             </div>
         </form>
         @if (session('actor_success'))
-            <div class="alert alert-success">
-                {{ session('movie_success') }}
-            </div>
+        <div class="alert alert-success">
+            {{ session('movie_success') }}
+        </div>
         @endif
 
         <!-- Adding Genre to genre db -->
@@ -198,9 +208,9 @@
             </div>
         </form>
         @if (session('actor_success'))
-            <div class="alert alert-success">
-                {{ session('genre_success') }}
-            </div>
+        <div class="alert alert-success">
+            {{ session('genre_success') }}
+        </div>
         @endif
 
         <!-- Adding Actor to actor db -->
@@ -215,22 +225,33 @@
             </div>
         </form>
         @if (session('success'))
-            <div class="alert alert-success mt-6">
-                {{ session('success') }}
-            </div>
+        <div class="alert alert-success mt-6">
+            {{ session('success') }}
+        </div>
+        @endif
+
+        <br><br>
+
+        <h2 class="text-2xl font-semibold mb-6">All Users</h2>
+
+        @if ($users->isEmpty())
+        <p>No users available.</p>
+        @else
+        <ul>
+            @foreach ($users as $user)
+            <li>
+                {{ $user->name }} - {{ $user->email }}
+                <form action="{{ route('users.delete', ['user' => $user->id]) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete User</button>
+                    <br><br>
+                </form>
+            </li>
+            @endforeach
+        </ul>
         @endif
     </div>
 </body>
+
 </html>
-
-<h2 class="text-2xl font-semibold mb-6">All Users</h2>
-
-@if ($users->isEmpty())
-    <p>No users available.</p>
-@else
-    <ul>
-        @foreach ($users as $user)
-            <li>{{ $user->name }} - {{ $user->email }}</li>
-        @endforeach
-    </ul>
-@endif

@@ -59,10 +59,7 @@ class ReviewsController extends Controller
             if ($review->user_id == Auth::id()) {
                 $review->delete();
                 return redirect()->route('userdashboard')->with('success', 'Review deleted successfully');
-            } else {
-                // Unauthorized attempt to delete
-                return redirect()->route('userdashboard')->with('error', 'Unauthorized to delete this review');
-            }
+            } 
         }
     }
 
