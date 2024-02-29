@@ -31,7 +31,7 @@
 <br /><br /><br /><br />
 
 
-<div class="mt-30 mb-30 mx-auto max-w-md flex flex-col md:flex-row"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
+<div class="mt-30 mb-30 flex flex-col md:flex-row"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
     <div class="director-section"> <!-- CSS class for Director section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
             Director:
