@@ -87,10 +87,55 @@
                         {{ session('error') }}
                     </div>
                     @endif
+
+                    <br><br>
+                    <h2 style="font-weight: 700;">Add a Review</h2>
+<br><br>
+<form action="{{ route('reviews.store') }}" method="post">
+
+    @csrf
+
+    <label for="movie_id">Select Movie:</label>
+
+    <select class="border-solid border-2 border-indigo-600;" name="movie_id" id="movie_id" required>
+
+        @foreach ($movies as $movie)
+
+            <option value="{{ $movie->id }}">{{ $movie->title }}</option>
+
+        @endforeach
+
+    </select>
+
+
+
+
+    <label for="stars">Stars:</label>
+
+    <input class="border-solid border-2 border-indigo-600;" name="stars" id="stars" required>
+
+
+
+
+    <label for="comment">Comment:</label>
+
+    <textarea class="border-solid border-2 border-indigo-600;" name="comment" id="comment" required></textarea>
+
+
+
+
+    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+
+
+
+
+    <button class="border-solid border-2 border-indigo-900;" type="submit">Submit Review</button>
+
+</form>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 
 </body>
 

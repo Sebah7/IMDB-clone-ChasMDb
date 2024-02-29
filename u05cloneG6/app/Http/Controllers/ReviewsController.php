@@ -69,6 +69,7 @@ class ReviewsController extends Controller
     public function userDashboard()
     {
         $userReviews = cmdb_reviews::with('movieReviewsRelationship')->where('user_id', Auth::id())->get();
-        return view('userdashboard', compact('userReviews'));
+        $movies = cmdb_movies::all();
+        return view('userdashboard', compact('userReviews', 'movies'));    
     }
 }

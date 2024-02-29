@@ -112,5 +112,8 @@ Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middl
 //This route takes in data from the getactorsanddirectors function in the actorcontroller, where we call for directortable.
 Route::get('/cast', [ActorController::class, 'getactorsanddirectors']);
 
+//Works to add review
+Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
+
 
 require __DIR__ . '/auth.php';
