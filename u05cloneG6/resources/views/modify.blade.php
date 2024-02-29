@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Movie | CMDb</title>
+    <title>Modify | CMDb</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Custom styling */
@@ -228,6 +228,29 @@
         <div class="alert alert-success mt-6">
             {{ session('success') }}
         </div>
+
+        @endif
+
+        <br><br>
+
+        <h2 class="text-2xl font-semibold mb-6">All Users</h2>
+
+        @if ($users->isEmpty())
+        <p>No users available.</p>
+        @else
+        <ul>
+            @foreach ($users as $user)
+            <li>
+                {{ $user->name }} - {{ $user->email }}
+                <form action="{{ route('users.delete', ['user' => $user->id]) }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete User</button>
+                    <br><br>
+                </form>
+            </li>
+            @endforeach
+        </ul>
         @endif
     </div>
 </body>
