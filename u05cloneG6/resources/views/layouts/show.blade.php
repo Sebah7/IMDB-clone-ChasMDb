@@ -69,12 +69,13 @@
     </style>
 </head>
 <body>
-<header class="bg-red" style="position: fixed; width: 100%; margin-top: 0px; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
+<!-- Navigation bar -->
+    <header class="bg-red" style="position: fixed; width: 100%; margin-top: 0px; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
         <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global"
             style="padding: 20px 20px;">
             <div class="flex lg:flex-1" style="margin-top: -11px;">
                 <h1>
-                    <a href="#" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
+                    <a href="/" class="-m-1.5 p-1.5" style="font-size: 30px; font-weight: 900;">
                         CMDb
                     </a>
                 </h1>
@@ -97,7 +98,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="/home"><span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top:7px; margin-right: 10px; margin-top:15px;">{{ Auth::user()->name }}</span></a>
+                    class="text-sm font-semibold leading-6 text-gray-900" style="margin-top:7px;">{{ Auth::user()->name }}</span></a>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit"
