@@ -104,7 +104,7 @@
 
     <div class="userfiltersection" style="display: flex; justify-content:center; padding: 10px 20px;" id="movies__">
         <div style="margin-top: 20px;">
-            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your damn Movies</h2>
+            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your Movies For Today</h2>
         </div>
     </div>
 
