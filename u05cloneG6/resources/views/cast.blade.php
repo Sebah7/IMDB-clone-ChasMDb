@@ -32,15 +32,15 @@
 
 
 <div class="mt-30 mb-30 mx-auto max-w-md flex flex-col md:flex-row"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full md:w-1/2 mb-8 md:mb-0"> <!-- Tailwind classes for background, shadow, rounded corners, width, and margin bottom -->
+    <div class="director-section"> <!-- CSS class for Director section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
             Director:
         </h2>
 
-        <div class="px-6 pt-4 pb-6"> <!-- Tailwind classes for padding -->
+        <div class="director-list px-6 pt-4 pb-6"> <!-- CSS class for Director list -->
             @if (isset($directors))
                 @foreach ($directors as $director)
-                    <div class="flex items-center justify-between mb-2"> <!-- Tailwind classes for flex items, justify between and margin bottom -->
+                    <div class="director-item flex items-center justify-between mb-2"> <!-- CSS class for Director item -->
                         <span class="mr-2">{{ $director->director_name }}</span> <!-- Tailwind classes for margin right -->
                         <button class="text-red-600" onclick="deleteDirector('{{ $director->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
                     </div>
@@ -49,15 +49,15 @@
         </div>
     </div>
 
-    <div class="bg-white shadow-lg rounded-lg overflow-hidden w-full md:w-1/2"> <!-- Tailwind classes for background, shadow, rounded corners, width -->
+    <div class="actor-section"> <!-- CSS class for Actor section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
             Actor:
         </h2>
 
-        <div class="px-6 pt-4 pb-6"> <!-- Tailwind classes for padding -->
+        <div class="actor-list px-6 pt-4 pb-6"> <!-- CSS class for Actor list -->
             @if (isset($actors))
                 @foreach ($actors as $actor)
-                    <div class="flex items-center justify-between mb-2"> <!-- Tailwind classes for flex items, justify between and margin bottom -->
+                    <div class="actor-item flex items-center justify-between mb-2"> <!-- CSS class for Actor item -->
                         <span class="mr-2">{{ $actor->name }}</span> <!-- Tailwind classes for margin right -->
                         <button class="text-red-600" onclick="deleteActor('{{ $actor->id }}')">Delete</button> <!-- Tailwind classes for button and text color -->
                     </div>
@@ -66,3 +66,21 @@
         </div>
     </div>
 </div>
+
+<style>
+    .director-section,
+    .actor-section {
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        .director-section {
+            width: 50%;
+            margin-right: 1rem;
+        }
+
+        .actor-section {
+            width: 50%;
+        }
+    }
+</style>
