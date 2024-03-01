@@ -46,6 +46,7 @@
 <br /><br /><br /><br /><br />
 <h1>My Watchlist</h1>
 
+
 @if ($movies->isEmpty())
     <p>Your watchlist is empty.</p>
 @else
