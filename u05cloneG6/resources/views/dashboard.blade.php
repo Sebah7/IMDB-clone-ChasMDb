@@ -39,7 +39,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 
-                <a href="/profile" style="margin-top:8px; padding:10px 14px;"><button type="submit"
+                <a href="/profile" style="padding:10px 14px;"><button type="submit"
                     class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">{{ Auth::user()->name }}</button>
                 </a>
                 <form action="/logout" method="post">
