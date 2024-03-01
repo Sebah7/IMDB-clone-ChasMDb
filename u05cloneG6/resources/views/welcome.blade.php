@@ -50,7 +50,7 @@
         </div>
     </nav>
 </header>
-
+<br /><br /><br />
 
 
 
@@ -139,12 +139,12 @@
                 justify-content: center;
                 align-items: center;
                 margin-bottom: 150px;
-                margin-top: 50px;
+                margin-top: 10px;
 
             }
 
             .w-full {
-                margin-top: 30px;
+                margin-top: 10px;
                 width: calc(20% - 15px);
                 box-sizing: border-box;
             }
