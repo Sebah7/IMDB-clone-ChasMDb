@@ -39,57 +39,65 @@
         </nav>
     </header>
     <br><br><br><br><br>
-
-<div class="" style="display:flex;"> <!-- Tailwind classes for margin top, bottom, centering, and flex container -->
-    <div class="director-section" style="width:50%;"> <!-- CSS class for Director section -->
-        <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Tailwind classes for heading -->
-            Castmembers
+<div class="flex flex-wrap justify-between"> <!-- Flex container -->
+    <div class="director-section" style="width:50%;"> <!-- Director section -->
+        <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Heading -->
+            Director
         </h2>
 
-        <div style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224); display:flex;">
+        <div class="liner-ingredient" style="background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255));"> <!-- Background style -->
             @if (session('success'))
             <div class="alert alert-success mt-6">
                 {{ session('success') }}
             </div>
             @endif
-    
+
             @if (session('director_success'))
             <div class="alert alert-success mt-6">
                 {{ session('director_success') }}
             </div>
             @endif
-    
-            <p>Director:</p>
-            @if (isset($directors))
-            @foreach ($directors as $director)
-            {{ $director->director_name }},
-            @if (auth()->check() && auth()->user()->role == '0')
-            <form action="{{ route('directors.destroy', $director->id) }}" method="POST" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
-            </form>
-            @endif
-            @endforeach
-            @endif
-            
+
+            <ul> <!-- List -->
+                @if (isset($directors))
+                @foreach ($directors as $director)
+                <li class="flex justify-between items-center py-2 px-4"> <!-- List item -->
+                    <span>{{ $director->director_name }}</span> <!-- Director name -->
+                    @if (auth()->check() && auth()->user()->role == '0')
+                    <form action="{{ route('directors.destroy', $director->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-600 dark:text-red-400">Delete</button> <!-- Delete button -->
+                    </form>
+                    @endif
+                </li>
+                @endforeach
+                @endif
+            </ul>
         </div>
     </div>
 
-    <div class="actor-section" style="width:50%;"> <!-- CSS class for Actor section -->
-        <h2>Actor</h2>
-        <div style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224); display:flex;">
+    <div class="actor-section" style="width:50%;"> <!-- Actor section -->
+        <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Heading -->
+            Actor
+        </h2>
+
+        <div class="liner-ingredient" style="background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255));"> <!-- Background style -->
             @if (isset($actors))
-            @foreach ($actors as $actor)
-            {{ $actor->name }},
-            @if (auth()->check() && auth()->user()->role == '0')
-            <form action="{{ route('actors.destroy', $actor->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
-            </form>
-            @endif
-            @endforeach
+            <ul> <!-- List -->
+                @foreach ($actors as $actor)
+                <li class="flex justify-between items-center py-2 px-4"> <!-- List item -->
+                    <span>{{ $actor->name }}</span> <!-- Actor name -->
+                    @if (auth()->check() && auth()->user()->role == '0')
+                    <form action="{{ route('actors.destroy', $actor->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-600 dark:text-red-400">Delete</button> <!-- Delete button -->
+                    </form>
+                    @endif
+                </li>
+                @endforeach
+            </ul>
             @endif
         </div>
     </div>
@@ -110,5 +118,30 @@
         .actor-section {
             width: 50%;
         }
+    }
+
+    .liner-ingredient {
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);
+    }
+
+    .liner-ingredient ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .liner-ingredient li {
+        margin-bottom: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .liner-ingredient li:last-child {
+        margin-bottom: 0;
     }
 </style>
