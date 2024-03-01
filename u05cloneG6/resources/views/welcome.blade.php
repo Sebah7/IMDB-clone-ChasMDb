@@ -161,7 +161,7 @@
                 <div class="">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <!-- Movies -->
-                        <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:10px; white-space: nowrap;">
+                        <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:-10px; white-space: nowrap; justify-content: space-between;">
                                 @foreach ($movies as $movie)
                                 <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px; height:300px;">
                                     <a href="#">
