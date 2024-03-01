@@ -38,14 +38,10 @@
                 <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <span id="user-info"
-                    class="text-sm font-semibold leading-6 text-gray-900"
-                    style="margin-top: 10px;"
-                    >{{ Auth::user()->name }}</span>
                 
-                <button type="submit"
-                    class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Setings</button>
-            
+                <a href="/profile" style="margin-top:8px; padding:10px 14px;"><button type="submit"
+                    class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">{{ Auth::user()->name }}</button>
+                </a>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit"
