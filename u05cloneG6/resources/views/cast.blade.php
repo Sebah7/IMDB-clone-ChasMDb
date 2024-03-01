@@ -39,7 +39,7 @@
         </nav>
     </header>
     <br><br><br><br><br>
-<div class="flex flex-wrap justify-between"> <!-- Flex container -->
+<div style="display:flex;"> <!-- Flex container -->
     <div class="director-section" style="width:50%;"> <!-- Director section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Heading -->
             Director
