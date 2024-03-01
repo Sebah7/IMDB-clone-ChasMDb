@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <style>
+        overflow-x: hidden;
+    </style>
 
     <!---nav bar using tailwind-->
 <header class="bg-red" style="position: fixed; width: 100%; margin-top: 0px; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
@@ -124,7 +127,7 @@
     <!--- user adjustments -->
 
     <div class="userfiltersection" style="display: flex; justify-content:center; padding: 10px 20px;" id="movies__">
-        <div style="margin-top: 20px;">
+        <div style="margin-top: 10px;">
 <h2 class="text-3xl font-semibold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent border-b-2 border-black pb-2">
                 Get inspired from the latest of our dämn movies
 </h2>
@@ -138,13 +141,13 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-bottom: 150px;
-                margin-top: 10px;
+/*                 margin-bottom: 150px; */
+                margin-top:0px;
 
             }
 
             .w-full {
-                margin-top: 10px;
+                margin-top: 0px;
                 width: calc(20% - 15px);
                 box-sizing: border-box;
             }
@@ -156,7 +159,7 @@
                 <div class="">
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <!-- Movies -->
-                        <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:30px; white-space: nowrap;">
+                        <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:10px; white-space: nowrap;">
                                 @foreach ($movies as $movie)
                                 <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px; height:300px;">
                                     <a href="#">
