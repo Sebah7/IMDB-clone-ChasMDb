@@ -80,7 +80,7 @@
     <!-- Main content -->
 <div class="moviesection flex flex-wrap justify-center">
     @foreach ($movies as $movie)
-    <div class="movie-card m-4" style="border-style: solid; padding: 0; width: 200px; height:300px;">
+    <a href="/onemovie" ><div class="movie-card m-4" style="border-style: solid; padding: 0; width: 200px; height:300px;">
         <a href="#">
             <img class="movie-poster" style="max-height:200px;" src="{{ $movie->poster }}" alt="movie image" />
         </a>
@@ -130,7 +130,7 @@
         @endif
             </div>
         </div>
-    </div>
+    </div></a>
     
     @endforeach
 </div>
