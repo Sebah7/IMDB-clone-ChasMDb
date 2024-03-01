@@ -138,7 +138,7 @@
                         <!-- Movies -->
                         <ul class="flex space-x-4 overflow-x-auto" style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px; margin-top:30px; white-space: nowrap;">
                                 @foreach ($movies as $movie)
-                                <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px;">
+                                <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px; height:400px;">
                                     <a href="#">
                                         <img class="movie-poster" src="{{ $movie->poster }}" alt="movie image" />
                                     </a>
