@@ -45,3 +45,4 @@ class WatchlistController extends Controller
     return redirect()->back()->with('success', 'Movie removed from watchlist');
 }
 }
+} 

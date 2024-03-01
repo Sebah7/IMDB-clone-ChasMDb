@@ -40,6 +40,7 @@
 
 @if ($userWatchlist->isEmpty())
 <p>Your watchlist is empty.</p>
+
 @else
 <ul style="justify-content: center; align-items: center; text-align: center; justify-content: center;">
     @foreach ($userWatchlist as $movie)
