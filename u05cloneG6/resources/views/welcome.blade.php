@@ -144,8 +144,8 @@
                                     </a>
                                     <style>
                                         .movie-poster {
-                                            width: 30px;
-                                            height: 40px;
+                                            width: 100%;
+                                            height: 50%;
                                             object-fit: cover;
                                         }
 
