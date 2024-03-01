@@ -140,8 +140,16 @@
                                 @foreach ($movies as $movie)
                                 <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px;">
                                     <a href="#">
-                                        <img class="" src="{{ $movie->poster }}" alt="movie image" />
+                                        <img class="movie-poster" src="{{ $movie->poster }}" alt="movie image" />
                                     </a>
+                                    <style>
+                                        .movie-poster {
+                                            width: 30px;
+                                            height: 40px;
+                                            object-fit: cover;
+                                        }
+
+                                    </style>
                                     <div class="px-5 pb-5">
                                         <a href="#">
                                             <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
