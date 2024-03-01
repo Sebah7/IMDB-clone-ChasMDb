@@ -11,7 +11,7 @@
 <body>
 
     <!---nav bar using tailwind-->
-    <header class="bg-red" style="position: fixed; width: 100%; margin-top: 0px; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
+<header class="bg-red" style="position: fixed; width: 100%; margin-top: 0px; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global" style="padding: 20px 20px;">
         <div class="flex lg:flex-1" style="margin-top: -11px;">
             <h1>
@@ -36,11 +36,10 @@
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @auth
                 <div class="relative inline-block">
-                    <span id="user-info" class="text-sm font-semibold leading-6 text-gray-900 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:7px;">
+                    <span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:7px;">
                         {{ Auth::user()->name }}
                     </span>
                     <div class="absolute hidden profile-dropdown-content bg-white border rounded-lg mt-2 py-2 w-40" style="right: 0;">
-                        <a href="/home" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
                         <form action="/logout" method="post">
                             @csrf
                             <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</button>
@@ -48,12 +47,13 @@
                     </div>
                 </div>
             @else
-                <a href="/register" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">Sign Up <span aria-hidden="true">&rarr;</span></a>
-                <a href="/login" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px; color: white;">Log in <span aria-hidden="true">&rarr;</span></a>
+                <a href="/register" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px;">Sign Up <span aria-hidden="true">&rarr;</span></a>
+                <a href="/login" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px;">Log in <span aria-hidden="true">&rarr;</span></a>
             @endauth
         </div>
     </nav>
 </header>
+
 
 
 
