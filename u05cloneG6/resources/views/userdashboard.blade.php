@@ -11,7 +11,7 @@
 
 <body class="bg-gray-100 dark:bg-gray-900">
     <!-- Navigation bar -->
-    <header class="bg-red" style="position: fixed; width: 100%; margin-top: 0px; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
+<header class="bg-red" style="position: fixed; width: 100%; margin-top: 0px; background-color: rgb(246, 236, 255); box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global" style="padding: 20px 20px;">
         <div class="flex lg:flex-1" style="margin-top: -11px;">
             <h1>
@@ -32,6 +32,7 @@
             <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
             <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
             <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast</a>
+            <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
             <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -52,7 +53,7 @@
     </nav>
 </header>
 <br /><br /><br />
-                    
+
 
     <!-- Main content -->
     <div class="py-20">
