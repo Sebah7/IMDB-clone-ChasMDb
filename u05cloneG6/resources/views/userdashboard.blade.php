@@ -65,7 +65,7 @@
 
                     @forelse ($userReviews as $review)
                     <div>
-                        <p>Movie: {{ $review->movieReviewsRelationship->title }}</p>
+                        <p>Movie: {{ optional($review->movieReviewsRelationship)->title }}</p>
                         <p>Stars: {{ $review->stars }}</p>
                         <p>Comment: {{ $review->comment }}</p>
 
