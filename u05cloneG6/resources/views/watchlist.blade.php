@@ -59,7 +59,14 @@
             align-items: center;
             margin: 0 auto;
             
-            ">{{ $movie->title }}</li>
+            "li>
+    {{ $movie->title }}
+    <form action="{{ route('watchlist.destroy', $movie->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit">Delete Movie</button>
+</form>
+</li>
     @endforeach
 </ul>
 @endif

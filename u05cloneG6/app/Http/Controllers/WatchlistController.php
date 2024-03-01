@@ -30,18 +30,18 @@ class WatchlistController extends Controller
         return back()->with('success', 'Movie added to watchlist successfully.');
     }
 
-    public function removeMovie(Request $request, $watchlistId, $movieId)
+    public function destroy($id)
 {
-    $watchlist = cmdb_watchlist::find($watchlistId);
+    $movie = cmdb_movies::find($id);
 
-    // Check if the watchlist belongs to the logged-in user
-    if ($watchlist->user_id != Auth::id()) {
+    // Check if the movie belongs to the logged-in user
+    if ($movie->user_id != Auth::id()) {
         return redirect()->back()->with('error', 'Unauthorized access');
     }
 
-    // Remove the movie from the watchlist
-    $watchlist->movies()->detach($movieId);
+    // Delete the movie
+    $movie->delete();
 
-    return redirect()->back()->with('success', 'Movie removed from watchlist');
+    return redirect()->back()->with('success', 'Movie deleted successfully');
 }
 }
