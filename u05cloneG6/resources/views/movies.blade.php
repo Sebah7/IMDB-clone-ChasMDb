@@ -69,10 +69,19 @@
     <!-- Main content -->
 <div class="moviesection flex flex-wrap justify-center">
     @foreach ($movies as $movie)
-    <div class="movie-card m-4">
+    <div class="movie-card m-4" style="border-style: solid; padding: 0; width: 200px; height:300px;">
         <a href="#">
-            <img src="{{ $movie->poster }}" alt="movie image" />
+            <img class="movie-poster" src="{{ $movie->poster }}" alt="movie image" />
         </a>
+        
+                                    <style>
+                                        .movie-poster {
+                                            width: 100%;
+                                            height: 50%;
+                                            object-fit: cover;
+                                        }
+
+                                    </style>
         <div class="movie-card-content">
             <a href="#">
                 <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
