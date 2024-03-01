@@ -70,24 +70,54 @@
 
     <!-- Profile section -->
     <div class="max-w-7xl mx-auto p-8">
-        <h2 class="text-xl font-semibold mb-4">Profile Settings</h2>
+        <h2 class="text-xl font-semibold mb-4">Profile</h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div class="bg-white dark:bg-gray-800 shadow sm:rounded-lg p-6">
-                <h3 class="text-lg font-semibold mb-4">Update Email</h3>
-                <form action="/email/edit" method="post">
+                <h3 class="text-lg font-semibold mb-4">Profile Information</h3>
+                <p>Update your account's profile information and email address.</p>
+                <form action="/profile/update" method="post">
                     @csrf
-                    <!-- Add your email update form fields here -->
-                    <button type="submit" class="text-white font-semibold bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md">Update Email</button>
+                    <!-- Profile information update form fields -->
+                    <label for="name" class="block mt-4 font-semibold">Name</label>
+                    <input type="text" id="name" name="name" value="elias_testing" class="block w-full rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50">
+
+                    <label for="email" class="block mt-4 font-semibold">Email</label>
+                    <input type="email" id="email" name="email" value="elias_testing@gmail.com" class="block w-full rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50">
+
+                    <button type="submit" class="text-white font-semibold bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md mt-4">SAVE</button>
                 </form>
             </div>
             <div class="bg-white dark:bg-gray-800 shadow sm:rounded-lg p-6">
                 <h3 class="text-lg font-semibold mb-4">Update Password</h3>
-                <form action="/password/edit" method="post">
+                <p>Ensure your account is using a long, random password to stay secure.</p>
+                <form action="/password/update" method="post">
                     @csrf
-                    <!-- Add your password update form fields here -->
-                    <button type="submit" class="text-white font-semibold bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md">Update Password</button>
+                    <!-- Password update form fields -->
+                    <label for="current-password" class="block mt-4 font-semibold">Current Password</label>
+                    <input type="password" id="current-password" name="current-password" placeholder="•••••••••••••••" class="block w-full rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50">
+
+                    <label for="new-password" class="block mt-4 font-semibold">New Password</label>
+                    <input type="password" id="new-password" name="new-password" placeholder="New Password" class="block w-full rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50">
+
+                    <label for="confirm-password" class="block mt-4 font-semibold">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" class="block w-full rounded-md border-gray-300 focus:border-blue-400 focus:ring focus:ring-blue-400 focus:ring-opacity-50">
+
+                    <button type="submit" class="text-white font-semibold bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md mt-4">SAVE</button>
                 </form>
             </div>
+        </div>
+    </div>
+
+    <!-- Delete Account section -->
+    <div class="max-w-7xl mx-auto p-8">
+        <h2 class="text-xl font-semibold mb-4">Delete Account</h2>
+        <div class="bg-white dark:bg-gray-800 shadow sm:rounded-lg p-6">
+            <p>Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.</p>
+            <form action="/user/delete" method="post" onsubmit="return confirm('Are you sure you want to delete your account?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="text-white font-semibold bg-red-500 hover:bg-red-600 px-4 py-2 rounded-md mt-4">DELETE ACCOUNT</button>
+            </form>
         </div>
     </div>
 </body>
