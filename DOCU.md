@@ -44,7 +44,7 @@ We decided on four main sprints where we discuss the content for the upcoming sp
 4. Backend and Tailwind.
 
 **Friday 02/02/24:**
-- All members present.
+- All present.
 - Agenda: Contract signing, deciding on agile method, structuring work, discussing GitFlow, determining code standards, starting the project.
 - Elias tasked with Tailwind documentation review over the weekend.
 - Planned Monday meeting at 09:00 in school for GitHub flow overview and setting up devcontainer.
@@ -106,6 +106,7 @@ We decided on four main sprints where we discuss the content for the upcoming sp
 **Wednesday 21/2:**
 - All present.
 - Continued work on user authentication, data addition, Figma, and controllers.
+- Some small issues we had we asked Olli-Heikki about this and he gave us some advice how to solve this.
 
 **Thursday 22/2:**
 - All present.
@@ -122,6 +123,30 @@ We decided on four main sprints where we discuss the content for the upcoming sp
 
 **Tuesday 27/2:**
 - All present
-- 
+- Today we put Tailwind styling on the blade-files so we would have styling in all the pages we have in our project.
+- Also we had some problems with some of our tables so we re-named some of the tables and tried some different functions so it would connect correctly in the database.
+- We added some more functions into the User and did some adjustments into the styling so all the pages have the same correct styling. We also did some corrections in the Movies.blade-file.
+
+**Wednesday 28/2:**
+- All present
+- Today we worked a lot with the UserDashbord and also with the modify-files so it could have the right routing, so it would connect successfully. We also added some functions in their blade-files. We also fixed the UserController so the users would appear on the modify route. 
+- We also added a function on the welcome-blade so it would show the movies randomized.
+- We added a route for the movies in the welcome.blade-file.
+- We added a destroy function in the UserController and we fixed the Directors store function in the Modify.blade-file and the destroy function in the Cast.blade-file so it would work properly.
+- We went through the final changes in the styling and what is left.
+
+**Thursday 29/2:**
+- All present
+- We had a meeting early in the morning to see what's left and we also did a presentation of our project for our teacher Sebastian and our class
+- We got some feedback from Sebastian that we worked on this day after the presentation, and we will have to work on this tomorrow too, to make the final changes,and the final things we need to add to our project.
+- We added some authorization functions for the Admin so the Admin has the possibility to remove users and also we put a function so the Admin can add a movie to our website.
+- We also worked on the destroy function and the store function in the WatchlistController so it could work properly and will continue with this tomorrow.
+
+**Friday 1/3:**
+- All present
+- We continued working on the things Sebastian told us yesterday so we could have it done by today.
+- We also continued working on the final issues in the WatchlistController so we could get it to work correctly.
+- We did the last details we hade for our styling and the movie-cards we have on the welcome-page.
+
 
 ---
