@@ -107,4 +107,7 @@ Route::post('/watchlist/add', [WatchlistController::class, 'addToWatchlist'])->n
 
 Route::delete('cast/{id}', [DirectorController::class, 'destroy'])->name('directors.destroy');
 
+Route::get('/onemovie/{title}', [MovieController::class, 'showPreview'])->name('onemovie.showPreview');
+
+
 require __DIR__ . '/auth.php';
