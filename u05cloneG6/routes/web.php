@@ -103,6 +103,8 @@ Route::get('movies/actors/{id}', [ActorController::class, 'show'])->middleware([
 Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
 
 
+Route::post('/watchlist/add', [WatchlistController::class, 'addToWatchlist'])->name('watchlist.addToWatchlist');
+
 Route::delete('cast/{id}', [DirectorController::class, 'destroy'])->name('directors.destroy');
 
 require __DIR__ . '/auth.php';

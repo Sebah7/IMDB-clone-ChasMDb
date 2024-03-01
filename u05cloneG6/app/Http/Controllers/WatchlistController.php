@@ -1,69 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+
+use App\Models\Admin\cmdb_movies;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\cmdb_watchlist;
-use App\Models\User;
 
 
 class WatchlistController extends Controller
 {
     public function index()
     {
-        try {
-            // Retrieve the current authenticated user
-            $user_id = Auth::user()->id;
+        $userWatchlist = Auth::user()->movies()->get();
+        $allMovies = cmdb_movies::all();
 
-            // Get the watchlist for the user with eager loading for the associated movie data
-            $watchlist = cmdb_watchlist::where('user_id', $user_id)->firstOrFail();
-            
-            $movies = $watchlist->watchlistMovieRelation()->get();
-
-            return view('watchlist', ['watchlist' => $watchlist, 'movies' => $movies]);
-        } catch (ModelNotFoundException $e) {
-            // Handle case when watchlist is not found for the user
-            return view('watchlist', ['watchlist' => null, 'movies' => collect()]);
-        }
+        return view('watchlist', compact('userWatchlist', 'allMovies'));
     }
 
-    //public function addToWatchlist($id)
-//{
-
-    //$createItemInWatchlist = Watchlist::create([
-     //   'user_id' => Auth::user()->id,
-       // 'movie_id' => $id
-    //]);
-
-    //return Redirect::to('watchlist');  
-//}
-
-    public function store(Request $request)
+    public function addToWatchlist(Request $request)
     {
-        // Validate the request data
         $request->validate([
-            'movie_id' => 'required|exists:movie_id',
+            'movie_id' => 'required|exists:cmdb_movies,id',
         ]);
 
-        // Add item to the user's watchlist
-        auth()->user()->watchlist()->create([
-            'movie_id' => $request->movie_id,
-        ]);
+        $user = Auth::user();
+        $user->movies()->attach($request->input('movie_id'));
 
-        // Redirect back with success message
         return back()->with('success', 'Movie added to watchlist successfully.');
     }
 
-    public function destroy(Watchlist $watchlist)
-    {
-        // Ensure the user owns the watchlist entry
-        $this->authorize('delete', $watchlist);
+    public function removeMovie(Request $request, $watchlistId, $movieId)
+{
+    $watchlist = cmdb_watchlist::find($watchlistId);
 
-        // Delete the watchlist entry
-        $watchlist->delete();
-
-        // Redirect back with success message
-        return back()->with('success', 'Movie removed from watchlist successfully.');
+    // Check if the watchlist belongs to the logged-in user
+    if ($watchlist->user_id != Auth::id()) {
+        return redirect()->back()->with('error', 'Unauthorized access');
     }
+
+    // Remove the movie from the watchlist
+    $watchlist->movies()->detach($movieId);
+
+    return redirect()->back()->with('success', 'Movie removed from watchlist');
+}
+}
 } 
