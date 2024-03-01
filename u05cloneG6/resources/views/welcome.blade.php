@@ -10,7 +10,9 @@
 
 <body>
     <style>
-        overflow-x: hidden;
+        body{
+            overflow-x: hidden;
+        }
     </style>
 
     <!---nav bar using tailwind-->
