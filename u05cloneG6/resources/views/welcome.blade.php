@@ -13,7 +13,6 @@
     <style>
         body{
             overflow-x: hidden;
-            background-color:black;
         }
     </style>
 
@@ -96,35 +95,67 @@
             <!-- Add more images here -->
         </div>
 
-        <style>
-            .slide {
-                width: 100%;
-                height: 100%;
-                border-radius: 20px;
-                object-fit: cover;
-                /* Ensure images cover the entire container */
+
+    <style>
+        @media (max-width: 900px) {
+            .right__ {
+                display: none;
             }
-        </style>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                let slideIndex = 0;
-                const slides = document.querySelectorAll('.slide');
+            .ouhwyirkfu948 {
+                padding: 0 20px;
+            }
 
-                function showSlides() {
-                    slides.forEach(slide => slide.style.display = 'none');
-                    slideIndex++;
-                    if (slideIndex > slides.length) {
-                        slideIndex = 1
-                    }
-                    slides[slideIndex - 1].style.display = 'block';
-                    setTimeout(showSlides, 2000); // Change image every 2 seconds
+            .moviesection .w-full {
+                width: 100px;
+            }
+        }
+    </style>
+
+
+
+
+    <!---main show-->
+
+        <div class="ouhwyirkfu948" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
+        <div class="slideshow-container">
+            <img class="slide" src="https://media.istockphoto.com/id/1205279508/sv/foto/randig-l%C3%A5da-med-popcorn.jpg?s=612x612&w=0&k=20&c=vZ3zU2Fa9hdHFtiHiATXI5yOSO7LJbIVYyGdgwzmEnA=" alt="Slide 1">
+            <img class="slide" src="https://media.istockphoto.com/id/115022743/sv/foto/cinema-hall.jpg?s=612x612&w=0&k=20&c=PsbK09d-6rzJRVc6PodfISn7Y-C23BwnCONuNleAPlg=" alt="Slide 2">
+            <img class="slide" src="https://media.istockphoto.com/id/1455714258/sv/foto/bright-spotlights-near-wall-in-dark-room-space-for-text.jpg?s=612x612&w=0&k=20&c=vP3X55xSgwa8gIuZPKqKcbygzbnlw1BAgcDTjRwWpRc=" alt="Slide 3">
+            <img class="slide" src="https://media.istockphoto.com/id/1332167970/sv/foto/coming-soon-neon-sign-the-banner-shining-light-signboard-collection.jpg?s=612x612&w=0&k=20&c=RoqBG_vyYdDDitSxlX3mXgUqyF1bTfpM7fRU4Iz6kV0=" alt="Slide 4">
+            <img class="slide" src="https://media.istockphoto.com/id/1128524161/sv/foto/gamla-svartvita-negativ-film-rullar-retro-reels-bildband-fotografisk-film-vintage-bakgrund.jpg?s=612x612&w=0&k=20&c=CNjK2HgYiwAt9kE2baGxwI50gvP63cM0riLBNAcDgIM=" alt="Slide 5">
+            <img class="slide" src="https://media.istockphoto.com/id/1697201106/sv/foto/storytelling-text-title-on-film-slate-or-movie-clapper-board-for-filmmakers-and-film-industry.jpg?s=612x612&w=0&k=20&c=Su3m5KYH_Y9s-zgpldxemdumX6dR-1BLUEFG2Nws81Q=" alt="Slide 6">
+            <!-- Add more images here -->
+        </div>
+
+    <style>
+        .slide {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover; /* Ensure images cover the entire container */
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slide');
+
+            function showSlides() {
+                slides.forEach(slide => slide.style.display = 'none');
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1
                 }
+                slides[slideIndex - 1].style.display = 'block';
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
 
-                showSlides();
-            });
-        </script>
-    </div>
+            showSlides();
+        });
+    </script>
+</div>
 
     </div>
 
@@ -134,12 +165,10 @@
     <!--- user adjustments -->
 
     <div class="userfiltersection" style="display: flex; justify-content:center; padding: 10px 20px;" id="movies__">
-
-        <div style="margin-top: 20px;">
-            <h2 class="text-3xl font-semibold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent border-b-2 border-black pb-2">
-
+        <div style="margin-top: 10px;">
+<h2 class="text-3xl font-semibold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent border-b-2 border-black pb-2">
                 Get inspired from the latest of our dämn movies
-            </h2>
+</h2>
         </div>
     </div>
 
@@ -168,36 +197,31 @@
                 <div class="">
                     <div class="p-6 text-gray-900 dark:text-gray-100" style="margin-left:35px;">
                         <!-- Movies -->
-
-                        <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:30px; white-space: nowrap;">
-                            @foreach ($movies as $movie)
-                            <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px; height:300px;">
-                                <a href="#">
-                                    <img class="movie-poster" src="{{ $movie->poster }}" alt="movie image" />
-                                </a>
-                                <style>
-                                    .movie-poster {
-                                        width: 100%;
-                                        height: 50%;
-                                        object-fit: cover;
-                                    }
-                                </style>
-                                <div class="px-5 pb-5">
-                                    <a href="{{ route('onemovie.showPreview', $movie->title) }}">
-                                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
+                        <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:-30px;margin-left:30px; white-space: nowrap; justify-content: space-between; text-aline:center;">
+                                @foreach ($movies as $movie)
+                                <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px; height:300px; margin-left:20px; justify-content: space-between;">
+                                    <a href="#">
+                                        <img class="movie-poster" src="{{ $movie->poster }}" alt="movie image" />
                                     </a>
-                                    <div class="flex items-center mt-2.5 mb-5">
-                                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
-                                            @for ($i = 0; $i < $movie->ratings; $i++)
-                                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                                </svg>
-                                                @endfor
-                                                @for ($i = $movie->ratings; $i < 5; $i++) <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                    <style>
+                                        .movie-poster {
+                                            width: 100%;
+                                            height: 50%;
+                                            object-fit: cover;
+                                        }
+
+                                    </style>
+                                    <div class="px-5 pb-5">
+                                        <a href="#">
+                                            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
+                                        </a>
+                                        <div class="flex items-center mt-2.5 mb-5">
+                                            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                                @for ($i = 0; $i < $movie->ratings; $i++)
+                                                    <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                     </svg>
                                                     @endfor
-
                                                     @for ($i = $movie->ratings; $i < 5; $i++) <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                                                         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                         </svg>
@@ -206,20 +230,13 @@
                                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
                                         </div>
                                         <div class="flex items-center justify-between">
-                                            <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to Watchlist</a>
-
+                                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
+                                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
                                         </div>
-                                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
-                                    </div>
-                                    <div class="flex items-center justify-between">
-                                        <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
-                                        <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
                                     </div>
                                 </li>
-                                                    </a>
                                 @endforeach
                             </ul>
-
                     </div>
                 </div>
             </div>
