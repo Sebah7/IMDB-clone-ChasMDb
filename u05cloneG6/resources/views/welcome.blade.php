@@ -35,7 +35,7 @@
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @auth
-                <a href="/home"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:7px;">
+                <a href="/home"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:17px;">
                         {{ Auth::user()->name }}</a>
                 </span>
                 <form action="/logout" method="post">
