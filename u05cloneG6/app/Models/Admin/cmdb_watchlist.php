@@ -16,7 +16,7 @@ class cmdb_watchlist extends Model
     
     public function movies(): BelongsToMany
     {
-        return $this->belongsToMany(cmdb_movies::class, 'cmdb_movie_cmdb_watchlist','movie_id', 'watchlist_id');
+        return $this->belongsToMany(cmdb_movies::class, 'cmdb_movie_cmdb_watchlist', 'watchlist_id', 'movie_id');
     }
 
     public function user ()

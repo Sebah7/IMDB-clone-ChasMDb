@@ -53,8 +53,9 @@ class User extends Authenticatable
         return $this->belongsToMany(cmdb_movies::class, 'cmdb_movie_cmdb_watchlist', 'watchlist_id', 'movie_id');
     }
 
+    // One User can have one watchlist
     public function watchlist()
     {
-        return $this->belongsToMany(cmdb_watchlist::class, 'cmdb_movie_cmdb_watchlist', 'watchlist_id', 'movie_id');
+        return $this->hasOne(cmdb_watchlist::class);
     }
 }

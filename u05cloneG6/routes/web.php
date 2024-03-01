@@ -61,16 +61,16 @@ Route::delete('/genres/{id}', [GenreController::class, 'destroy'])->name('genres
 //This is routes to my WatchlistController
 Route::middleware(['auth'])->group(function () {
     Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
-    // Route::get('/watchlist/{watchlist_id}', [WatchlistController::class,'index']);
+    // Route::post('/watchlist', [WatchlistController::class, 'store'])->name('watchlist.store');
     Route::post('/watchlist', [WatchlistController::class, 'store'])->name('watchlist.store');
-    Route::delete('/watchlist/{id}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');});
+
+    Route::delete('/watchlist/{id}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');
+});
 
 
 Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
 //inloggade som kan hantera reviews
 Route::resource('reviews', ReviewsController::class)->only(['index', 'create', 'store'])->middleware(['auth', 'verified']);
-//alternativ för return i controller
-//Route::resource('movies', MovieController::class);
 
 //this one is working
 Route::get('/movies', [MovieController::class, 'index']);
@@ -78,10 +78,6 @@ Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/', [MovieController::class, 'movieRandomizer']);
 Route::delete('/movies/{id}', [MovieController::class, 'destroy'])->name('movies.destroy');
 
-// Route::get('/modify/edit', [MovieController::class, 'edit'])->middleware(['auth', 'admin'])->name('modify.edit');
-// Route::put('/modify/update', [MovieController::class, 'update'])->middleware(['auth', 'admin'])->name('modify.update');
-
-// Route::get('/movies', [ActorController::class, 'index'])->name('home');
 
 //Seeing reviews your own reviews and being able to delete them.
 Route::delete('/reviews/{review_id}', [ReviewsController::class, 'destroy'])->middleware(['auth', 'verified'])->name('reviews.destroy');
@@ -92,15 +88,12 @@ Route::get('/userdashboard', [ReviewsController::class, 'userDashboard'])->middl
 Route::get('/cast', [ActorController::class, 'getactorsanddirectors']);
 
 
-//still in trial
 Route::delete('cast/{actor}', [ActorController::class, 'destroy'])->name('actors.destroy');
-
 Route::get('movies/actors/{id}', [ActorController::class, 'show'])->middleware(['auth', 'admin'])->name('actors.show');
 
 
 //Works to add review
 Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('reviews.store');
-
 
 Route::post('/watchlist/add', [WatchlistController::class, 'addToWatchlist'])->name('watchlist.addToWatchlist');
 
