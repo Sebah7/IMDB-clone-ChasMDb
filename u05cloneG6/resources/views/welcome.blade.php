@@ -159,7 +159,7 @@
         <div class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="">
-                    <div class="p-6 text-gray-900 dark:text-gray-100" style="margin-left:50px;">
+                    <div class="p-6 text-gray-900 dark:text-gray-100" style="margin-left:35px;">
                         <!-- Movies -->
                         <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:-30px;margin-left:30px; white-space: nowrap; justify-content: space-between; text-aline:center;">
                                 @foreach ($movies as $movie)
