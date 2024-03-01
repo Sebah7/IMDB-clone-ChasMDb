@@ -77,14 +77,17 @@
     <!---main show-->
 
     <div class="ouhwyirkfu948" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
-    <div class="slideshow-container" style="height: 70%; width: 40%;">
-        <img class="slide" src="https://media.istockphoto.com/id/1363352866/sv/foto/friends-enjoying-a-comedy-movie-at-the-cinema.jpg?s=612x612&w=0&k=20&c=abBKLjSmQbB69OmDfydgFwJ-QCD5rj7CT2mV9yg5cPo=" alt="Slide 1">
-        <img class="slide" src="https://media.istockphoto.com/id/1336937059/sv/foto/film-reels-on-black-background-movie-video-and-cinema-prodaction-and-edition-concept.jpg?s=612x612&w=0&k=20&c=HjQNMl0lzUiTKe0BP2bks-DDEF34rdzhkwjVbXGnw2E=" alt="Slide 2">
-        <img class="slide" src="https://media.istockphoto.com/id/1302499143/sv/vektor/modern-biobakgrund-med-filmremsa-realistisk-3d-filmremsa-i-perspektiv-3d-isometrisk.jpg?s=612x612&w=0&k=20&c=I5vx83MFQe4ad-iOtPdRyZNZjrBIDakkSnODGXulDFA=" alt="Slide 3">
-        <img class="slide" src="https://media.istockphoto.com/id/1056247682/sv/vektor/vector-r%C3%B6d-gardin-bakgrund-modern-stil.jpg?s=612x612&w=0&k=20&c=VkcVtPhRT8gHHDvxDQmtpcwBNrcW60B35BoGP9iGeWM=" alt="Slide 4">
-        <img class="slide" src="https://media.istockphoto.com/id/514727234/sv/foto/neon-sign-on-a-brick-wall-cinema.jpg?s=612x612&w=0&k=20&c=lqlVjovMwNEcRmcoYK7GN4DbMBz5mizdqlSRuGpxetI=" alt="Slide 5">
-        <!-- Add more images here -->
-    </div>
+
+        <div class="slideshow-container">
+            <img class="slide" src="https://media.istockphoto.com/id/1205279508/sv/foto/randig-l%C3%A5da-med-popcorn.jpg?s=612x612&w=0&k=20&c=vZ3zU2Fa9hdHFtiHiATXI5yOSO7LJbIVYyGdgwzmEnA=" alt="Slide 1">
+            <img class="slide" src="https://media.istockphoto.com/id/115022743/sv/foto/cinema-hall.jpg?s=612x612&w=0&k=20&c=PsbK09d-6rzJRVc6PodfISn7Y-C23BwnCONuNleAPlg=" alt="Slide 2">
+            <img class="slide" src="https://media.istockphoto.com/id/1455714258/sv/foto/bright-spotlights-near-wall-in-dark-room-space-for-text.jpg?s=612x612&w=0&k=20&c=vP3X55xSgwa8gIuZPKqKcbygzbnlw1BAgcDTjRwWpRc=" alt="Slide 3">
+            <img class="slide" src="https://media.istockphoto.com/id/1332167970/sv/foto/coming-soon-neon-sign-the-banner-shining-light-signboard-collection.jpg?s=612x612&w=0&k=20&c=RoqBG_vyYdDDitSxlX3mXgUqyF1bTfpM7fRU4Iz6kV0=" alt="Slide 4">
+            <img class="slide" src="https://media.istockphoto.com/id/1128524161/sv/foto/gamla-svartvita-negativ-film-rullar-retro-reels-bildband-fotografisk-film-vintage-bakgrund.jpg?s=612x612&w=0&k=20&c=CNjK2HgYiwAt9kE2baGxwI50gvP63cM0riLBNAcDgIM=" alt="Slide 5">
+            <img class="slide" src="https://media.istockphoto.com/id/1697201106/sv/foto/storytelling-text-title-on-film-slate-or-movie-clapper-board-for-filmmakers-and-film-industry.jpg?s=612x612&w=0&k=20&c=Su3m5KYH_Y9s-zgpldxemdumX6dR-1BLUEFG2Nws81Q=" alt="Slide 6">
+            <!-- Add more images here -->
+        </div>
+
 
     <style>
         .slide {
@@ -124,7 +127,12 @@
 
     <div class="userfiltersection" style="display: flex; justify-content:center; padding: 10px 20px;" id="movies__">
         <div style="margin-top: 20px;">
-            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your Damn Movies</h2>
+
+            <h2 class="text-3xl font-semibold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent border-b-2 border-black pb-2">
+                Get inspired from the latest of our dämn movies</h2>
+
+            <!-- Original h2, utbytt av den övre med mer styling
+            <h2 class="text-xl font-extrabold leading-6 text-gray-900" style="font-weight: 600;">Your Damn Movies</h2> -->
         </div>
     </div>
 
@@ -154,6 +162,26 @@
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <!-- Movies -->
                         <ul class="flex space-x-4 overflow-x-auto" style="box-shadow: 2px 2px 20px 2px rgb(227, 227, 227); padding: 10px 20px; margin-top:30px; white-space: nowrap;">
+
+                            @foreach ($movies as $movie)
+                            <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px;">
+                                <a href="#">
+                                    <img class="" src="{{ $movie->poster }}" alt="movie image" />
+                                </a>
+                                <div class="px-5 pb-5">
+                                    <a href="#">
+                                        <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
+                                    </a>
+                                    <div class="flex items-center mt-2.5 mb-5">
+                                        <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                                            @for ($i = 0; $i < $movie->ratings; $i++)
+                                                <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                                                </svg>
+                                                @endfor
+                                                @for ($i = $movie->ratings; $i < 5; $i++) <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                                                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+
                                 @foreach ($movies as $movie)
                                 <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px; height:300px;">
                                     <a href="#">
@@ -178,21 +206,17 @@
                                                         <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
                                                     </svg>
                                                     @endfor
-                                                    @for ($i = $movie->ratings; $i < 5; $i++) <svg class="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                                                        <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                                                        </svg>
-                                                        @endfor
-                                            </div>
-                                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
                                         </div>
-                                        <div class="flex items-center justify-between">
-                                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
-                                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
-                                        </div>
+                                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
                                     </div>
-                                </li>
-                                @endforeach
-                            </ul>
+                                    <div class="flex items-center justify-between">
+                                        <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
+                                        <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
+                                    </div>
+                                </div>
+                            </li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>
