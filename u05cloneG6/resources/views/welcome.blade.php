@@ -35,17 +35,14 @@
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @auth
-                <div class="relative inline-block">
-                    <span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:7px;">
-                        {{ Auth::user()->name }}
-                    </span>
-                    <div style="right: 0;">
-                        <form action="/logout" method="post">
-                            @csrf
-                            <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</button>
-                        </form>
-                    </div>
-                </div>
+                <a href="/home"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:7px;">
+                        {{ Auth::user()->name }}</a>
+                </span>
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit"
+                        class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
+                </form>
             @else
                 <a href="/register" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px;">Sign Up <span aria-hidden="true">&rarr;</span></a>
                 <a href="/login" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px;">Log in <span aria-hidden="true">&rarr;</span></a>
