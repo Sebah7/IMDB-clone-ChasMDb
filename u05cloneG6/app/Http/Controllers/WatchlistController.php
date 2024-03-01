@@ -12,31 +12,20 @@ class WatchlistController extends Controller
 {
     public function index()
     {
-       // Retrieve the current authenticated user
-        $user_id = Auth::user()->id;
+        try {
+            // Retrieve the current authenticated user
+            $user_id = Auth::user()->id;
 
+            // Get the watchlist for the user with eager loading for the associated movie data
+            $watchlist = cmdb_watchlist::where('user_id', $user_id)->firstOrFail();
+            
+            $movies = $watchlist->watchlistMovieRelation()->get();
 
-       // Get the watchlist for the user with eager loading for the associated movie data
-        $watchlist = cmdb_watchlist::where('user_id', $user_id)->first();
-       
-       
-        $movies = $watchlist->watchlistMovieRelation()->get();
-
-        return view('watchlist', ['watchlist' => $watchlist, 'movies' => $movies]);
-
-       
-       
-        // TEST 1 $watchlist = cmdb_watchlist::where('id')->first();
-        // $watchlistmovies = $watchlist->watchlistMovieRelation()->get();
-
-      //  return view('watchlist', ['watchlists' => $watchlist, 'watchlistmovies' => $watchlistmovies]); 
-
-
-        // TEST 2  $user = User::with('watchlist')->find(\Auth::id());
-
-        //  var_dump($user);
-        
-    
+            return view('watchlist', ['watchlist' => $watchlist, 'movies' => $movies]);
+        } catch (ModelNotFoundException $e) {
+            // Handle case when watchlist is not found for the user
+            return view('watchlist', ['watchlist' => null, 'movies' => collect()]);
+        }
     }
 
     //public function addToWatchlist($id)
