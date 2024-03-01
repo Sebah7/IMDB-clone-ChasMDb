@@ -48,6 +48,16 @@
 <p>Your watchlist is empty.</p>
 
 @else
+@if(session('movie_watchlist_delete_success'))
+<div class="alert alert-success mt-6">
+    {{ session('movie_watchlist_delete_success') }}
+</div>
+@endif
+@if(session('success'))
+<div class="alert alert-success mt-6">
+    {{ session('success') }}
+</div>
+@endif
 <ul style="justify-content: center; align-items: center; text-align: center; justify-content: center;">
     @foreach ($userWatchlist as $movie)
     <li style="
@@ -71,7 +81,7 @@
 </ul>
 @endif
 
-<form action="{{ route('watchlist.addToWatchlist') }}" method="post">
+<form action="{{ route('watchlist.store') }}" method="post">
     @csrf
     <label for="movie_id">Add Movie to Watchlist:</label>
     <select name="movie_id" id="movie_id">
@@ -81,9 +91,3 @@
     </select>
     <button type="submit">Add Movie</button>
 </form>
-
-@if(session('success'))
-<div class="alert alert-success mt-6">
-    {{ session('success') }}
-</div>
-@endif
