@@ -64,19 +64,19 @@
                     <h2 style="font-weight: 700;">Your Reviews</h2>
 
                     @forelse ($userReviews as $review)
-                    <div>
-                        <p>Movie: {{ optional($review->movieReviewsRelationship)->title }}</p>
-                        <p>Stars: {{ $review->stars }}</p>
-                        <p>Comment: {{ $review->comment }}</p>
+                        <div>
+                            <p>Movie: {{ optional($review->movieReviewsRelationship)->title }}</p>
+                            <p>Stars: {{ $review->stars }}</p>
+                            <p>Comment: {{ $review->comment }}</p>
 
-                        <form action="{{ route('reviews.destroy', ['review_id' => $review->id]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete Review</button>
-                        </form>
-                    </div>
+                            <form action="{{ route('reviews.destroy', ['review_id' => $review->id]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete Review</button>
+                            </form>
+                        </div>
                     @empty
-                    <p>No reviews found.</p>
+                        <p>No reviews found.</p>
                     @endforelse
 
                     @if(session('success'))
