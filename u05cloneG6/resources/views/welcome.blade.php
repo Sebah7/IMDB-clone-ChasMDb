@@ -39,7 +39,7 @@
                     <span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:7px;">
                         {{ Auth::user()->name }}
                     </span>
-                    <div class="absolute hidden profile-dropdown-content bg-white border rounded-lg mt-2 py-2 w-40" style="right: 0;">
+                    <div style="right: 0;">
                         <form action="/logout" method="post">
                             @csrf
                             <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</button>
