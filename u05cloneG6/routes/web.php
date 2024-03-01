@@ -63,8 +63,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/watchlist', [WatchlistController::class, 'index'])->name('watchlist.index');
     // Route::get('/watchlist/{watchlist_id}', [WatchlistController::class,'index']);
     Route::post('/watchlist', [WatchlistController::class, 'store'])->name('watchlist.store');
-    Route::delete('/watchlist/{watchlist}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');
-});
+    Route::delete('/watchlist/{id}', [WatchlistController::class, 'destroy'])->name('watchlist.destroy');});
 
 
 Route::get('/reviews', [ReviewsController::class, 'index']); //reviews som alla kan se
