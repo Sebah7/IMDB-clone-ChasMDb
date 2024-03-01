@@ -60,6 +60,7 @@
             <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
             <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
             <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast</a>
+            <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
             <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -69,20 +70,17 @@
                 </span>
                 <form action="/logout" method="post">
                     @csrf
-                    <button type="submit" class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
+                    <button type="submit"
+                        class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
                 </form>
-                @else
+            @else
                 <a href="/register" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px;">Sign Up <span aria-hidden="true">&rarr;</span></a>
                 <a href="/login" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px;">Log in <span aria-hidden="true">&rarr;</span></a>
-
-
             @endauth
         </div>
     </nav>
 </header>
 <br /><br /><br />
-
-    <br /><br /><br /><br />
 
     <!-- Main content -->
 
