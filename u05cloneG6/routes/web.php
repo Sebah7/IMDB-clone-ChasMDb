@@ -105,4 +105,7 @@ Route::post('/reviews/store', [ReviewsController::class, 'store'])->name('review
 
 Route::delete('cast/{id}', [DirectorController::class, 'destroy'])->name('directors.destroy');
 
+Route::get('/onemovie/{title}', [MovieController::class, 'showPreview']);
+
+
 require __DIR__ . '/auth.php';
