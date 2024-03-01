@@ -36,9 +36,11 @@
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @auth
                 <div class="relative inline-block">
-                    <a href="/home" class="text-sm font-semibold leading-6 text-gray-900" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px; color: white;">{{ Auth::user()->name }}</a>
+                    <span id="user-info" class="text-sm font-semibold leading-6 text-gray-900 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:7px;">
+                        {{ Auth::user()->name }}
+                    </span>
                     <div class="absolute hidden profile-dropdown-content bg-white border rounded-lg mt-2 py-2 w-40" style="right: 0;">
-<!--                         <a href="/home" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a> -->
+                        <a href="/home" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
                         <form action="/logout" method="post">
                             @csrf
                             <button type="submit" class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100">Logout</button>
@@ -52,6 +54,7 @@
         </div>
     </nav>
 </header>
+
 
 
 
