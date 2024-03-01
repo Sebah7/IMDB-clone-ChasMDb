@@ -39,6 +39,7 @@
             <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
             <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
             <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast</a>
+            <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
             <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -79,43 +80,6 @@
         }
     </style>
 
-
-
-
-    <!---main show-->
-
-    <div class="ouhwyirkfu948" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
-        <div class="slideshow-container">
-            <img class="slide" src="https://media.istockphoto.com/id/1205279508/sv/foto/randig-l%C3%A5da-med-popcorn.jpg?s=612x612&w=0&k=20&c=vZ3zU2Fa9hdHFtiHiATXI5yOSO7LJbIVYyGdgwzmEnA=" alt="Slide 1">
-            <img class="slide" src="https://media.istockphoto.com/id/115022743/sv/foto/cinema-hall.jpg?s=612x612&w=0&k=20&c=PsbK09d-6rzJRVc6PodfISn7Y-C23BwnCONuNleAPlg=" alt="Slide 2">
-            <img class="slide" src="https://media.istockphoto.com/id/1455714258/sv/foto/bright-spotlights-near-wall-in-dark-room-space-for-text.jpg?s=612x612&w=0&k=20&c=vP3X55xSgwa8gIuZPKqKcbygzbnlw1BAgcDTjRwWpRc=" alt="Slide 3">
-            <img class="slide" src="https://media.istockphoto.com/id/1332167970/sv/foto/coming-soon-neon-sign-the-banner-shining-light-signboard-collection.jpg?s=612x612&w=0&k=20&c=RoqBG_vyYdDDitSxlX3mXgUqyF1bTfpM7fRU4Iz6kV0=" alt="Slide 4">
-            <img class="slide" src="https://media.istockphoto.com/id/1128524161/sv/foto/gamla-svartvita-negativ-film-rullar-retro-reels-bildband-fotografisk-film-vintage-bakgrund.jpg?s=612x612&w=0&k=20&c=CNjK2HgYiwAt9kE2baGxwI50gvP63cM0riLBNAcDgIM=" alt="Slide 5">
-            <img class="slide" src="https://media.istockphoto.com/id/1697201106/sv/foto/storytelling-text-title-on-film-slate-or-movie-clapper-board-for-filmmakers-and-film-industry.jpg?s=612x612&w=0&k=20&c=Su3m5KYH_Y9s-zgpldxemdumX6dR-1BLUEFG2Nws81Q=" alt="Slide 6">
-            <!-- Add more images here -->
-        </div>
-
-
-    <style>
-        @media (max-width: 900px) {
-            .right__ {
-                display: none;
-            }
-
-            .ouhwyirkfu948 {
-                padding: 0 20px;
-            }
-
-            .moviesection .w-full {
-                width: 100px;
-            }
-        }
-    </style>
-
-
-
-
-    <!---main show-->
 
         <div class="ouhwyirkfu948" style="display: flex; width: 100%; height: 98vh; align-items: center; justify-content: center; background: linear-gradient(to top right, pink, rgba(106, 106, 255, 0.137), rgba(255, 166, 0, 0.132));">
         <div class="slideshow-container">
@@ -212,7 +176,7 @@
 
                                     </style>
                                     <div class="px-5 pb-5">
-                                        <a href="#">
+                                        <a href="{{ route('onemovie.showPreview', $movie->title) }}">
                                             <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{ $movie->title }}</h5>
                                         </a>
                                         <div class="flex items-center mt-2.5 mb-5">
@@ -230,8 +194,7 @@
                                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
                                         </div>
                                         <div class="flex items-center justify-between">
-                                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Preview</a>
-                                            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+</a>
+                                            <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add watchlist</a>
                                         </div>
                                     </div>
                                 </li>
