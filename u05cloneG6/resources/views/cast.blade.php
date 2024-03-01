@@ -46,47 +46,52 @@
             Castmembers
         </h2>
 
-        @if (session('success'))
-        <div class="alert alert-success mt-6">
-            {{ session('success') }}
+        <div style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224); display:flex;">
+            @if (session('success'))
+            <div class="alert alert-success mt-6">
+                {{ session('success') }}
+            </div>
+            @endif
+    
+            @if (session('director_success'))
+            <div class="alert alert-success mt-6">
+                {{ session('director_success') }}
+            </div>
+            @endif
+    
+            <p>Director:</p>
+            @if (isset($directors))
+            @foreach ($directors as $director)
+            {{ $director->director_name }},
+            @if (auth()->check() && auth()->user()->role == '0')
+            <form action="{{ route('directors.destroy', $director->id) }}" method="POST" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
+            </form>
+            @endif
+            @endforeach
+            @endif
+            
         </div>
-        @endif
-
-        @if (session('director_success'))
-        <div class="alert alert-success mt-6">
-            {{ session('director_success') }}
-        </div>
-        @endif
-
-        <p>Director:</p>
-        @if (isset($directors))
-        @foreach ($directors as $director)
-        {{ $director->director_name }},
-        @if (auth()->check() && auth()->user()->role == '0')
-        <form action="{{ route('directors.destroy', $director->id) }}" method="POST" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
-        </form>
-        @endif
-        @endforeach
-        @endif
     </div>
 
     <div class="actor-section" style="width:50%;"> <!-- CSS class for Actor section -->
         <h2>Actor</h2>
-        @if (isset($actors))
-        @foreach ($actors as $actor)
-        {{ $actor->name }},
-        @if (auth()->check() && auth()->user()->role == '0')
-        <form action="{{ route('actors.destroy', $actor->id) }}" method="POST" style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224);">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
-        </form>
-        @endif
-        @endforeach
-        @endif
+        <div style="color: rgb(0, 0, 0); background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255)); padding: 10px; border-radius: 10px; box-shadow: 2px 2px 20px 2px rgb(224, 224, 224); display:flex;">
+            @if (isset($actors))
+            @foreach ($actors as $actor)
+            {{ $actor->name }},
+            @if (auth()->check() && auth()->user()->role == '0')
+            <form action="{{ route('actors.destroy', $actor->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="text-red-600 dark:text-red-400 mt-2">Delete</button>
+            </form>
+            @endif
+            @endforeach
+            @endif
+        </div>
     </div>
 </div>
 
