@@ -24,10 +24,7 @@ class Cmdb_moviesSeeder extends Seeder
         DB::table('cmdb_movies')->insert([
             'title' => $faker->name,
             'description' => $faker->paragraph,
-            'actor' => $faker->name,
             'ratings' => $faker->numberBetween(1, 5),
-            'genre' => $faker->word,
-            'director' => $faker->name,
             'language' => $faker->languageCode,
             'release_date' => $faker->date,
             'runtime' => $faker->numberBetween(60, 180),
