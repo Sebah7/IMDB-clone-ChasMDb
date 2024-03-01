@@ -245,6 +245,23 @@
 
         <br><br>
 
+         <!-- Adding Director to actor db -->
+         <form action="{{ route('directors.store') }}" method="POST" class="mt-6">
+            @csrf
+            <div class="form-group">
+                <label for="director_name" class="form-label">Director Name:</label>
+                <input type="text" name="director_name" id="director_name" class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Add Director</button>
+            </div>
+        </form>
+        @if (session('director_success'))
+            <div class="alert alert-success mt-6">
+                {{ session('director_success') }}
+            </div>
+        @endif
+        <br><br>
         <h2 class="text-2xl font-semibold mb-6">All Users</h2>
 
         @if ($users->isEmpty())
@@ -265,22 +282,6 @@
         </ul>
         @endif
 
-         <!-- Adding Director to actor db -->
-         <form action="{{ route('directors.store') }}" method="POST" class="mt-6">
-            @csrf
-            <div class="form-group">
-                <label for="director_name" class="form-label">Director Name:</label>
-                <input type="text" name="director_name" id="director_name" class="form-control">
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn">Add Director</button>
-            </div>
-        </form>
-        @if (session('director_success'))
-            <div class="alert alert-success mt-6">
-                {{ session('director_success') }}
-            </div>
-        @endif
     </div>
 </body>
 
