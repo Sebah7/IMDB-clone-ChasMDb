@@ -82,7 +82,7 @@
     @foreach ($movies as $movie)
     <div class="movie-card m-4" style="border-style: solid; padding: 0; width: 200px; height:300px;">
         <a href="#">
-            <img class="movie-poster" src="{{ $movie->poster }}" alt="movie image" />
+            <img class="movie-poster" style="max-height:200px;" src="{{ $movie->poster }}" alt="movie image" />
         </a>
         
                                     <style>
