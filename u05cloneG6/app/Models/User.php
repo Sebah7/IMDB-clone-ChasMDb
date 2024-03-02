@@ -13,6 +13,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * // The property tag is used to define the relationship
+ * between the User model and the cmdb_movies and cmdb_watchlist models.
+ * @property cmdb_watchlist $userwatchlist
+ * This is to stop the screaming line in watchlist controller. Still screaming but working.
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
@@ -54,7 +60,7 @@ class User extends Authenticatable
     }
 
     // One User can have one watchlist
-    public function watchlist()
+    public function userwatchlist()
     {
         return $this->hasOne(cmdb_watchlist::class);
     }
