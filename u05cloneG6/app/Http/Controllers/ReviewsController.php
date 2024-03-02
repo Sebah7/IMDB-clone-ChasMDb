@@ -16,7 +16,6 @@ class ReviewsController extends Controller
         $movies = cmdb_movies::with('reviews')->get();
 
         return view('movies', compact('movies'));
-
     }
 
     public function create()
@@ -53,13 +52,13 @@ class ReviewsController extends Controller
     public function destroy($id)
     {
         $review = cmdb_reviews::find($id);
-    
+
         if ($review) {
             // Check if the authenticated user owns the review
             if ($review->user_id == Auth::id()) {
                 $review->delete();
                 return redirect()->route('userdashboard')->with('success', 'Review deleted successfully');
-            } 
+            }
         }
     }
 
@@ -67,6 +66,21 @@ class ReviewsController extends Controller
     {
         $userReviews = cmdb_reviews::with('movieReviewsRelationship')->where('user_id', Auth::id())->get();
         $movies = cmdb_movies::all();
-        return view('userdashboard', compact('userReviews', 'movies'));    
+        return view('userdashboard', compact('userReviews', 'movies'));
+    }
+
+    public function adminModify()
+    {
+        $allReviews = cmdb_reviews::with('userReviewsRelationship', 'movieReviewsRelationship')->get();
+
+        return view('modify', compact('allReviews'));
+    }
+
+    public function adminDeleteReview($reviewId)
+    {
+        $review = cmdb_reviews::findOrFail($reviewId);
+        $review->delete();
+
+        return redirect()->back()->with('success', 'Review deleted successfully.');
     }
 }
