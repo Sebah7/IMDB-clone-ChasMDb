@@ -112,7 +112,7 @@
 
         .movie-poster {
             width: 100%;
-            height: 50%;
+            height: 100%; /* Update height to fill the card */
             object-fit: cover;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
@@ -171,13 +171,14 @@
                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
             </div>
             <div class="flex items-center justify-between">
-                <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+ Watchlist</a>
                 @if (auth()->user() && auth()->user()->role == '0')
                     <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="delete-button">Delete</button>
                     </form>
+                @else
+                    <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+ Watchlist</a>
                 @endif
             </div>
         </div>
