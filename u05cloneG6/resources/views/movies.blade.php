@@ -83,7 +83,7 @@
 <br /><br /><br />
 
     <!-- Main content -->
-<div class="moviesection">
+<div class="moviesection" style="position: relative;">
     <style>
         .moviesection {
             display: flex;
@@ -94,6 +94,7 @@
         }
 
         .movie-card {
+            position: relative; /* Ensure relative positioning for absolute children */
             flex: 0 0 calc(20% - 15px); /* Adjust width as needed */
             margin: 10px;
             padding: 0;
@@ -106,6 +107,7 @@
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+            overflow: hidden; /* Hide overflow content */
         }
 
         .movie-poster {
@@ -117,8 +119,12 @@
         }
 
         .movie-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
             padding: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background */
         }
 
         .movie-card-content a {
@@ -127,8 +133,15 @@
         }
 
         .delete-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             padding: 10px;
-            margin-left: 4px;
+            background-color: rgba(255, 0, 0, 0.8); /* Add a semi-transparent red background */
+            color: #fff; /* Button text color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 
@@ -158,12 +171,12 @@
                 <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
             </div>
             <div class="flex items-center justify-between">
-                <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add watchlist</a>
+                <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+ Watchlist</a>
                 @if (auth()->user() && auth()->user()->role == '0')
                     <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="delete-button text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
+                        <button type="submit" class="delete-button">Delete</button>
                     </form>
                 @endif
             </div>
