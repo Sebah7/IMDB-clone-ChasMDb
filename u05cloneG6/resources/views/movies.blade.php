@@ -108,10 +108,27 @@
             align-items: center;
         }
 
-        .movie-card img {
+        .movie-poster {
             width: 100%;
             height: 50%;
             object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .movie-card-content {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .movie-card-content a {
+            color: #000; /* Adjust link color as needed */
+            text-decoration: none;
+        }
+
+        .delete-button {
+            padding: 10px;
+            margin-left: 4px;
         }
     </style>
 
@@ -142,6 +159,13 @@
             </div>
             <div class="flex items-center justify-between">
                 <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add watchlist</a>
+                @if (auth()->user() && auth()->user()->role == '0')
+                    <form action="{{ route('movies.destroy', $movie->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="delete-button text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">Delete</button>
+                    </form>
+                @endif
             </div>
         </div>
     </div>
