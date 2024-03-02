@@ -126,6 +126,30 @@
             You're logged in as {{ Auth::user()->role ? "user" : "admin." }}<br>
             Click on your name to get to your profile settings.
         </div>
+
+        <h2 class="text-2xl font-semibold mb-6">All Users Reviews</h2>
+
+<ul>
+    @foreach ($allReviews as $review)
+    @if ($review->userReviewsRelationship && $review->movieReviewsRelationship)
+    <li>
+        {{ $review->userReviewsRelationship->name }} reviewed {{ $review->movieReviewsRelationship->title }} - {{ $review->comment }} - Rating: {{ $review->stars }}
+        <form action="{{ route('admin.deleteReview', ['review' => $review->id]) }}" method="post" class="inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="text-red-600 dark:text-red-400 ml-2">Delete Review</button>
+        </form>
+    </li>
+    @endif
+    @endforeach
+</ul>
+
+@if(session('success'))
+<div class="alert alert-success mt-6">
+    {{ session('success') }}
+</div>
+@endif
+
     </div>
 </body>
 

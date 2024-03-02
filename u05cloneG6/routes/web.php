@@ -38,6 +38,9 @@ Route::middleware('auth')->group(function () {
 
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', [ReviewsController::class, 'adminModify'])->name('admin.modify');
+//Modify.blade - Admin can delete reviews
+Route::delete('/admin/admin-delete-review/{review}', [ReviewsController::class, 'adminDeleteReview'])->name('admin.deleteReview');
 
 // Modify blade and store and create methods
 Route::get('/modify', [MovieController::class, 'getActorsAndDirectors'])->middleware(['auth', 'admin'])->name('modify');
@@ -101,10 +104,5 @@ Route::delete('cast/{id}', [DirectorController::class, 'destroy'])->name('direct
 
 Route::get('/onemovie/{title}', [MovieController::class, 'showPreview'])->name('onemovie.showPreview');
 
-//Modify.blade - Admin can see all reviews made by users
-Route::get('/modify', [ReviewsController::class, 'adminModify'])->name('admin.modify');
-
-//Modify.blade - Admin can delete reviews
-Route::delete('/admin/admin-delete-review/{review}', [ReviewsController::class, 'adminDeleteReview'])->name('admin.deleteReview');
 
 require __DIR__ . '/auth.php';

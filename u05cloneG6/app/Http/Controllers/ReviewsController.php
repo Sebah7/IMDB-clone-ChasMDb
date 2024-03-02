@@ -73,7 +73,7 @@ class ReviewsController extends Controller
     {
         $allReviews = cmdb_reviews::with('userReviewsRelationship', 'movieReviewsRelationship')->get();
 
-        return view('modify', compact('allReviews'));
+        return view('layouts.show', compact('allReviews'));
     }
 
     public function adminDeleteReview($reviewId)
