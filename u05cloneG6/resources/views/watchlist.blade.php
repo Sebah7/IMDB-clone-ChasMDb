@@ -60,6 +60,11 @@
     {{ session('success') }}
 </div>
 @endif
+@if(session('info'))
+<div class="alert alert-info mt-6">
+    {{ session('info') }}
+</div>
+@endif
 <ul style="justify-content: center; align-items: center; text-align: center; justify-content: center;">
     @foreach ($userWatchlist as $movie)
     <li style="

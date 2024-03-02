@@ -45,13 +45,33 @@
 
     @if(isset($movie))
     <h1>{{ $movie->title }}</h1>
-    <p>{{ $movie->description }}</p>
     <p>{{ $movie->ratings }}</p>
+    <p>{{ $movie->description }}</p>
     <p>{{ $movie->runtime }}</p>
-    <p>{{ $movie->poster }}</p>
-    <p>{{ $movie->trailer }}</p>
-    <!-- Display other movie details as needed -->
-    @endif
+    <img src="{{ $movie->poster }}" alt="Poster for {{ $movie->title }}">
+    {!! $movie->trailer !!}
+
+    <!-- Calling out the actors, directors, genres, reviews related to the movie -->
+<h2>Actors</h2>
+    @foreach($movie->actors as $actor)
+        <p>{{ $actor->name }}</p>
+    @endforeach
+
+    <h2>Directors</h2>
+    @foreach($movie->directors as $director)
+        <p>{{ $director->director_name }}</p>
+    @endforeach
+
+    <h2>Genres</h2>
+    @foreach($movie->genres as $genre)
+        <p>{{ $genre->name }}</p>
+    @endforeach
+
+    <h2>Reviews</h2>
+    @foreach($movie->reviews as $review)
+        <p>{{ $review->Comment }}</p>
+    @endforeach
+@endif
 
 
     @if(session('error'))

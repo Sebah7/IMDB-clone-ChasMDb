@@ -33,15 +33,6 @@ class MovieController extends Controller
         return view('welcome', ['movies' => $movies]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    // public function create()
-    // {
-    //     // $movies = cmdb_movies::create();
-    //     // return view('movies.index', compact('movies'));
-    //     return view('modify');
-    // }
 
     public function getActorsAndDirectors() //används även till att få alla users på modify.blade
     {
@@ -63,14 +54,14 @@ class MovieController extends Controller
     }
 
 
-    // public function showPreview($title)
-    // {
-    //     $movie = cmdb_movies::where('title', $title)->first();
-    // }
-
     public function showPreview($title)
     {
-        $movie = cmdb_movies::where('title', $title)->first();
+        /**
+         * Added the with to get the actors, directors, genres and reviews related to the movie.
+         */
+        $movie = cmdb_movies::where('title', $title)
+        ->with('actors:name', 'directors:director_name', 'genres:name', 'reviews:Comment')
+        ->first();
 
         if ($movie) {
             return view('onemovie', ['movie' => $movie]);

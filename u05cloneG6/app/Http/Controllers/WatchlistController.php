@@ -40,11 +40,19 @@ class WatchlistController extends Controller
     public function store(Request $request)
 {
     /**
-     * The request is being validated to ensure that the movie_id is being sent.
-     * Here the movie_id is being attached to the watchlist of the Auth::user.
+     * After the user is authenticated, 
+     * the movie_id can being stored in the variable $movie_id.
+     * If the movie_id is already in the watchlist, 
+     * a message is being returned to the user.
      */
-    Auth::user()->userwatchlist->movies()->attach($request->movie_id);
+    $user = Auth::user();
+    $movie_id = $request->movie_id;
 
+    if ($user->userwatchlist->movies->contains($movie_id)) {
+        return redirect()->back()->with('info', 'Movie is already in the watchlist');
+    }
+
+    $user->userwatchlist->movies()->attach($movie_id);
     return redirect()->back()->with('success', 'Movie added to watchlist successfully');
 }
 
