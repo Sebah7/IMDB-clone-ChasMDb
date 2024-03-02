@@ -1,5 +1,10 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/ebT1wQO_)
 
+
+**Backup Deployment**
+This is our backup deployement that is connected to a hooked repo. 
+[Hoooked Deployment](https://u05-g6-chas-m-db-deploy.vercel.app/)
+
 **Instruction to install the App!**
 
 Starta igång projektet!
