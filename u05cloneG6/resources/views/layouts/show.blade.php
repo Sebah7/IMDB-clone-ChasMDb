@@ -120,37 +120,41 @@
     </header>
     <br /><br /><br /><br />
 
-    <div class="container">
-        <div class="heading">Admin Dashboard</div>
-        <div class="content">
+    <div class="container mx-auto p-8 max-w-2xl">
+        <div class="text-3xl font-bold mb-8">Admin Dashboard</div>
+
+        <div class="mb-4">
             You're logged in as {{ Auth::user()->role ? "user" : "admin." }}<br>
             Click on your name to get to your profile settings.
         </div>
 
         <h2 class="text-2xl font-semibold mb-6">All Users Reviews</h2>
 
-<ul>
-    @foreach ($allReviews as $review)
-    @if ($review->userReviewsRelationship && $review->movieReviewsRelationship)
-    <li>
-        {{ $review->userReviewsRelationship->name }} reviewed {{ $review->movieReviewsRelationship->title }} - {{ $review->comment }} - Rating: {{ $review->stars }}
-        <form action="{{ route('admin.deleteReview', ['review' => $review->id]) }}" method="post" class="inline">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="text-red-600 dark:text-red-400 ml-2">Delete Review</button>
-        </form>
-    </li>
-    @endif
-    @endforeach
-</ul>
+        <ul class="space-y-4">
+            @foreach ($allReviews as $review)
+            @if ($review->userReviewsRelationship && $review->movieReviewsRelationship)
+            <li class="mb-4">
+                <div class="font-semibold"> Username: {{ $review->userReviewsRelationship->name }}</div>
+                <div class="italic">Movie: {{ $review->movieReviewsRelationship->title }}</div>
+                <div>Comment: {{ $review->comment }}</div>
+                <div class="mb-2">Rating: {{ $review->stars }}</div>
+                <form action="{{ route('admin.deleteReview', ['review' => $review->id]) }}" method="post" class="inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-600 dark:text-red-400 mb-2">Delete Review</button>
+                </form>
+            </li>
+            @endif
+            @endforeach
+        </ul>
 
-@if(session('success'))
-<div class="alert alert-success mt-6">
-    {{ session('success') }}
-</div>
-@endif
-
+        @if(session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mt-6">
+            {{ session('success') }}
+        </div>
+        @endif
     </div>
+
 </body>
 
 </html>
