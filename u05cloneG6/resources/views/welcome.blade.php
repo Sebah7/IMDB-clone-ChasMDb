@@ -38,7 +38,7 @@
         <div class="hidden lg:flex lg:gap-x-12">
             <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
             <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-            <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast</a>
+            <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Castlibrary</a>
             <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
             <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
         </div>
@@ -194,7 +194,7 @@
                                             <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">{{ $movie->ratings }}</span>
                                         </div>
                                         <div class="flex items-center justify-between">
-                                            <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add watchlist</a>
+                                            <a href="/watchlist" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">+ watchlist</a>
                                         </div>
                                     </div>
                                 </li>

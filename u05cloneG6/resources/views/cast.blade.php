@@ -20,7 +20,7 @@
         <div class="hidden lg:flex lg:gap-x-12">
             <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
             <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-            <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast</a>
+            <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Castlibrary</a>
             <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
             <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
         </div>
@@ -45,7 +45,7 @@
 <div style="display:flex;"> <!-- Flex container -->
     <div class="director-section" style="width:50%;"> <!-- Director section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Heading -->
-            Director
+           Directors
         </h2>
 
         <div class="liner-ingredient" style="background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255));"> <!-- Background style -->
@@ -82,7 +82,7 @@
 
     <div class="actor-section" style="width:50%;"> <!-- Actor section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Heading -->
-            Actor
+            Actors
         </h2>
 
         <div class="liner-ingredient" style="background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255));"> <!-- Background style -->
