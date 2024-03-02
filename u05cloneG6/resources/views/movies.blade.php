@@ -85,7 +85,7 @@
     <!-- Main content -->
 <div class="p-6 text-gray-900 dark:text-gray-100" style="margin-left:35px;">
     <!-- Movies -->
-    <ul class="flex space-x-4 overflow-x-auto" style="padding: 10px 20px; margin-top:-30px;margin-left:30px; white-space: nowrap; justify-content: space-between; text-align:center;">
+    <ul class="" style="padding: 10px 20px; margin-top:-30px;margin-left:30px; white-space: nowrap; justify-content: space-between; text-align:center;">
         @foreach ($movies as $movie)
         <li class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-white-800 dark:border-white-700" style="border-style: solid; padding: 0; width: 200px; height:300px; margin-left:20px; justify-content: space-between;">
             <a href="#">
