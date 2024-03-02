@@ -119,7 +119,7 @@
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 @auth
-                    <a href="/home"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="padding:10px 14px;">{{ Auth::user()->name }}</a>
+                    <a href="/home"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="padding:10px 14px; margin-top:7px;">{{ Auth::user()->name }}</a>
                     <form action="/logout" method="post">
                         @csrf
                         <button type="submit" class="text-white text-sm font-semibold leading-6 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
@@ -131,7 +131,7 @@
             </div>
         </nav>
     </header>
-                    <br /><br /><br />
+                    <br /><br /><br /><br /><br />
 
     <!-- Main content -->
    <div class="moviesection" style="position: relative;">
