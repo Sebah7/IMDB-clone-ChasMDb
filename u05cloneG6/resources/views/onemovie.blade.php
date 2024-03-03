@@ -30,7 +30,7 @@
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
                 <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Castlibrary</a>
+                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast Library</a>
                 <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
                 <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
@@ -74,7 +74,7 @@
 
                         <p><span style="text-decoration: underline;">Movie title:</span> "{{ $movie->title }}"</p>
                         <p><span style="text-decoration: underline;">Rating:</span> {{ $movie->ratings }} ★</p>
-                        <p><span style="text-decoration: underline;">Description:</span> {{ $movie->description }}</p>
+                        <p><span class="underline">Description:</span> <span class="italic">"{{ $movie->description }}"</span></p>
                         <p><span style="text-decoration: underline;">Runtime:</span> {{ $movie->runtime }} hours</p>
                         <p><span style="text-decoration: underline;">Poster:</span><img src="{{ $movie->poster }}" alt="Poster for {{ $movie->title }}" class="w-90 h-72"></p><br>
                         <p><span style="text-decoration: underline;">Trailer:</span> {!! $movie->trailer !!} </p>

@@ -20,23 +20,22 @@
         <div class="hidden lg:flex lg:gap-x-12">
             <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
             <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-            <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Castlibrary</a>
+            <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast Library</a>
             <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
             <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             @auth
-                <a href="/home" style="margin-top:8px;"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:17px; padding:10px 14px;">
-                        {{ Auth::user()->name }}</a>
-                </span>
-                <form action="/logout" method="post">
-                    @csrf
-                    <button type="submit"
-                        class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
-                </form>
+            <a href="/home" style="margin-top:8px;"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:17px; padding:10px 14px;">
+                    {{ Auth::user()->name }}</a>
+            </span>
+            <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
+            </form>
             @else
-                <a href="/register" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px;">Sign Up <span aria-hidden="true">&rarr;</span></a>
-                <a href="/login" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px;">Log in <span aria-hidden="true">&rarr;</span></a>
+            <a href="/register" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 30px; padding: 5px 15px; border-radius: 5px;">Sign Up <span aria-hidden="true">&rarr;</span></a>
+            <a href="/login" class="text-sm font-semibold leading-6 text-white" style="background: linear-gradient(to left, rgb(119, 119, 255), rgb(153, 0, 255)); margin-right: 0px; padding: 5px 15px; border-radius: 5px;">Log in <span aria-hidden="true">&rarr;</span></a>
             @endauth
         </div>
     </nav>
@@ -45,7 +44,7 @@
 <div style="display:flex;"> <!-- Flex container -->
     <div class="director-section" style="width:50%;"> <!-- Director section -->
         <h2 class="text-3xl font-bold text-center text-gray-800 py-4"> <!-- Heading -->
-           Directors
+            Directors
         </h2>
 
         <div class="liner-ingredient" style="background:linear-gradient(to top left, rgb(216, 216, 255), rgb(255, 221, 255));"> <!-- Background style -->
