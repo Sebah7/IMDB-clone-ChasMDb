@@ -148,5 +148,12 @@ We decided on four main sprints where we discuss the content for the upcoming sp
 - We also continued working on the final issues in the WatchlistController so we could get it to work correctly.
 - We did the last details we hade for our styling and the movie-cards we have on the welcome-page.
 
+**Saturday 2/3:**
+- Continued working on the tasks we had left. 
+- Fixed correct routes to blades, styled some more to the blades that was left (watchlist, review, onemovie).
+- We all worked together over Discord during the day and evening.
 
----
+**Sunday 3/3: DUE DAY!!!**
+- Todo: Mobile responsive, Edit Userdashboard view (right now: user gets 'Admin Dashboard/Navbar'-view with User priviliges).
+- Add some last notes in this DOCU file to sum up the work from Sunday.
+- Wrap it up to launch this project!
