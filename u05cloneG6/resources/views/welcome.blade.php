@@ -38,11 +38,15 @@
             <style>
                 .navbarlinks___ {
                     visibility: hidden;
-                    background-color:white;
-                    padding: 20px 5px;
+                    background-color: rgb(246, 236, 255);
+                    padding: 5px;
                     position: fixed;
-                    top:40px;
+                    top:80px;
                     left: 0px;
+                }
+                .navbarlinks___ a{
+                    box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);
+                    padding: 10px 5px;
                 }
             </style>
             <script>
@@ -56,11 +60,11 @@
                 }
             </script>
             <div class="navbarlinks___" id="navbarLinks">
-                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a><br />
-                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a><br />
-                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast Library</a><br />
-                <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a><br />
-                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a><br />
+                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a><br /><br />
+                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a><br /><br />
+                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast Library</a><br /><br />
+                <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a><br /><br />
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a><br /><br />
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
