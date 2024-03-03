@@ -33,6 +33,15 @@ class ReviewsController extends Controller
             'user_id' => 'nullable|integer',
         ]);
 
+        // This is to check if the user has already added a review to the movie
+       $existingReview = cmdb_reviews::where('movie_id', $request->movie_id)
+       ->where('user_id', Auth::id())
+       ->first();
+
+       if ($existingReview) {
+       return back()->with('error', 'You have already added a review to this movie.');
+       }
+        
         $review = cmdb_reviews::create($request->all());
 
         return back()->with('success', 'Review created successfully');
