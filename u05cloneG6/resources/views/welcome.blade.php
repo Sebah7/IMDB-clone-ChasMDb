@@ -42,7 +42,7 @@
                     width:100%;
                     padding: 5px 15px;
                     position: fixed;
-                    top:80px;
+                    top:75px;
                     left: 0px;
                 }
                 .navbarlinks___ a{
