@@ -30,7 +30,7 @@
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
                 <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Castlibrary</a>
+                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast Library</a>
                 <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
                 <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
             </div>
@@ -106,12 +106,12 @@
                     <form action="{{ route('watchlist.store') }}" method="post">
                         @csrf
                         <label for="movie_id">Add Movie to Watchlist:</label>
-                        <select class="border-solid border-2 border-indigo-600;" name="movie_id" id="movie_id">
+                        <select class="border-solid border-2 border-gray-300;" name="movie_id" id="movie_id">
                             @foreach ($allMovies as $movie)
                             <option value="{{ $movie->id }}">{{ $movie->title }}</option>
                             @endforeach
                         </select>
-                        <button class="border-solid border-2 border-indigo-900;" type="submit">Add Movie</button>
+                        <button class="border-solid border-2 border-gray-900;" type="submit">Add Movie</button>
                     </form>
                 </div>
             </div>
