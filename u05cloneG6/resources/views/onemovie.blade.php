@@ -73,7 +73,7 @@
 
 
                         <p><span style="text-decoration: underline;">Movie title:</span> "{{ $movie->title }}"</p>
-                        <p><span style="text-decoration: underline;">Rating:</span> {{ $movie->ratings }} ★</p>
+                        <p><span style="text-decoration: underline;">Rating:</span> {{ $movie->ratings }}/5★</p>
                         <p><span class="underline">Description:</span> <span class="italic">"{{ $movie->description }}"</span></p>
                         <p><span style="text-decoration: underline;">Runtime:</span> {{ $movie->runtime }} hours</p>
                         <p><span style="text-decoration: underline;">Poster:</span><img src="{{ $movie->poster }}" alt="Poster for {{ $movie->title }}" class="w-90 h-72"></p><br>
