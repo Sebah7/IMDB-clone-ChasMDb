@@ -14,7 +14,7 @@ class cmdb_reviews extends Model
 use SoftDeletes;
 
     protected $table = 'cmdb_reviews';
-    protected $fillable = ['movie_id', 'stars', 'comment', 'user_id'];
+    protected $fillable = ['movie_id', 'stars', 'Comment', 'user_id'];
 
     public function userReviewsRelationship()
     {
