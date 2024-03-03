@@ -16,14 +16,14 @@ class HomeController extends Controller
         {
             $usertype = Auth()->user()->role;
 
-            if($usertype == '1')
-            {
-                return view('dashboard');
-            }
-
-            else if($usertype == '0')
+            if($usertype == '0')
             {
                 return view('layouts.show');
+            }
+
+            else if($usertype == '1')
+            {
+                return view('dashboard');
             }
 
             else {

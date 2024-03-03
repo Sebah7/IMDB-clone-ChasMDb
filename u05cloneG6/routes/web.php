@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-Route::get('/home', [ReviewsController::class, 'adminModify'])->name('admin.modify');
+Route::get('/admin/home', [ReviewsController::class, 'adminModify'])->name('admin.modify');
 //Modify.blade - Admin can delete reviews
 Route::delete('/admin/admin-delete-review/{review}', [ReviewsController::class, 'adminDeleteReview'])->name('admin.deleteReview');
 
