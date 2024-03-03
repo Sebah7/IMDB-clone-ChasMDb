@@ -141,9 +141,11 @@
 
                 @auth
 
-                <a href="/home" style="margin-top:8px;"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:17px; padding:10px 14px;">
-                        {{ Auth::user()->name }}</a>
-                </span>
+                 <a href="{{ route('profile.edit') }}" style="margin-top:8px;">
+                    <span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:17px; padding:10px 14px;">
+                        {{ Auth::user()->name }}
+                    </span>
+                </a>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit" class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
@@ -163,9 +165,11 @@
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 @auth
 
-                <a href="/home" style="margin-top:8px;"><span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:17px; padding:10px 14px;">
-                        {{ Auth::user()->name }}</a>
-                </span>
+                <a href="{{ route('profile.edit') }}" style="margin-top:8px;">
+                    <span id="user-info" class="text-sm font-semibold leading-6 text-white bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md mr-4" style="margin-top:17px; padding:10px 14px;">
+                        {{ Auth::user()->name }}
+                    </span>
+                </a>
                 <form action="/logout" method="post">
                     @csrf
                     <button type="submit" class="text-white text-sm font-semibold leading-6 ml-4 bg-gradient-to-r from-purple-600 to-indigo-600 px-4 py-2 rounded-md">Logout</button>
