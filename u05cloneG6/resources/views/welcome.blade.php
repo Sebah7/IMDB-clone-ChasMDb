@@ -39,7 +39,8 @@
                 .navbarlinks___ {
                     visibility: hidden;
                     background-color: rgb(246, 236, 255);
-                    padding: 5px;
+                    width:100%;
+                    padding: 5px 15px;
                     position: fixed;
                     top:80px;
                     left: 0px;
