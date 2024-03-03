@@ -60,7 +60,7 @@ class MovieController extends Controller
          * Added the with to get the actors, directors, genres and reviews related to the movie.
          */
         $movie = cmdb_movies::where('title', $title)
-        ->with('actors:name', 'directors:director_name', 'genres:name', 'reviews:Comment')
+        ->with('actors:name', 'directors:director_name', 'genres:name', 'reviews')
         ->first();
 
         if ($movie) {

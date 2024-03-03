@@ -104,38 +104,34 @@
     <!-- Main Content -->
     <div class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow: 2px 2px 20px 2px rgb(207, 207, 207) overflow-hidden">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h2 style="font-weight: 700;">Movie Specifics</h2><br>
 
                     @if(isset($movie))
-
-                    <ul style="
-            background-color: white;
-            box-shadow: 2px 2px 20px 2px rgb(207, 207, 207);
-            padding: 10px 20px;
-            width: 100%;
-            justify-content: center;
-            align-items: center;
-            margin-top: 30px;
-            
-            ">
-
-
+                    <div  style=" background-color: white; box-shadow: 2px 2px 20px 2px rgb(255, 221, 255); padding: 10px 20px; width: 100%; display: flex; justify-content: space-around; align-items: center; margin-top: 30px; ">
+                    <div style="margin-right: 20px;">   
+                        <p><span style="text-decoration: underline;">Trailer:</span></p>
+                        <div style="width: 560px; height: 315px;">
+                        {!! $movie->trailer !!}
+                    </div>
+                    </div>
+                    <div style="margin-left: 20px;">   
                         <p><span style="text-decoration: underline;">Movie title:</span> "{{ $movie->title }}"</p>
                         <p><span style="text-decoration: underline;">Rating:</span> {{ $movie->ratings }}/5★</p>
                         <p><span class="underline">Description:</span> <span class="italic">"{{ $movie->description }}"</span></p>
                         <p><span style="text-decoration: underline;">Runtime:</span> {{ $movie->runtime }} hours</p>
-                        <p><span style="text-decoration: underline;">Poster:</span><img src="{{ $movie->poster }}" alt="Poster for {{ $movie->title }}" class="w-90 h-72"></p><br>
-                        <p><span style="text-decoration: underline;">Trailer:</span> {!! $movie->trailer !!} </p>
+                    </div>
+                    </div>
 
+                    <div  style=" background-color: white; box-shadow: 2px 2px 20px 2px rgb(255, 221, 255); padding: 10px 20px; width: 100%; display: flex; justify-content: space-around; align-items: center; margin-top: 30px; ">
+                    <div style="margin-right: 20px;">   
+                    <p><span style="text-decoration: underline;">Poster:</span><img src="{{ $movie->poster }}" alt="Poster for {{ $movie->title }}" class="w-90 h-72"></p><br>
+               
+                    </div>
 
-                        @endif
-
-                        <br><br>
-
+                    <div style="margin-left: 20px;">   
                         <!-- Calling out the actors, directors, genres, reviews related to the movie, in a dropdown -->
-
                         <p style="font-weight: 700;">Actors</p>
                         <select class="border-solid border-2 border-gray-300" name="actors" id="actors">
                             @foreach($movie->actors as $actor)
@@ -163,6 +159,8 @@
                             <option value="{{ $review->id }}">{{ $review->Comment }}</option>
                             @endforeach
                         </select>
+                        </div>
+                        </div>
 
                         <!-- Error Message Display -->
                         @if(session('error'))
@@ -170,9 +168,17 @@
                             {{ session('error') }}
                         </div>
                         @endif
+                        @endif
+                        
                 </div>
             </div>
         </div>
     </div>
 
+    <div style="margin-top: 200px; text-align: center;">
+        <hr style="height: 2px; background-color: black;">
+        <p style="margin-top: 50px;">Developed by <a href="https://github.com/chas-academy/u05-imdb-klon-grupp-6/" style="color: blue; margin-top: 50px;">u05-imdb-klon-grupp-6</a></p>
+    </div>
+
 </body>
+</html>
