@@ -30,15 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // Route::get('/movies/{id}', [MovieController::class], 'edit')->name('movies.edit');
-    // Route::patch('/movies/{id}', [MovieController::class], 'update')->name('movies.update');
-    // Route::delete('/movies/{id}', [MovieController::class], 'destroy')->name('movies.destroy');
 });
 
 //Testing admin role Auth
 Route::get('/home', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
-Route::get('/home', [ReviewsController::class, 'adminModify'])->name('admin.modify');
+Route::get('/admin/home', [ReviewsController::class, 'adminModify'])->name('admin.modify');
 //Modify.blade - Admin can delete reviews
 Route::delete('/admin/admin-delete-review/{review}', [ReviewsController::class, 'adminDeleteReview'])->name('admin.deleteReview');
 
