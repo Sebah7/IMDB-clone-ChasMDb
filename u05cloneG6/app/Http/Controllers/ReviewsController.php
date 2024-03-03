@@ -81,6 +81,7 @@ class ReviewsController extends Controller
     public function adminModify()
     {
         $allReviews = cmdb_reviews::with('userReviewsRelationship', 'movieReviewsRelationship')->get();
+        dd($allReviews);  // Debugging code
 
         return view('layouts.show', compact('allReviews'));
     }

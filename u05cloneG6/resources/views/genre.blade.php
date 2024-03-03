@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Genres</title>
+    <title>All Genres | CMDb-G6</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Genres</title>
 
 </head>
 
@@ -139,7 +138,10 @@
         </div>
     </div>
 
+    <div style="margin-top: 200px; text-align: center;">
+        <hr style="height: 2px; background-color: black;">
+        <p style="margin-top: 50px;">Developed by <a href="https://github.com/chas-academy/u05-imdb-klon-grupp-6/" style="color: blue; margin-top: 50px;">u05-imdb-klon-grupp-6</a></p>
+    </div>
 
 </body>
-
 </html>

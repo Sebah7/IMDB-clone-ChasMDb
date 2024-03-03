@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\cmdb_reviews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,10 +16,11 @@ class HomeController extends Controller
         if(Auth::id())
         {
             $usertype = Auth()->user()->role;
+            $allReviews = cmdb_reviews::with('userReviewsRelationship', 'movieReviewsRelationship')->get();
 
             if($usertype == '0')
             {
-                return view('layouts.show');
+                return view('layouts.show', compact('allReviews'));
             }
 
             else if($usertype == '1')
