@@ -38,6 +38,11 @@
             <style>
                 .navbarlinks___ {
                     visibility: hidden;
+                    background-color:white;
+                    padding: 20px 5px;
+                    position: fixed;
+                    top:40px;
+                    left: 0px;
                 }
             </style>
             <script>
@@ -51,11 +56,11 @@
                 }
             </script>
             <div class="navbarlinks___" id="navbarLinks">
-                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
-                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a>
-                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast Library</a>
-                <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
-                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a>
+                <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a><br />
+                <a href="/genres" class="text-sm font-semibold leading-6 text-gray-900">Genres</a><br />
+                <a href="/cast" class="text-sm font-semibold leading-6 text-gray-900">Cast Library</a><br />
+                <a href="/userdashboard" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a><br />
+                <a href="/watchlist" class="text-sm font-semibold leading-6 text-gray-900">Watchlist</a><br />
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="/movies" class="text-sm font-semibold leading-6 text-gray-900">Movies</a>
