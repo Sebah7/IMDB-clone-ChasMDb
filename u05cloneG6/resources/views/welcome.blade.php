@@ -47,7 +47,9 @@
                 }
                 .navbarlinks___ a{
                     box-shadow: 2px 2px 20px 2px rgba(137, 43, 226, 0.098);
-                    padding: 10px 5px;
+                    width:100%;
+                    padding: 10px;
+                    border-radius:10px;
                 }
             </style>
             <script>
